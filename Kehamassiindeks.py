@@ -34,10 +34,12 @@ try:
                     print("Kahju! See on väga kasulik info!")
                     print()
             except:
+                ValueError
                 print(error)
         except:
+            ValueError
             print(error)
 except:
+    ValueError
     print(error)
-# Нету ValueError так как я на VSCode, а в VSCode дебаггер имеет приоретет над интерпритатором Python
 print("Kohtumiseni, " + nimi + "! Igavesti Sinu, Python!")
