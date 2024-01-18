@@ -6,7 +6,7 @@ print(nimi+", oi kui ilus nimi!")
 print(nimi+"! Kas leian Sinu keha indeksi? 0-ei, 1-jah => ")
 try:
     nõus=bool(int(input()))
-    # bool() выдаёт True при любом ответе, int() делает так что-бы 0 возвращало False, а 1 (или больше) возвращало True
+    # bool() выдаёт True при присуствии ответа, int() делает так что-бы 0 возвращало False, а 1 (или больше) возвращало True
     if nõus==True:
         print("Mis on sinu pikkus?")
         try:
