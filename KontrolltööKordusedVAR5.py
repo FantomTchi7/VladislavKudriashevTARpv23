@@ -36,12 +36,12 @@ except ValueError:
 
 print("Ülesanne #5")
 
-minimaalne_x = 1
-maksimaalne_x = 3
-samm = 0.5
+minimaalne_x=1
+maksimaalne_x=3
+samm=0.5
 print("x | y")
-praegu_x = minimaalne_x
-while praegu_x <= maksimaalne_x:
-    y = -0.5 * praegu_x + praegu_x
+praegu_x=minimaalne_x
+while praegu_x<=maksimaalne_x:
+    y=-0.5*praegu_x+praegu_x
     print(f"{praegu_x} | {y}")
-    praegu_x += samm
+    praegu_x+=samm
