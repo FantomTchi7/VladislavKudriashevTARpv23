@@ -1,4 +1,5 @@
 import random
+viga="Vale väärtus."
 
 print("Ülesanne #1")
 
@@ -11,37 +12,71 @@ try:
             print(" | []  | ")
             print("  ----- ")
     else:
-        print("Viga")
+        print(viga)
 except ValueError:
-    print("Viga")
+    print(viga)
 
 print("Ülesanne #2")
 
 try:
-    klassi1õpilasedarv=int(input("Sisesta 1. klassi õpilaste arv:\n"))
+    klassiõpilasedarv=int(input("Sisesta 1. klassi õpilaste arv:\n"))
     try:
         klassi2õpilasedarv=int(input("Sisesta 2. klassi õpilaste arv:\n"))
-        klassi1hindedarv=0
+        klassihindedarv=0
         klassi2hindedarv=0
-        for i in range(klassi1õpilasedarv):
-            klassi1hindedarv=klassi1hindedarv+random.randint(2,5)
+        for i in range(klassiõpilasedarv):
+            klassihindedarv=klassihindedarv+random.randint(2,5)
         for i in range(klassi2õpilasedarv):
             klassi2hindedarv=klassi2hindedarv+random.randint(2,5)
-        print("1. klassi õpilaste keskmine hinne on:",klassi1hindedarv/klassi1õpilasedarv)
+        print("1. klassi õpilaste keskmine hinne on:",klassihindedarv/klassiõpilasedarv)
         print("2. klassi õpilaste keskmine hinne on:",klassi2hindedarv/klassi2õpilasedarv)
     except ValueError:
-        print("Viga")
+        print(viga)
 except ValueError:
-    print("Viga")
+    print(viga)
+
+print("Ülesanne #3")
+
+klassiõpilasedarv=random.randint(5,45)
+maksimaalnehinne=5
+minimaalnehinne=2
+for i in range(klassiõpilasedarv):
+    hinne=random.randint(minimaalnehinne*100,maksimaalnehinne*100)/100
+    print(hinne)
+    if hinne>maksimaalnehinne:
+        hinne=maksimaalnehinne
+    elif hinne<minimaalnehinne:
+        hinne=minimaalnehinne
+print("Klassi õpilaste maksimaalne hinne on:",maksimaalnehinne)
+print("Klassi õpilaste minimaalne hinne on:",minimaalnehinne)
+
+print("Ülesanne #4")
+
+S2=0
+N2=0
+for i in range(13):
+    S=random.randint(5,10)
+    N=random.randint(50000,100000)
+    print(f"Maakond {i}: Inimeste arv on {N} ja piirkond on {S}km².")
+    S2=S2+S
+    N2=N2+N
+print("Piirkonna keskmine asustustihedus on",N2//S2,"inimest ruutkilomeetril.")
 
 print("Ülesanne #5")
 
-minimaalne_x=1
-maksimaalne_x=3
-samm=0.5
-print("x | y")
-praegu_x=minimaalne_x
-while praegu_x<=maksimaalne_x:
-    y=-0.5*praegu_x+praegu_x
-    print(f"{praegu_x} | {y}")
-    praegu_x+=samm
+try:
+    minimaalneX=int(input("Sisestage minimaalne X:\n"))
+    try:
+        maksimaalneX=int(input("Sisestage maksimaalne X:\n"))
+        samm=0.5
+        print("   x | y")
+        praeguX=minimaalneX
+        while praeguX<=maksimaalneX:
+            y=-0.5*praeguX+praeguX
+            print(f"{praeguX:4}",end=" | ")
+            print(y)
+            praeguX+=samm
+    except:
+        print(viga)
+except:
+    print(viga)
