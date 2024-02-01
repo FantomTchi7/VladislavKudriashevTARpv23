@@ -96,11 +96,11 @@ number2=int(input("Sisestage teine ​​number:\n"))
 agreed=input("Mida sa tahad teha ( +, -, * või / )?\n")
 if agreed=="+":
     print(number1+number2)
-elif Agree=="-":
+elif agreed=="-":
     print(number1-number2)
-elif Agree=="*":
+elif agreed=="*":
     print(number1*number2)
-elif Agree=="/":
+elif agreed=="/":
     print(number1/number2)
 else:
     pass
