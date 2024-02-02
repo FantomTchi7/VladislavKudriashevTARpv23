@@ -98,6 +98,19 @@ for i in range(mitu):
     print(' /VV V VV\ '.center(10,' '))
 print()
 
+N=25
+kesk1=0
+kesk2=0
+for i in range(N):
+    h1=random.randint(1,5)
+    h2=random.randint(1,5)
+    kesk1+=h1
+    kesk2+=h2
+kesk1/=N
+kesk2/=N
+print(f"Keskmine hinne 1 klassis on {kesk1}")
+print(f"Keskmine hinne 2 klassis on {kesk2}")
+
 sum_num=0
 sum_km=0
 for i in range(12):
