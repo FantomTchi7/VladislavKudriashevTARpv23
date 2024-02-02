@@ -80,3 +80,31 @@ try:
         print(viga)
 except:
     print(viga)
+
+#'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+while True:
+    try:
+        mitu=int(input("Mitu tk: "))
+        if 1<=mitu<10:
+            break
+    except ValueError:
+        print("Vale tüüp.")
+
+for i in range(mitu):
+    print('  /V\ '.center(10,' '))
+    print('  / V \ '.center(10,' '))
+    print('  / V V \ '.center(10,' '))
+    print(' /VV V VV\ '.center(10,' '))
+print()
+
+sum_num=0
+sum_km=0
+for i in range(12):
+    num=random.randint(1000,100000)
+    km=random.randint(1,100)
+    sum_num+=num
+    sum_km+=km
+    print(f"{i}. maakond. \nElanikud: {num}. Pindala: {km}\nKokku: {sum_num}, {sum_km}")
+vastus=sum_num/sum_km
+print(f"Keskmine: {vastus:.3f}")
