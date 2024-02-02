@@ -85,17 +85,25 @@ except:
 
 while True:
     try:
-        mitu=int(input("Mitu tk: "))
-        if 1<=mitu<10:
-            break
+        K=int(input("Mitu kotleti sul on? "))
+        if K>0: break
     except ValueError:
         print("Vale tüüp.")
-
-for i in range(mitu):
-    print('  /V\ '.center(10,' '))
-    print('  / V \ '.center(10,' '))
-    print('  / V V \ '.center(10,' '))
-    print(' /VV V VV\ '.center(10,' '))
+while True:
+    try:
+        M=int(input("Mitu kotleti ühel pannil? "))
+        if M>0: break
+    except ValueError:
+        print("Vale tüüp.")
+pann=0
+while K>M:
+    K-=M
+    pann+=1
+    print(f"Praetud: {pann} tk")
+    if K<M:
+        pann+=1
+        print(f"Praetud: {pann} tk")
+print(f"Kokku oli praetud: {pann} pannid")
 print()
 
 N=25
@@ -121,3 +129,11 @@ for i in range(12):
     print(f"{i}. maakond. \nElanikud: {num}. Pindala: {km}\nKokku: {sum_num}, {sum_km}")
 vastus=sum_num/sum_km
 print(f"Keskmine: {vastus:.3f}")
+
+mitu=int(input("Mitu?"))
+for i in range(mitu):
+    print('  /V\ '.center(10,' '))
+    print('  / V \ '.center(10,' '))
+    print('  / V V \ '.center(10,' '))
+    print(' /VV V VV\ '.center(10,' '))
+print()
