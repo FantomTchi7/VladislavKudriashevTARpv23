@@ -2,7 +2,7 @@ import random
 nimed=["Mati","Meelis","Kati","Mati"]
 while True:
     print("***********************")
-    v=input("N-näita andmed\nL-lisada andmeid\nK-andmete kutsutamine\nH-Andmete haldus\n***********************\n")
+    v=input("N-näita andmed\nL-lisada andmeid\nK-andmete kutsutamine\nH-Andmete haldus\nI-Positsiooni otsing\n***********************\n")
     if v.upper()=="N":
         v=input("Kas juhuslik (j) nimi või loetelu (t)?")
         if v.upper()=="T":
@@ -45,3 +45,12 @@ while True:
             nimed.copy()
         elif v.upper()=="P":
             nimed.reverse()
+    elif v.upper()=="I":
+        nimi=input("Sisesta nimi: ")
+        mitu=nimed.count(nimi)
+        if mitu>0:
+            print(f"Seal on {mitu} {nimi}")
+            for i in range(mitu):
+                print(f"{nimi} on {i+1} positsioonil")
+        else:
+            print(f"{nimi} ei ole loetelus.")
