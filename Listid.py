@@ -1,4 +1,7 @@
+from multiprocessing import Value
 import string
+from tkinter.tix import InputOnly
+viga="Vale väärtus."
 
 print("\nÜlesanne #1\n")
 
@@ -25,12 +28,39 @@ for i in range(5):
     nimi=input(f"Sisestage nimi №{i+1}:\n").capitalize()
     nimed.append(nimi)
 nimed.sort()
+töödeldud = [] 
+for i in nimed: 
+    if i not in töödeldud: 
+        töödeldud.append(i) 
+töödeldud.remove(nimi)
+töödeldud.append(nimi)
+for i in range(len(töödeldud)):
+    print(f"{i+1}. {töödeldud[i]}")
+vanused = töödeldud.copy()
+try:
+    for i in range(len(vanused)):
+        vanus=int(input(f"Sisestage {töödeldud[i]}i vanus: "))
+        vanused.insert(i,vanus)
+        vanused.pop()
+        for i in range(len(vanused)):
+            print(f"{i+1}. {töödeldud[i]}i vanus on {vanused[i]}")
+except ValueError:
+    print(viga)
 
-for d in range(len(nimed)):
-    if nimed[d]==nimed[d+1]:
-        lmaoidk
+print("\nÜlesanne #7\n")
 
-nimed.remove(nimi)
-nimed.append(nimi)
-for n in range(len(nimed)):
-    print(f"{n+1}. {nimed[n]}")
+numbrid=[]
+try:
+    numbriarv=int(input("Sisestage numbrite arv: "))
+    for i in range(numbriarv):
+        try:
+            number=abs(int(input(f"Sisestage number {i+1}: ")))
+            numbrid.append(number)
+        except ValueError:
+            print(viga)
+    numbrid.sort()
+    print(numbrid)
+    numbrid.reverse()
+    print(numbrid)
+except ValueError:
+    print(viga)
