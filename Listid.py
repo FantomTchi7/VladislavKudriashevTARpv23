@@ -1,6 +1,4 @@
-from multiprocessing import Value
 import string
-from tkinter.tix import InputOnly
 viga="Vale väärtus."
 
 print("\nÜlesanne #1\n")
@@ -42,10 +40,18 @@ try:
         vanus=int(input(f"Sisestage {töödeldud[i]}i vanus: "))
         vanused.insert(i,vanus)
         vanused.pop()
-        for i in range(len(vanused)):
-            print(f"{i+1}. {töödeldud[i]}i vanus on {vanused[i]}")
 except ValueError:
     print(viga)
+for i in range(len(vanused)):
+    print(f"{i+1}. {töödeldud[i]}i vanus on {vanused[i]}")
+print("Maksimaalne vanus:",max(vanused))
+print("Minimaalne vanus:",min(vanused))
+print("Summaarne vanus:",sum(vanused))
+vanus=0
+for i in range(len(vanused)):
+    vanus+=vanused[i]
+vanus=vanus/(i+1)
+print("Keskmine vanus:",vanus)
 
 print("\nÜlesanne #7\n")
 
@@ -64,3 +70,32 @@ try:
     print(numbrid)
 except ValueError:
     print(viga)
+
+print("\nÜlesanne #9\n")
+
+nimi=input("Mis on sinu nimi?\n")
+if nimi.isalpha():
+    print("Tere,",nimi.capitalize()+"!")
+    tähtarv=len(nimi)
+    print("Tähtede arv:",tähtarv)
+    v=k=0
+    for sümbol in nimi.upper():
+        if sümbol in vokaali:
+            v+=1
+        elif sümbol in konsonanti:
+            k+=1
+    print("Vokaali:",v,"\nKonsonanti:",k)
+    tähtsorteeritud=sorted(nimi.lower())
+    print("Tähed tähestiku järjekorras:",tähtsorteeritud)
+else:
+    print(viga)
+
+print("\nÜlesanne #11\n")
+
+abc=list(string.ascii_lowercase)
+tähtarv=int(input("Sisestage tähesarjade arv:\n"))
+for i in range(len(abc)):
+    if i >= tähtarv:
+        break
+    täht=abc[i]*(i+1)
+    print(täht)
