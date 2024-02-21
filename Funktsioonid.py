@@ -8,3 +8,6 @@ print(summa_31)
 
 a=input()
 print(MuMoodul.tüüpkontroll(a))
+
+arv1=int(input())
+arv2=int(input())

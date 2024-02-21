@@ -18,14 +18,36 @@ def tüüpkontroll(inp) -> str:
     """
     try:
         inp=int(inp)
-        return(int)
+        return int
     except:
         try:
             inp=float(inp)
-            return(float)
+            return float
         except:
             try:
                 inp=str(inp)
-                return(str)
+                return str
             except:
                 pass
+
+def arithmetic(arv1:int,arv2:int,operatsioon:str)->any:
+    """võtab 3 argumenti: esimesed 2 on numbrid, kolmas on toiming, mis tuleb nendega sooritada. Kui kolmas argument on +, lisa need; kui -, siis lahuta; * - korrutada; / - jaga (esimene teisega). Muudel juhtudel tagastage string "Tundmatu toiming".
+    
+    :param int arv1: Arv 1 sisestab kasutaja
+    :param int arv2: Arv 2 sisestab kasutaja
+    :param str operatsioon: operatsioon sisestab kasutaja
+    :rtype: any
+    """
+    if operatsioon=="+":
+        return arv1+arv2
+    elif operatsioon=="-":
+        return arv1-arv2
+    elif operatsioon=="*":
+        return arv1*arv2
+    elif operatsioon=="/":
+        if not(arv2==0):
+            return arv1/arv2
+        else:
+            return "Nulliga jagada ei saa"
+    else:
+        return "Tundmatu toiming"
