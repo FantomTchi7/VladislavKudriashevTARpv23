@@ -10,7 +10,7 @@ def summa(arv1:int,arv2:int,arv3:int=0)->int:
     s=arv1+arv2+arv3
     return s
 
-def intcontrol(inp):
+def tüüpkontroll(inp) -> str:
     """ Funktsioon prindib väärtuse tüübi inp
     
     :param inp: inp sisestab kasutaja

@@ -7,4 +7,4 @@ print(summa_3)
 print(summa_31)
 
 a=input()
-print(MuMoodul.intcontrol(a))
+print(MuMoodul.tüüpkontroll(a))
