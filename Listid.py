@@ -1,4 +1,5 @@
 import string
+import random
 viga="Vale väärtus."
 
 print("\nÜlesanne #1\n")
@@ -99,3 +100,18 @@ for i in range(len(abc)):
         break
     täht=abc[i]*(i+1)
     print(täht)
+
+print("\nÜlesanne #12\n")
+
+try:
+    numbrid=[random.randint(1,100) for i in range(10)]
+    print("Esialgne nimekiri:",numbrid)
+    minnumber=min(numbrid)
+    maxnumber=max(numbrid)
+    minindex=numbrid.index(minnumber)
+    maxindex=numbrid.index(maxnumber)
+    numbrid[minindex]=maxnumber
+    numbrid[maxindex]=minnumber
+    print("Loend pärast miinimum- ja maksimumelementide asendamist:",numbrid)
+except Exception as e:
+    print("viga:",e)
