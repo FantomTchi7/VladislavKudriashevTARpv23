@@ -103,15 +103,12 @@ for i in range(len(abc)):
 
 print("\nÜlesanne #12\n")
 
-try:
-    numbrid=[random.randint(1,100) for i in range(10)]
-    print("Esialgne nimekiri:",numbrid)
-    minnumber=min(numbrid)
-    maxnumber=max(numbrid)
-    minindex=numbrid.index(minnumber)
-    maxindex=numbrid.index(maxnumber)
-    numbrid[minindex]=maxnumber
-    numbrid[maxindex]=minnumber
-    print("Loend pärast miinimum- ja maksimumelementide asendamist:",numbrid)
-except Exception as e:
-    print("viga:",e)
+numbrid=[random.randint(1,100) for i in range(10)]
+print("Nimekiri 10 juhuslikust numbrist 1 kuni 100:",numbrid)
+minnumber=min(numbrid)
+maxnumber=max(numbrid)
+minindex=numbrid.index(minnumber)
+maxindex=numbrid.index(maxnumber)
+numbrid[minindex]=maxnumber
+numbrid[maxindex]=minnumber
+print("Loend pärast miinimum- ja maksimum elementide asendamist:",numbrid)
