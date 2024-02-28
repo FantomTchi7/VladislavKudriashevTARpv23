@@ -51,3 +51,84 @@ def arithmetic(arv1:int,arv2:int,operatsioon:str)->any:
             return "Nulliga jagada ei saa"
     else:
         return "Tundmatu toiming"
+    
+def is_year_leap(aasta:int)->bool:
+    """võtab 1 argumendi - aasta ja tagastab Tõene, kui aasta on liigaasta, ja False muul juhul.
+
+    :param int aasta: Aasta sisestab kasutaja
+    :rtype: bool
+    """
+
+# Praktiline töö "Palgad"
+
+def andmed_veerudes(inimesed:list,palgad:list):
+    """Funktsioon kuvab ekraanile kahe järjendite andmed veerudes
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    """
+    for i in range(len(inimesed)):
+        print(inimesed[i],"-",palgad[i])
+
+def inimesete_ja_palkade_lisamine(inimesed:list,palgad:list,n=1)->any:
+    """Funktsioon tagastab uuendatud loendid, kus lisatud inimesi ja palka
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    :param int n: Inimeste arv
+    :rtype: list,list
+    """
+    if n>0:
+        for i in range(n):
+            nimi=input("Nimi: ").capitalize()
+            palk=int(input("Palk: "))
+            inimesed.append(nimi)
+            palgad.append(palk)
+    return inimesed,palgad
+
+def andmete_eemaldamine_nimi_jargi(inimesed:list,palgad:list)->any:
+    """Funktsioon kustutab andmeid ja tagastab listid.
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    :rtype: list,list
+    """
+    nimi=input("Sisesta nimi: ")
+    for i in range(len(inimesed)):
+        if nimi in inimesed:
+            inimesed.remove(nimi)
+            palgad.pop(i)
+    return inimesed,palgad
+
+def kellel_on_suurim_palk(inimesed:list,palgad:list)->int:
+    """Funktsioon näitab kellel on suurim palk
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    :rtype: int
+    """
+    suurim_palk=max(palgad)
+    for i in range(len(palgad)):
+        if palgad[i]==suurim_palk:
+            print(inimesed[i],"palk on",suurim_palk)
+    return suurim_palk
+
+def kellel_on_vaiksem_palk(inimesed:list,palgad:list)->int:
+    """Funktsioon näitab kellel on väiksem palk
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    :rtype: int
+    """
+    vaiksem_palk=min(palgad)
+    for i in range(len(palgad)):
+        if palgad[i]==vaiksem_palk:
+            print(inimesed[i],"palk on",vaiksem_palk)
+    return vaiksem_palk
+
+def sortA_Z(inimesed:list,palgad:list)->any:
+    """"""
+    icount=[]
+    for i in range(len(inimesed)):
+        icount.append(i)
+        
