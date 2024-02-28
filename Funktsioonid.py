@@ -14,7 +14,7 @@ palgad=[1200,2500,750,395,1200]
 inimesed=["A","B","C","D","E"]
 
 while True:
-    print("0 - Näita andmed\n1 - Andmete lisamine\n2 - Andmete kutsutamine\n3 - Suurim palk\n4 - Väiksem palk")
+    print("0 - Näita andmed\n1 - Andmete lisamine\n2 - Andmete kutsutamine\n3 - Suurim palk\n4 - Väiksem palk\n5 - Sorteerimine (A-Z)\n6 - Sorteerimine (Z-A)")
     valik=int(input())
     if valik==1:
         inimesed,palgad=MuMoodul.inimesete_ja_palkade_lisamine(inimesed,palgad,int(input("Mitu inimest lisame? ")))
@@ -27,3 +27,7 @@ while True:
         MuMoodul.kellel_on_suurim_palk(inimesed,palgad)
     elif valik==4:
         MuMoodul.kellel_on_vaiksem_palk(inimesed,palgad)
+    elif valik==5:
+        MuMoodul.sorteerimineA_Z(inimesed,palgad)
+    elif valik==6:
+        MuMoodul.sorteerimineZ_A(inimesed,palgad)

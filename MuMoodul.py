@@ -126,9 +126,30 @@ def kellel_on_vaiksem_palk(inimesed:list,palgad:list)->int:
             print(inimesed[i],"palk on",vaiksem_palk)
     return vaiksem_palk
 
-def sortA_Z(inimesed:list,palgad:list)->any:
-    """"""
-    icount=[]
-    for i in range(len(inimesed)):
-        icount.append(i)
-        
+def sorteerimineA_Z(inimesed:list,palgad:list)->any:
+    """Funktsioon sorteerib mõlemad loendid.
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    :rtype: list,list
+    """
+    for i in range(0,len(inimesed)):
+        for j in range(i,len(inimesed)):
+            if palgad[i]>palgad[j]:
+                palgad[j],palgad[i]=palgad[i],palgad[j]
+                inimesed[j],inimesed[i]=inimesed[i],inimesed[j]
+    return inimesed,palgad
+
+def sorteerimineZ_A(inimesed:list,palgad:list)->any:
+    """Funktsioon sorteerib mõlemad loendid.
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    :rtype: list,list
+    """
+    for i in range(0,len(inimesed)):
+        for j in range(i,len(inimesed)):
+            if palgad[i]<palgad[j]:
+                palgad[j],palgad[i]=palgad[i],palgad[j]
+                inimesed[j],inimesed[i]=inimesed[i],inimesed[j]
+    return inimesed,palgad
