@@ -153,3 +153,41 @@ def sorteerimineZ_A(inimesed:list,palgad:list)->any:
                 palgad[j],palgad[i]=palgad[i],palgad[j]
                 inimesed[j],inimesed[i]=inimesed[i],inimesed[j]
     return inimesed,palgad
+
+def vordsed_palgad(inimesed:list,palgad:list)->list:
+    """Uurib välja, kes sama palka saavad, leiab, kui palju selliseid inimesi ja kuvab nende andmed ekraanile.
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    :rtype: list
+    """
+    nimed=[]
+    for palk in palgad:
+        n=palgad.count(palk)
+        i=palgad.index(palk)
+        if n>1:
+            subnimed=[]
+            for j in range(n):
+                nimi=inimesed[palgad.index(palk,i)]
+                subnimed.append(nimi)
+                palgad.pop(i)
+                inimesed.pop(i)
+                i+=1
+            nimed.append(subnimed)
+    print(nimed)
+    return nimed
+
+def palk_nimi_jargi(inimesed:list,palgad:list)->list:
+    """Teeb palgaotsingu inimese nime järgi. Arvestab, et nimed võivad korduda.
+    
+    :param list inimesed: Inimeste järjend
+    :param list palgad: Palgade järjend
+    :rtype: list
+    """
+    nimi=input("Sisesta nimi: ")
+    nimed=[]
+    for i in range(len(palgad)):
+        if nimi in inimesed[i]:
+            nimed.append([inimesed[i],palgad[i]])
+    print(nimed)
+    return nimed
