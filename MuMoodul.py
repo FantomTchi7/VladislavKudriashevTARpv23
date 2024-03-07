@@ -1,3 +1,6 @@
+import string
+import random
+
 def summa(arv1:int,arv2:int,arv3:int=0)->int:
     """ Funktsioon tagastab kolme arvu summa
         summa(arv1,arv2,arv3)
@@ -191,3 +194,87 @@ def palk_nimi_jargi(inimesed:list,palgad:list)->list:
             nimed.append([inimesed[i],palgad[i]])
     print(nimed)
     return nimed
+
+# Iseseisevtöö "Registreerimine ja autoriseerimine"
+
+def konto_loomine(nimed:list,paroolid:list)->any:
+    """
+    
+    """
+    nimi=input("Sisesta nimi: ")
+    if nimi in nimed:
+        print("Konto on juba olemas.")
+    else:
+        parool=input("Sisesta parool: ")
+        nimed.append(nimi)
+        paroolid.append(parool)
+        print("Konto loomine õnnestus.")
+        print([nimi,parool])
+    return nimed,paroolid
+
+def kontole_sisse_logida(nimed:list,paroolid:list,on_autoriseeritud:str)->str:
+    """
+    
+    """
+    if on_autoriseeritud=="False":
+        nimi=input("Sisesta nimi: ")
+        if not(nimi in nimed):
+            print("Selle nimega kontot pole.")
+        for i in range(len(nimed)):
+            if nimed[i]==nimi:
+                parool=input("Sisesta parool: ")
+                if paroolid[i]==parool:
+                    print("Login successful")
+                    on_autoriseeritud=nimi
+                else:
+                    print("Vale parool.")
+    return on_autoriseeritud
+
+def muuda_salasona(nimed:list,paroolid:list,on_autoriseeritud:str)->any:
+    """
+    
+    """
+    if not(on_autoriseeritud=="False"):
+        indeks=nimed.index(on_autoriseeritud)
+        parool=input("Sisesta oma parool: ")
+        if parool==paroolid[indeks]:
+            valik=int(input("1) Sisestage parool ise. 2) Looge juhuslikult parool.\n"))
+            if valik==1:
+                parool=input("Sisesta uus parool: ")
+            elif valik==2:
+                tahtud=[]
+                for i in range(len(string.printable)):
+                    tahtud.append(i)
+                for i in range(len(tahtud)-random.randint(25,100)):
+                    parool+=str(tahtud[random.randint(0,100)])
+            nimi=nimed[indeks]
+            nimed.pop(indeks)
+            paroolid.pop(indeks)
+            nimed.append(nimi)
+            paroolid.append(parool)
+        else:
+            print("Vale parool.")
+    else:
+        print("Pole autoriseeritud")
+    return nimed,paroolid
+
+def muuda_nimi(nimed:list,paroolid:list,on_autoriseeritud:str)->any:
+    """
+    
+    """
+    if not(on_autoriseeritud=="False"):
+        indeks=nimed.index(on_autoriseeritud)
+        parool=input("Sisesta oma parool: ")
+        if parool==paroolid[indeks]:
+            nimi=input("Sisesta uus nimi: ")
+            parool=paroolid[indeks]
+            paroolid.pop(indeks)
+            nimed.pop(indeks)
+            nimed.append(nimi)
+            paroolid.append(parool)
+            on_autoriseeritud=nimi
+        else:
+            print("Vale parool.")
+    else:
+        print("Pole autoriseeritud")
+    return on_autoriseeritud
