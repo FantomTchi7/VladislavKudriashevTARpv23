@@ -1,5 +1,5 @@
-import string
-import random
+import string,random,smtplib,ssl
+from email.message import EmailMessage
 
 def summa(arv1:int,arv2:int,arv3:int=0)->int:
     """ Funktsioon tagastab kolme arvu summa
@@ -303,3 +303,50 @@ def muuda_nimi(nimed:list,paroolid:list,on_autoriseeritud:str)->str:
     else:
         print("Pole autoriseeritud")
     return on_autoriseeritud
+
+def parooli_taastamine(nimed:list,paroolid:list,on_autoriseeritud:str)->any:
+    """
+    
+    :param list nimed: Nimete järjend
+    :param list paroolid: Paroolide järjend
+    :param str on_autoriseeritud: Kontrollib, kas kasutaja on sisse logitud
+    :rtype: list,list
+    """
+    if not(on_autoriseeritud=="False"):
+        indeks=nimed.index(on_autoriseeritud)
+        parool=input("Sisesta oma parool: ")
+        if parool==paroolid[indeks]:
+            valik=int(input("1) Sisestage parool ise. 2) Looge juhuslikult parool.\n"))
+            if valik==1:
+                parool=input("Sisesta uus parool: ")
+            elif valik==2:
+                randomparool=list(string.printable)
+                random.shuffle(randomparool)
+                parool = ''.join([random.choice(randomparool) for x in range(12)])
+                print(parool)
+            to_email=input("Sisesta oma email: ")
+            smtp_server="smtp.gmail.com"
+            port=587
+            sender_email="othermodstactics@gmail.com"
+            password="rdle rkdb xmbu fygl"
+            context=ssl.create_default_context()
+            msg=EmailMessage()
+            msg.set_content(f"Sinu uus parool on {parool}")
+            msg['Subject']="Sinu uus parool!"
+            msg['From']=sender_email
+            msg['To']=to_email
+            try:
+                server = smtplib.SMTP(smtp_server,port)
+                server.ehlo()
+                server.starttls(context=context)
+                server.ehlo()
+                server.login(sender_email, password)
+                server.sendmail(msg)
+            except Exception as e:
+                print(e)
+            finally:
+                server.quit()
+        else:
+            print("Vale parool.")
+    else:
+        print("Pole autoriseeritud")
