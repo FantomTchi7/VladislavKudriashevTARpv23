@@ -198,14 +198,28 @@ def palk_nimi_jargi(inimesed:list,palgad:list)->list:
 # Iseseisevtöö "Registreerimine ja autoriseerimine"
 
 def konto_loomine(nimed:list,paroolid:list)->any:
-    """
+    """Selleks kulub kaks loendit, inimeste paroolid, väljundis redigeeritakse neid ja luuakse kasutaja, kus kasutajal ja paroolil on sama indeks.
     
+    :param list nimed: Nimete järjend
+    :param list paroolid: Paroolide järjend
+    :rtype: list,list
     """
     nimi=input("Sisesta nimi: ")
     if nimi in nimed:
         print("Konto on juba olemas.")
     else:
-        parool=input("Sisesta parool: ")
+        valik=int(input("1) Sisestage parool ise. 2) Looge juhuslikult parool.\n"))
+        if valik==1:
+            parool=input("Sisesta parool: ")
+        elif valik==2:
+            randomparool=list(string.printable)
+            random.shuffle(randomparool)
+            parool = ''.join([random.choice(randomparool) for x in range(12)])
+            print(parool)
+            randomparool=list(string.printable)
+            random.shuffle(randomparool)
+            parool = ''.join([random.choice(randomparool) for x in range(12)])
+            print(parool)
         nimed.append(nimi)
         paroolid.append(parool)
         print("Konto loomine õnnestus.")
@@ -213,8 +227,12 @@ def konto_loomine(nimed:list,paroolid:list)->any:
     return nimed,paroolid
 
 def kontole_sisse_logida(nimed:list,paroolid:list,on_autoriseeritud:str)->str:
-    """
+    """Konto sisselogimise funktsioon kontrollib loendis olevaid kasutajaid, tagastab sisestatud kasutaja nime "on_autoriseeritud".
     
+    :param list nimed: Nimete järjend
+    :param list paroolid: Paroolide järjend
+    :param str on_autoriseeritud: Sisselogitud kasutaja nimi; kui kontole sisselogimist pole, tagastab see "False"
+    :rtype: str
     """
     if on_autoriseeritud=="False":
         nimi=input("Sisesta nimi: ")
@@ -231,8 +249,12 @@ def kontole_sisse_logida(nimed:list,paroolid:list,on_autoriseeritud:str)->str:
     return on_autoriseeritud
 
 def muuda_salasona(nimed:list,paroolid:list,on_autoriseeritud:str)->any:
-    """
+    """Sisselogitud kasutaja parooli muutmine.
     
+    :param list nimed: Nimete järjend
+    :param list paroolid: Paroolide järjend
+    :param str on_autoriseeritud: Kontrollib, kas kasutaja on sisse logitud
+    :rtype: list,list
     """
     if not(on_autoriseeritud=="False"):
         indeks=nimed.index(on_autoriseeritud)
@@ -242,11 +264,10 @@ def muuda_salasona(nimed:list,paroolid:list,on_autoriseeritud:str)->any:
             if valik==1:
                 parool=input("Sisesta uus parool: ")
             elif valik==2:
-                tahtud=[]
-                for i in range(len(string.printable)):
-                    tahtud.append(i)
-                for i in range(len(tahtud)-random.randint(25,100)):
-                    parool+=str(tahtud[random.randint(0,100)])
+                randomparool=list(string.printable)
+                random.shuffle(randomparool)
+                parool = ''.join([random.choice(randomparool) for x in range(12)])
+                print(parool)
             nimi=nimed[indeks]
             nimed.pop(indeks)
             paroolid.pop(indeks)
@@ -258,9 +279,13 @@ def muuda_salasona(nimed:list,paroolid:list,on_autoriseeritud:str)->any:
         print("Pole autoriseeritud")
     return nimed,paroolid
 
-def muuda_nimi(nimed:list,paroolid:list,on_autoriseeritud:str)->any:
-    """
+def muuda_nimi(nimed:list,paroolid:list,on_autoriseeritud:str)->str:
+    """Muudab kasutajanime ja lisab selle uusimasse indeksisse. Tagastab uue kasutajanime "on_autoriseritud".
     
+    :param list nimed: Nimete järjend
+    :param list paroolid: Paroolide järjend
+    :param str on_autoriseeritud: Kontrollib, kas kasutaja on sisse logitud
+    :rtype: str
     """
     if not(on_autoriseeritud=="False"):
         indeks=nimed.index(on_autoriseeritud)

@@ -5,7 +5,7 @@ paroolid=[]
 on_autoriseeritud="False"
 
 while True:
-    print("0) Näita kontosid.\n1) Konto loomine.\n2) Lisa konto.\n3) Logi sisse kontole.\n4)")
+    print("0) Näita kontosid.\n1) Loo konto\n2) Logige oma kontole sisse\n3) Muutke parool\n4) Muuda nime")
     if on_autoriseeritud=="False":
         print("Not logged in.")
     else:
