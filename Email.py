@@ -1,5 +1,7 @@
 import smtplib, ssl
+
 from email.message import EmailMessage
+# Этого модуля нет в репозиториях Arch Linux, с pip разберусь попозже.
 
 smtp_server = "smtp.gmail.com"
 port = 587
