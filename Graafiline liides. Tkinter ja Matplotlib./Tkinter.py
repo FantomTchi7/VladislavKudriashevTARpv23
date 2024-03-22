@@ -2,8 +2,8 @@ from tkinter import *
 from datetime import *
 
 # Variables
-x=200
-y=200
+x=225
+y=225
 bg="#000000"
 fg="#00FF00"
 
