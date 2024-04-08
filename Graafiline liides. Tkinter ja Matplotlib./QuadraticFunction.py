@@ -1,4 +1,5 @@
 from tkinter import *
+import math
 
 # Variables
 x=600
@@ -12,8 +13,16 @@ def solve():
     aa=int(a.get())
     bb=int(b.get())
     cc=int(c.get())
-    D=bb**2-4*aa*cc
-    solution.configure(text=D)
+    D=(bb**2)-(4*aa*cc)
+    if D>0:
+        x1=(abs(bb)+math.sqrt(D))/(2*aa)
+        x2=(abs(bb)-math.sqrt(D))/(2*aa)
+        solution.configure(text=f"D={D}\nX₁={x1}\nX₂={x2}")
+    elif D==0:
+        x=abs(bb)/(2*aa)
+        solution.configure(text=f"D={D}\nX={x}")
+    else:
+        solution.configure(text=f"D={D}\nРешений нет")
 
 window=Tk()
 window.geometry(f"{x}x{y}")
@@ -33,12 +42,12 @@ a=Entry(frame,
               width=2,
               justify=CENTER)
 first=Label(frame,
-            text="x**2+",
+            text="x²+",
             bg=bg,
             fg=fg,
             font="Arial 24",
             height=height,
-            width=5)
+            width=3)
 b=Entry(frame,
               bg=bg,
               fg=fg,
@@ -71,7 +80,7 @@ solve=Button(frame,
             fg=fg,
             font="Arial 24",
             height=height,
-            width=8,
+            width=6,
             command=solve)
 solution=Label(window,
             text="",
