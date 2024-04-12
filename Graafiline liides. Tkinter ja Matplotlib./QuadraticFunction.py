@@ -1,34 +1,61 @@
 from tkinter import *
-import math
+from tkinter import messagebox as mb
+import matplotlib.pyplot as plt
+import math,numpy
 
 # Variables
-x=600
-y=200
+x=500
+y=500
 bg="#000000"
 fg="#00FF00"
 height=0
+roundTo=2
 
 # Functions
 def solve():
-    aa=int(a.get())
-    bb=int(b.get())
-    cc=int(c.get())
-    D=(bb**2)-(4*aa*cc)
-    if D>0:
-        x1=(abs(bb)+math.sqrt(D))/(2*aa)
-        x2=(abs(bb)-math.sqrt(D))/(2*aa)
-        solution.configure(text=f"D={D}\nX₁={x1}\nX₂={x2}")
-    elif D==0:
-        x=abs(bb)/(2*aa)
-        solution.configure(text=f"D={D}\nX={x}")
+    aa=a.get()
+    bb=b.get()
+    cc=c.get()
+    if not (aa=="" or bb=="" or cc==""):
+        D=round((float(bb)**2)-(4*float(aa)*float(cc)),roundTo)
+        if D>0:
+            x1=round((abs(float(bb))+math.sqrt(D))/(2*float(aa)),roundTo)
+            x2=round((abs(float(bb))-math.sqrt(D))/(2*float(aa)),roundTo)
+            solution.configure(text=f"D={D}\nX₁={x1}\nX₂={x2}")
+            graph()
+        elif D==0:
+            x=round(abs(float(bb))/(2*float(aa)),roundTo)
+            solution.configure(text=f"D={D}\nX={x}")
+            graph()
+        else:
+            solution.configure(text=f"D={D}\nLahendusi pole")
     else:
-        solution.configure(text=f"D={D}\nРешений нет")
+        mb.showwarning("Tähelepanu!","On vaja sisestada numbreid!")
+
+def graph():
+    """
+    """
+    aa=float(a.get())
+    bb=float(b.get())
+    cc=float(c.get())
+    x=round(abs(bb)/(2*aa),roundTo)
+    sizing=[aa,bb,cc,x]
+    x1=numpy.arange(min(sizing),max(sizing),0.5)
+    y=aa*x**2+bb*x1+cc
+    y1=aa*x1**2+bb*x1+cc
+    fig=plt.figure()
+    plt.plot(x1,y1,'r-d')
+    plt.title('Ruutvõrrand')
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
 
 window=Tk()
 window.geometry(f"{x}x{y}")
-window.title("Квадратные уравнения")
+window.title("Ruutvõrrandid")
 label=Label(window,
-            text="Решения квадратного уравнения",
+            text="Ruutvõrrandite lahendused",
             bg=bg,
             fg=fg,
             font="Arial 24",
@@ -36,11 +63,11 @@ label=Label(window,
             width=x)
 frame=Frame(window)
 a=Entry(frame,
-              bg=bg,
-              fg=fg,
-              font="Times 20",
-              width=2,
-              justify=CENTER)
+            bg=bg,
+            fg=fg,
+            font="Arial 24",
+            width=2,
+            justify=CENTER)
 first=Label(frame,
             text="x²+",
             bg=bg,
@@ -51,7 +78,7 @@ first=Label(frame,
 b=Entry(frame,
               bg=bg,
               fg=fg,
-              font="Times 20",
+              font="Arial 24",
               width=2,
               justify=CENTER)
 second=Label(frame,
@@ -64,7 +91,7 @@ second=Label(frame,
 c=Entry(frame,
               bg=bg,
               fg=fg,
-              font="Times 20",
+              font="Arial 24",
               width=2,
               justify=CENTER)
 third=Label(frame,
@@ -75,12 +102,12 @@ third=Label(frame,
             height=height,
             width=2)
 solve=Button(frame,
-            text="Решить",
+            text="Lahenda",
             bg=bg,
             fg=fg,
             font="Arial 24",
             height=height,
-            width=6,
+            width=7,
             command=solve)
 solution=Label(window,
             text="",
