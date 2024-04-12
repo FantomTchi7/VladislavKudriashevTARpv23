@@ -10,6 +10,7 @@ bg="#000000"
 fg="#00FF00"
 height=0
 roundTo=2
+step=5
 
 # Functions
 def solve():
@@ -39,12 +40,11 @@ def graph():
     bb=float(b.get())
     cc=float(c.get())
     x=round(abs(bb)/(2*aa),roundTo)
-    sizing=[aa,bb,cc,x]
-    x1=numpy.arange(min(sizing),max(sizing),0.5)
+    x1=numpy.arange(x-step,x+step,float(f"0.{step}"))
     y=aa*x**2+bb*x1+cc
     y1=aa*x1**2+bb*x1+cc
     fig=plt.figure()
-    plt.plot(x1,y1,'r-d')
+    plt.plot(x1,y1,'b-d')
     plt.title('Ruutvõrrand')
     plt.ylabel('y')
     plt.xlabel('x')
