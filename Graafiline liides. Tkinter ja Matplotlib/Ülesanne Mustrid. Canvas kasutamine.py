@@ -6,7 +6,7 @@ scalingF=500
 flagW=scalingF*11/7
 flagH=flagW/2
 window=Tk()
-window.title("Images")
+window.title("Pildid")
 window['bg']="#FFFFFF"
 
 # Harjutus. Lipud
@@ -50,7 +50,7 @@ cB.create_rectangle(0,0,scalingF/2,scalingF/2,fill="#FFFFFF")
 cS=scalingF/2/8
 for i in range(8):
     for j in range(8):
-        if (i+j)%2 == 0:
+        if (i+j)%2==0:
             cB.create_rectangle(i*cS,j*cS,(i+1)*cS,(j+1)*cS,fill="#000000")
 # Whatever that is
 colors=["black","cyan","magenta","red","blue","gray","yellow","green","lightblue","pink","gold"]
@@ -70,8 +70,8 @@ for i in range(150):
 # Harjutus. Valgusfoor
 mayTheForceBeWithYou=Canvas(window,width=scalingF/2,height=scalingF+flagH,background="#FFFFFF")
 mayTheForceBeWithYou.grid(row=0,column=3,rowspan=2,sticky=S)
-suur_font = font.Font(family='Algerian',size=scalingF//25,weight='bold')
-mayTheForceBeWithYou.create_text(scalingF/4,scalingF//25,text="VALGUSFOOR",font=suur_font,anchor=CENTER)
+font=font.Font(family='Algerian',size=scalingF//25,weight='bold')
+mayTheForceBeWithYou.create_text(scalingF/4,scalingF//25,text="VALGUSFOOR",font=font,anchor=CENTER)
 
 mayTheForceBeWithYou.create_rectangle(scalingF/2/3,scalingF//25*2,scalingF/3,scalingF*2/3,fill="#000000")
 mayTheForceBeWithYou.create_rectangle(scalingF/2/5+scalingF//10,scalingF//25*2,scalingF/5*2-scalingF//10,scalingF*2,fill="#000000")
@@ -79,26 +79,31 @@ red=mayTheForceBeWithYou.create_oval(scalingF/2/3,scalingF//25*2,scalingF/3,scal
 yellow=mayTheForceBeWithYou.create_oval(scalingF/2/3,scalingF//25*2+(scalingF*2/3-scalingF//2/2)/(3+1)*2,scalingF/3,scalingF//2/2+(scalingF*2/3-scalingF//2/2)/(3+1)*2,fill="#7F7F00")
 green=mayTheForceBeWithYou.create_oval(scalingF/2/3,scalingF//25*2+2*(scalingF*2/3-scalingF//2/2)/(3+1)*2,scalingF/3,scalingF//2/2+2*(scalingF*2/3-scalingF//2/2)/(3+1)*2,fill="#007F00")
 
-var=IntVar()
-
 haveYouHeardOfTheGreatPlaguesTheWise=Canvas(window)
 haveYouHeardOfTheGreatPlaguesTheWise.grid(row=1,column=3)
 
-def choice(var:int):
+var=IntVar()
+def choice(var):
     """
     """
+    var=var.get()
     if var==1:
-        red.configure(fill="#000000")
+        mayTheForceBeWithYou.itemconfig(red,fill="#FF0000")
+        mayTheForceBeWithYou.itemconfig(yellow,fill="#7F7F00")
+        mayTheForceBeWithYou.itemconfig(green,fill="#007F00")
     elif var==2:
-        pass
+        mayTheForceBeWithYou.itemconfig(red,fill="#7F0000")
+        mayTheForceBeWithYou.itemconfig(yellow,fill="#FFFF00")
+        mayTheForceBeWithYou.itemconfig(green,fill="#007F00")
     elif var==3:
-        pass
+        mayTheForceBeWithYou.itemconfig(red,fill="#7F0000")
+        mayTheForceBeWithYou.itemconfig(yellow,fill="#7F7F00")
+        mayTheForceBeWithYou.itemconfig(green,fill="#00FF00")
     else:
         pass
 
-
 redRB=Radiobutton(haveYouHeardOfTheGreatPlaguesTheWise,
-    text="Red",
+    text="Punane",
     bg="#FFFFFF",
     fg="#000000",
     font=f"Algerian {scalingF//25}",
@@ -106,9 +111,9 @@ redRB=Radiobutton(haveYouHeardOfTheGreatPlaguesTheWise,
     width=10,
     variable=var,
     value=1,
-    command=choice)
+    command=lambda:choice(var)).pack()
 yellowRB=Radiobutton(haveYouHeardOfTheGreatPlaguesTheWise,
-    text="Yellow",
+    text="Kollane",
     bg="#FFFFFF",
     fg="#000000",
     font=f"Algerian {scalingF//25}",
@@ -116,9 +121,9 @@ yellowRB=Radiobutton(haveYouHeardOfTheGreatPlaguesTheWise,
     width=10,
     variable=var,
     value=2,
-    command=choice)
+    command=lambda:choice(var)).pack()
 greenRB=Radiobutton(haveYouHeardOfTheGreatPlaguesTheWise,
-    text="Green",
+    text="Roheline",
     bg="#FFFFFF",
     fg="#000000",
     font=f"Algerian {scalingF//25}",
@@ -126,10 +131,6 @@ greenRB=Radiobutton(haveYouHeardOfTheGreatPlaguesTheWise,
     width=10,
     variable=var,
     value=3,
-    command=choice)
-
-redRB.pack()
-yellowRB.pack()
-greenRB.pack()
+    command=lambda:choice(var)).pack()
 
 window.mainloop()
