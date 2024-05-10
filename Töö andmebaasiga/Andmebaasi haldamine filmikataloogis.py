@@ -22,9 +22,9 @@ def createConnection(path:str):
 def executeQuery(connection, query):
     try:
         cursor = connection.cursor()
+        print(query)
         cursor.execute(query)
         connection.commit()
-        # print("Tabel on loodud.")
     except Error as e:
         print(f"Tekkis viga: {e}")
 
@@ -63,7 +63,7 @@ def tableButtonsRemove():
     except:
         pass
 
-def displayTable(table_name):
+def displayTable(tableName):
     for widget in frameRight.winfo_children():
         widget.destroy()
     frameRight.pack_propagate(False)
@@ -73,18 +73,20 @@ def displayTable(table_name):
         "Filmid": ["ID", "Nimetus", "Väljaandmise kuupäev", "Autor", "Žanr"]
     }
     table_frame = Frame(frameRight, bg=bg)
+    button1.configure(fg=fg)
+    button2.configure(fg=fg)
     table_frame.pack(fill="both", expand=True)
-    headers = table_columns[table_name]
+    headers = table_columns[tableName]
     for col, header in enumerate(headers):
         header_label = Label(table_frame, text=header, bg=bg, fg=fg, font=font)
         header_label.grid(row=0, column=col, sticky="nsew")
-    if table_name == "Filmid":
-        query = readQuery(connection, f"SELECT Filmid.film_id, Filmid.nimetus, Filmid.väljaandmise_kuupäev, Autorid.autor_nimi, Žanrid.žanri_nimi FROM {table_name} INNER JOIN Autorid ON Filmid.autor_id = Autorid.autor_id INNER JOIN Žanrid ON Filmid.žanr_id = Žanrid.žanr_id")
+    if tableName == "Filmid":
+        query = readQuery(connection, f"SELECT Filmid.film_id, Filmid.nimetus, Filmid.väljaandmise_kuupäev, Autorid.autor_nimi, Žanrid.žanri_nimi FROM {tableName} INNER JOIN Autorid ON Filmid.autor_id = Autorid.autor_id INNER JOIN Žanrid ON Filmid.žanr_id = Žanrid.žanr_id")
     else:
-        query = readQuery(connection, f"SELECT * FROM {table_name}")
+        query = readQuery(connection, f"SELECT * FROM {tableName}")
     for row_idx, row in enumerate(query, start=1):
         for col, value in enumerate(row):
-            if (col == 2 and table_name == "Filmid") or (col == 2 and table_name == "Autorid"):
+            if (col == 2 and tableName == "Filmid") or (col == 2 and tableName == "Autorid"):
                 try:
                     value = datetime.datetime.strptime(value, "%Y-%m-%d").strftime("%d/%m/%Y")
                 except ValueError as e:
@@ -94,7 +96,7 @@ def displayTable(table_name):
     table_frame.grid_columnconfigure(tuple(range(len(headers))), weight=1)
     table_frame.grid_rowconfigure(tuple(range(len(query) + 1)), weight=1)
 
-def tableButtonsSelect():
+def tableButtonsSelect1():
     for widget in frameRight.winfo_children():
         widget.destroy()
     frameRight.pack_propagate(True)
@@ -125,6 +127,104 @@ def tableButtonsSelect():
     buttonAutorid.pack()
     buttonŽanrid.pack()
     buttonFilmid.pack()
+    button2.configure(fg=fg)
+    button1.configure(fg=f"#7f7f7f")
+
+table_columns = {
+    "Autorid": ["autor_id", "autor_nimi", "sünnikuupäev"],
+    "Žanrid": ["žanr_id", "žanri_nimi"],
+    "Filmid": ["film_id", "nimetus", "väljaandmise_kuupäev", "autor_id", "žanr_id"]
+}
+
+def contextMenu(tableName, buttonColumn, columns):
+    menu = Menu(window, tearoff=0)
+    for column in columns:
+        menu.add_command(label=column, command=lambda col=column: buttonColumn.config(text=f"{col}"))
+    menu.tk_popup(window.winfo_pointerx(), window.winfo_pointery())
+
+def insertTable(tableName):
+    for widget in frameRight.winfo_children():
+        widget.destroy()
+    frameRight.pack_propagate(False)
+    
+    def insertData():
+        all_columns = table_columns[tableName]
+        insert_values = [insertText.get('1.0', 'end').strip() for insertText in insertTexts]
+        insert_values = [f"'{value}'" for value in insert_values]
+        query = f"INSERT INTO {tableName}({', '.join(all_columns)}) VALUES ({', '.join(insert_values)})"
+        executeQuery(connection, query)
+
+    canvas = Canvas(frameRight, bg=bg)
+    scrollbar = Scrollbar(frameRight, command=canvas.yview)
+    scrollable_frame = Frame(canvas, bg=bg)
+
+    scrollable_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(
+            scrollregion=canvas.bbox("all")
+        )
+    )
+
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    insertTexts = []
+    for i in range(len(table_columns[tableName])):
+        insertText = Text(scrollable_frame,
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=25)
+        insertTexts.append(insertText)
+        insertText.pack(side="top", fill="x")
+
+    insertButton = Button(scrollable_frame,
+        text="Insert",
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=25,
+        command=insertData)
+    insertButton.pack()
+
+    canvas.pack(side="left", fill="both", expand=True)
+    scrollbar.pack(side="right", fill="y")
+
+def tableButtonsSelect2():
+    for widget in frameRight.winfo_children():
+        widget.destroy()
+    frameRight.pack_propagate(True)
+    buttonAutorid = Button(frameRight,
+        text="Autorid",
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=x,
+        command=lambda: insertTable("Autorid"))
+    buttonŽanrid = Button(frameRight,
+        text="Žanrid",
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=x,
+        command=lambda: insertTable("Žanrid"))
+    buttonFilmid = Button(frameRight,
+        text="Filmid",
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=x,
+        command=lambda: insertTable("Filmid"))
+    buttonAutorid.pack()
+    buttonŽanrid.pack()
+    buttonFilmid.pack()
+    button1.configure(fg=fg)
+    button2.configure(fg=f"#7f7f7f")
 
 # Variables
 
@@ -218,7 +318,7 @@ button1=Button(frameLeft,
     font=font,
     height=1,
     width=x,
-    command=tableButtonsSelect)
+    command=tableButtonsSelect1)
 
 button2=Button(frameLeft,
     text="INSERT INTO",
@@ -226,7 +326,8 @@ button2=Button(frameLeft,
     fg=fg,
     font=font,
     height=1,
-    width=x)
+    width=x,
+    command=tableButtonsSelect2)
 
 labelMain.pack()
 frameMain.pack()
