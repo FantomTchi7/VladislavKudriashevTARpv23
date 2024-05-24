@@ -53,6 +53,21 @@ def columnsFromTable(connection, table):
     columnNames = [i[1] for i in cursor.fetchall()]
     return columnNames
 
+def choiceColor(choice:int):
+    global button1, button2, button3
+    if choice==1:
+        button1.configure(fg=fg)
+        button2.configure(fg="#7f7f7f")
+        button3.configure(fg="#7f7f7f")
+    elif choice==2:
+        button1.configure(fg="#7f7f7f")
+        button2.configure(fg=fg)
+        button3.configure(fg="#7f7f7f")
+    elif choice==3:
+        button1.configure(fg="#7f7f7f")
+        button2.configure(fg="#7f7f7f")
+        button3.configure(fg=fg)
+
 def tableButtonsRemove():
     global buttonAutorid, buttonŽanrid, buttonFilmid, outputText
     try:
@@ -144,8 +159,7 @@ def tableButtonsSelect1():
     buttonAutorid.pack()
     buttonŽanrid.pack()
     buttonFilmid.pack()
-    button2.configure(fg=fg)
-    button1.configure(fg=f"#7f7f7f")
+    choiceColor(1)
 
 tableColumns = {
     "Autorid": ["autor_id", "autor_nimi", "sünnikuupäev"],
@@ -196,6 +210,42 @@ def insertTable(tableName):
         command=insertData)
     insertButton.pack()
 
+def deleteFromTable(tableName):
+    for widget in frameRight.winfo_children():
+        widget.destroy()
+    frameRight.pack_propagate(False)
+    
+    def deleteData():
+        column = tableColumns[tableName][0]  # assuming first column is ID
+        value = deleteText.get('1.0', 'end').strip()
+        query = f"DELETE FROM {tableName} WHERE {column} = {value}"
+        executeQuery(connection, query)
+
+    deleteLabels = []
+    deleteTexts = []
+    for i, column in enumerate([tableColumns[tableName][0]]):
+        rowFrame = Frame(frameRight, bg=bg)
+        rowFrame.pack(side="top", fill="x")
+
+        label = Label(rowFrame, text=f"WHERE {column}=", bg=bg, fg=fg, font=font)
+        label.pack(side="left")
+
+        deleteText = Text(rowFrame, bg=bg, fg=fg, font=font, height=1)
+        deleteText.pack(side="right", fill="x", expand=True)
+
+        deleteLabels.append(label)
+        deleteTexts.append(deleteText)
+
+    deleteButton = Button(frameRight,
+        text="Delete",
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=x,
+        command=deleteData)
+    deleteButton.pack()
+
 def tableButtonsSelect2():
     for widget in frameRight.winfo_children():
         widget.destroy()
@@ -227,8 +277,40 @@ def tableButtonsSelect2():
     buttonAutorid.pack()
     buttonŽanrid.pack()
     buttonFilmid.pack()
-    button1.configure(fg=fg)
-    button2.configure(fg=f"#7f7f7f")
+    choiceColor(2)
+
+def tableButtonsSelect3():
+    for widget in frameRight.winfo_children():
+        widget.destroy()
+    frameRight.pack_propagate(True)
+    buttonAutorid = Button(frameRight,
+        text="Autorid",
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=x,
+        command=lambda:deleteFromTable("Autorid"))
+    buttonŽanrid = Button(frameRight,
+        text="Žanrid",
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=x,
+        command=lambda:deleteFromTable("Žanrid"))
+    buttonFilmid = Button(frameRight,
+        text="Filmid",
+        bg=bg,
+        fg=fg,
+        font=font,
+        height=1,
+        width=x,
+        command=lambda:deleteFromTable("Filmid"))
+    buttonAutorid.pack()
+    buttonŽanrid.pack()
+    buttonFilmid.pack()
+    choiceColor(3)
 
 # Variables
 
@@ -333,6 +415,15 @@ button2=Button(frameLeft,
     width=x,
     command=tableButtonsSelect2)
 
+button3=Button(frameLeft,
+    text="DELETE FROM",
+    bg=bg,
+    fg=fg,
+    font=font,
+    height=1,
+    width=x,
+    command=tableButtonsSelect3)
+
 labelMain.pack()
 frameMain.pack(fill='both', expand=True)
 frameMain.grid_rowconfigure(0,weight=1)
@@ -342,6 +433,7 @@ frameMain.grid_columnconfigure(1,weight=1)
 frameLeft.grid(row=0,column=0, sticky='nsew')
 button1.pack(fill='both')
 button2.pack(fill='both')
+button3.pack(fill='both')
 outputText = Text(frameRight, bg=bg, fg=fg, font=font)
 frameRight.grid(row=0,column=1, sticky='nsew')
 window.mainloop()
@@ -358,4 +450,3 @@ window.mainloop()
 # selectAutorid = "SELECT * FROM Autorid"
 # selectŽanrid = "SELECT * FROM Žanrid"
 # selectFilmid = "SELECT * FROM Filmid"
-# 
