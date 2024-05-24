@@ -374,8 +374,8 @@ INSERT INTO Filmid(nimetus,väljaandmise_kuupäev,autor_id,žanr_id) VALUES
 
 # GUI
 
-x=500
-y=500
+x=900
+y=900
 bg="#000000"
 fg="#00FF00"
 font="Arial 24"
