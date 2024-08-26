@@ -114,7 +114,7 @@ namespace KudriashevTARpv23
             {
                 Console.WriteLine("Tule minuga kinno!");
                 Console.WriteLine("Kui vana sa oled?");
-                int vanus = Console.ReadLine();
+                int vanus = int.Parse(Console.ReadLine());
                 if (vanus < 0 || vanus < 100)
                 {
                     Console.WriteLine("Viga andmetega");
