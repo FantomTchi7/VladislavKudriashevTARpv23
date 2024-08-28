@@ -38,12 +38,35 @@ namespace KudriashevTARpv23
             Console.WriteLine(Funktsioonid.temperatuurUle18(17));
             Funktsioonid.juku("Juku");
             Funktsioonid.naaber();
+            
             Random random = new Random();
             for (int i = 0; i < 8; i++)
             {
                 int paev_nr = random.Next(1, 8);
                 Console.WriteLine(Funktsioonid.paevad(paev_nr));
             }
+
+            string[] nimed = new string[5] {"Anna", "Inna", "Oksana", "Pavel", "Karl"};
+            for (int i = 0; i < nimed.Length; i++)
+            {
+                Console.WriteLine(nimed[i]);
+            }
+            foreach (string nimi in nimed)
+            {
+                Console.WriteLine(nimi);
+            }
+            int n = 0;
+            while (n < nimed.Length)
+            {
+                Console.WriteLine(nimed[n]);
+                n++;
+            }
+            do
+            {
+                Console.WriteLine(nimed[n-1]);
+                n--;
+            }
+            while (n != 0);
         }
     }
 }
