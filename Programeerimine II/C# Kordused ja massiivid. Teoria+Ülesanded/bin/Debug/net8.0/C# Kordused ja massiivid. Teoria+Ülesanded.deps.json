@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "C# Kordused ja massiivid. Teoria+Ülesanded/1.0.0": {
+        "runtime": {
+          "C# Kordused ja massiivid. Teoria+Ülesanded.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "C# Kordused ja massiivid. Teoria+Ülesanded/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
