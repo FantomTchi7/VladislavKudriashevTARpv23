@@ -48,7 +48,7 @@ namespace KudriashevTARpv23
                 }
                 else
                 {
-                    tempArv = 1;
+                    tempArv = arv1;
                 }
             }
             return tempArv;
@@ -151,6 +151,40 @@ namespace KudriashevTARpv23
             Console.WriteLine("Mis on teise naabri nimi?");
             string naaber2 = Console.ReadLine();
             Console.WriteLine("{0} ja {1} on naabrid.", naaber1, naaber2);
+        }
+
+        //päeva number-> päeva nimetus
+        public static string paevad(int nr)
+        {
+            string paev;
+            switch (nr)
+            {
+                case 1:
+                    paev = "esmaspäev";
+                    break;
+                case 2:
+                    paev = "teisipäev";
+                    break;
+                case 3:
+                    paev = "kolmapäev";
+                    break;
+                case 4:
+                    paev = "neljapäev";
+                    break;
+                case 5:
+                    paev = "reede";
+                    break;
+                case 6:
+                    paev = "laupäev";
+                    break;
+                case 7:
+                    paev = "pühapäev";
+                    break;
+                default:
+                    paev = "Ei saa määrata";
+                    break;
+            }
+            return paev;
         }
     }
 }
