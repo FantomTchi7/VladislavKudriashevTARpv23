@@ -105,17 +105,15 @@ namespace KudriashevTARpv23
             return tulemus;
         }
 
-        public static void juku()
+        public static void juku(string eesnimi)
         {
-            Console.WriteLine("Tere tulemast!");
-            string eesnimi = Console.ReadLine();
             Console.WriteLine("Tere, " + eesnimi);
             if (eesnimi.ToLower() == "juku")
             {
                 Console.WriteLine("Tule minuga kinno!");
                 Console.WriteLine("Kui vana sa oled?");
                 int vanus = int.Parse(Console.ReadLine());
-                if (vanus < 0 || vanus < 100)
+                if (vanus < 0 || vanus > 100)
                 {
                     Console.WriteLine("Viga andmetega");
                 }
@@ -144,6 +142,15 @@ namespace KudriashevTARpv23
             {
                 Console.WriteLine("Täna mind kodus pole!");
             }
+        }
+
+        public static void naaber()
+        {
+            Console.WriteLine("Mis on esimene naabri nimi?");
+            string naaber1 = Console.ReadLine();
+            Console.WriteLine("Mis on teise naabri nimi?");
+            string naaber2 = Console.ReadLine();
+            Console.WriteLine("{0} ja {1} on naabrid.", naaber1, naaber2);
         }
     }
 }

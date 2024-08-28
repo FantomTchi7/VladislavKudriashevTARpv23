@@ -33,9 +33,11 @@ namespace KudriashevTARpv23
             Console.WriteLine("Vastus: {0}", Funktsioonid.Liitmine(a, (int)arv));
             char taht = 'A';
             Console.WriteLine(taht);
-            Console.WriteLine(Funktsioonid.Arvuta("==",8,8));
-            Console.WriteLine(Funktsioonid.korgusUtlema("mees",170));
+            Console.WriteLine(Funktsioonid.Arvuta("==", 8, 8));
+            Console.WriteLine(Funktsioonid.korgusUtlema("mees", 170));
             Console.WriteLine(Funktsioonid.temperatuurUle18(17));
+            Funktsioonid.juku("Juku");
+            Funktsioonid.naaber();
         }
     }
 }
