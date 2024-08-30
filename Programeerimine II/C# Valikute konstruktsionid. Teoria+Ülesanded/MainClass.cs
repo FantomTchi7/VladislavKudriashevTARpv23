@@ -70,36 +70,61 @@ namespace KudriashevTARpv23
             // while (n != 0);
 
             //II. osa listid ja sõnastikud
-            List<string> abc = new List<string>();
-            try
-            {
-                foreach (string rida in File.ReadAllLines(@"..\..\..\ABC.txt"))
-                {
-                    abc.Add(rida);
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Fail ei saa leida!");
-            }
-            foreach (string e in abc)
-            {
-                Console.WriteLine(e);
-            }
+            // List<string> abc = new List<string>();
+            // try
+            // {
+            //     foreach (string rida in File.ReadAllLines(@"..\..\..\ABC.txt"))
+            //     {
+            //         abc.Add(rida);
+            //     }
+            // }
+            // catch (Exception)
+            // {
+            //     Console.WriteLine("Fail ei saa leida!");
+            // }
+            // foreach (string e in abc)
+            // {
+            //     Console.WriteLine(e);
+            // }
+            // 
+            // ArrayList arrayList = new ArrayList();
+            // arrayList.Add("Esimene");
+            // arrayList.Add("Teine");
+            // arrayList.Add("Kolmas");
+            // Console.WriteLine("Otsing: ");
+            // string vas = Console.ReadLine();
+            // if (vas != null && arrayList.Contains(vas))
+            // {
+            //     Console.WriteLine("Otsitav element asub " + arrayList.IndexOf(vas) + ". kohal");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Kokku oli " + arrayList.Count + " elemente, vaid otsitav puudub");
+            // }
+            // arrayList.Clear();
+            // arrayList.Insert(1, "Anna");
+            // arrayList.Insert(0, "Inna");
+            // foreach (string e in arrayList)
+            // {
+            //     Console.WriteLine(e);
+            // }
 
-            ArrayList arrayList = new ArrayList();
-            arrayList.Add("Esimene");
-            arrayList.Add("Teine");
-            arrayList.Add("Kolmas");
-            Console.WriteLine("Otsing: ");
-            string vas = Console.ReadLine();
-            if (vas != null && arrayList.Contains(vas))
+            //III. osa OOP
+            List<Inimene> inimesed = new List<Inimene>();
+            Inimene inimene1 = new Inimene();
+            inimene1.Nimi = "Pjotr";
+            inimene1.Vanus = 352;
+            Inimene inimene2 = new Inimene("Jelizaveta");
+            inimene2.Vanus = 98;
+            Inimene inimene3 = new Inimene("Vlad", 17);
+            inimesed.Add(inimene1);
+            inimesed.Add(inimene2);
+            inimesed.Add(inimene3);
+            inimesed.Add(new Inimene("Irina", 18));
+
+            foreach (Inimene inimene in inimesed)
             {
-                Console.WriteLine("Otsitav element asub " + arrayList.IndexOf(vas) + ". kohal");
-            }
-            else
-            {
-                Console.WriteLine("Kokku oli " + arrayList.Count + " elemente, vaid otsitav puudub");
+                Console.WriteLine($"{inimene.Nimi} on {inimene.Vanus} aastat vana");
             }
         }
     }

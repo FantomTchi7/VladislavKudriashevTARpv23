@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KudriashevTARpv23")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab929b739ebd83a5042823f6c4832e1f5de52482")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41d20b64816a22f74f16524bf8eab7e0bb503e5a")]
 [assembly: System.Reflection.AssemblyProductAttribute("KudriashevTARpv23")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KudriashevTARpv23")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

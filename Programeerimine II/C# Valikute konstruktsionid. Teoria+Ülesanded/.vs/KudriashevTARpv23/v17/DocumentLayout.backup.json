@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{B65CAC73-56D8-4B6D-B276-D951EE5BCFCF}|KudriashevTARpv23.csproj|solutionrelative:mainclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B65CAC73-56D8-4B6D-B276-D951EE5BCFCF}|KudriashevTARpv23.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\c# valikute konstruktsionid. teoria\u002B\u00FClesanded\\inimene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B65CAC73-56D8-4B6D-B276-D951EE5BCFCF}|KudriashevTARpv23.csproj|solutionrelative:inimene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B65CAC73-56D8-4B6D-B276-D951EE5BCFCF}|KudriashevTARpv23.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\c# valikute konstruktsionid. teoria\u002B\u00FClesanded\\funktsioonid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B65CAC73-56D8-4B6D-B276-D951EE5BCFCF}|KudriashevTARpv23.csproj|solutionrelative:funktsioonid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Inimene.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Valikute konstruktsionid. Teoria\u002B\u00DClesanded\\Inimene.cs",
+              "RelativeDocumentMoniker": "Inimene.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Valikute konstruktsionid. Teoria\u002B\u00DClesanded\\Inimene.cs",
+              "RelativeToolTip": "Inimene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T07:29:57.996Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,14 +49,14 @@
               "RelativeDocumentMoniker": "MainClass.cs",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Valikute konstruktsionid. Teoria\u002B\u00DClesanded\\MainClass.cs",
               "RelativeToolTip": "MainClass.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAgwGkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAowH4AAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-28T10:28:21.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Funktsioonid.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Valikute konstruktsionid. Teoria\u002B\u00DClesanded\\Funktsioonid.cs",
               "RelativeDocumentMoniker": "Funktsioonid.cs",
@@ -47,12 +64,11 @@
               "RelativeToolTip": "Funktsioonid.cs",
               "ViewState": "AgIAAGMAAAAAAAAAAAAqwAsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T10:28:21.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T10:28:21.361Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ABC.txt",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Valikute konstruktsionid. Teoria\u002B\u00DClesanded\\ABC.txt",
               "RelativeDocumentMoniker": "ABC.txt",
@@ -60,8 +76,7 @@
               "RelativeToolTip": "ABC.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-08-30T06:36:28.003Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T06:36:28.003Z"
             }
           ]
         }
