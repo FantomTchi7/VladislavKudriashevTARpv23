@@ -113,5 +113,18 @@ namespace KudriashevTARpv23
                 Console.WriteLine("Oled kasutanud kõik katsed. Number oli {0}.", arvutiArv);
             }
         }
+
+        public static void SuurimArv()
+        {
+            int[] neliArvu = new int[4];
+            for (int i = 0; i < neliArvu.Length; i++)
+            {
+                Console.WriteLine("Sisesta arv {0}:", i + 1);
+                neliArvu[i] = int.Parse(Console.ReadLine());
+            }
+            Array.Sort(neliArvu);
+            Array.Reverse(neliArvu);
+            Console.WriteLine("Suurim võimalik neliarvuline arv: {0}", neliArvu[0]);
+        }
     }
 }

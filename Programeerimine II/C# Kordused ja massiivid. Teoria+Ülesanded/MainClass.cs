@@ -16,6 +16,7 @@ namespace KudriashevTARpv23
             Funktsioonid.Nimed_Vanused();
             Funktsioonid.OstaElevantAra();
             Funktsioonid.ArvaArvutiArv();
+            Funktsioonid.SuurimArv();
         }
     }
 }
