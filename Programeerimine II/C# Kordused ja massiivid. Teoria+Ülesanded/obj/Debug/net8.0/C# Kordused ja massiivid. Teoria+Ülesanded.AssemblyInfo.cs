@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("C# Kordused ja massiivid. Teoria+Ülesanded")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc00c78a7e8a710b41486319cfe7b8cf778b9252")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71be251d8f71545090927e7bf88088ba05b096dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("C# Kordused ja massiivid. Teoria+Ülesanded")]
 [assembly: System.Reflection.AssemblyTitleAttribute("C# Kordused ja massiivid. Teoria+Ülesanded")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

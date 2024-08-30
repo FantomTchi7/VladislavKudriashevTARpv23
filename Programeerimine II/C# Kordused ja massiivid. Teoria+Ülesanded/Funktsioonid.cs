@@ -49,12 +49,10 @@ namespace KudriashevTARpv23
             {
                 arvud[i] = int.Parse(Console.ReadLine());
             }
-            int summa = arvud.Sum();
-            double keskmine = arvud.Average();
-            int korrutis = arvud.Aggregate(1, (acc, x) => acc * x);
-            Console.WriteLine("Summa: {0}", summa);
-            Console.WriteLine("Aritmeetiline keskmine: {0}", keskmine);
-            Console.WriteLine("Korrutis: {0}", korrutis);
+            Console.WriteLine("Summa: {0}", arvud.Sum());
+            Console.WriteLine("Aritmeetiline keskmine: {0}", arvud.Average());
+            Console.WriteLine("Korrutis: {0}", arvud.Aggregate(1, (acc, x) => acc * x));
+            // Aggregate запускает аккумулятор начиная от 1, acc = тоже одному и x = первому значению списка), каждый раз он их перемножает и получает результат.
         }
 
         public static void Nimed_Vanused()
@@ -69,21 +67,17 @@ namespace KudriashevTARpv23
                 Console.Write("Vanus: ");
                 vanused[i] = int.Parse(Console.ReadLine());
             }
-            int koguVanus = vanused.Sum();
-            double keskmineVanus = vanused.Average();
             int vanimVanus = vanused.Max();
             int noorimVanus = vanused.Min();
-            string vanimInimene = nimed[Array.IndexOf(vanused, vanimVanus)];
-            string noorimInimene = nimed[Array.IndexOf(vanused, noorimVanus)];
-            Console.WriteLine("Koguvanus: {0}", koguVanus);
-            Console.WriteLine("Aritmeetiline keskmine vanus: {0}", keskmineVanus);
-            Console.WriteLine("Vanim inimene: {0}, Vanus: {1}", vanimInimene, vanimVanus);
-            Console.WriteLine("Noorim inimene: {0}, Vanus: {1}", noorimInimene, noorimVanus);
+            Console.WriteLine("Koguvanus: {0}", vanused.Sum());
+            Console.WriteLine("Aritmeetiline keskmine vanus: {0}", vanused.Average());
+            Console.WriteLine("Vanim inimene: {0}, Vanus: {1}", nimed[Array.IndexOf(vanused, vanimVanus)], vanimVanus);
+            Console.WriteLine("Noorim inimene: {0}, Vanus: {1}", nimed[Array.IndexOf(vanused, noorimVanus)], noorimVanus);
         }
 
         public static void OstaElevantAra()
         {
-            string kasutajaSisend = "";
+            string kasutajaSisend;
             do
             {
                 Console.WriteLine("Osta elevant!");
