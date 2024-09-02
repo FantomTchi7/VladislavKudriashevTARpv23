@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "C# Kollektsioonid. Listid ja sõnastikud. Meetodid ja näidised/1.0.0": {
+        "runtime": {
+          "C# Kollektsioonid. Listid ja sõnastikud. Meetodid ja näidised.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "C# Kollektsioonid. Listid ja sõnastikud. Meetodid ja näidised/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

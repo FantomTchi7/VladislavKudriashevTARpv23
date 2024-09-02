@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{742B7E9C-52D6-4AB8-8C37-BE7BD9C5E13E}|C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\c# kollektsioonid. listid ja s\u00F5nastikud. meetodid ja n\u00E4idised\\funktsioonid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{742B7E9C-52D6-4AB8-8C37-BE7BD9C5E13E}|C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised.csproj|solutionrelative:funktsioonid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{742B7E9C-52D6-4AB8-8C37-BE7BD9C5E13E}|C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\c# kollektsioonid. listid ja s\u00F5nastikud. meetodid ja n\u00E4idised\\mainclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{742B7E9C-52D6-4AB8-8C37-BE7BD9C5E13E}|C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised.csproj|solutionrelative:mainclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Funktsioonid.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised\\Funktsioonid.cs",
+              "RelativeDocumentMoniker": "Funktsioonid.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised\\Funktsioonid.cs",
+              "RelativeToolTip": "Funktsioonid.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAowFwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T10:30:22.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainClass.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised\\MainClass.cs",
+              "RelativeDocumentMoniker": "MainClass.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\C# Kollektsioonid. Listid ja s\u00F5nastikud. Meetodid ja n\u00E4idised\\MainClass.cs",
+              "RelativeToolTip": "MainClass.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T10:27:37.696Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
