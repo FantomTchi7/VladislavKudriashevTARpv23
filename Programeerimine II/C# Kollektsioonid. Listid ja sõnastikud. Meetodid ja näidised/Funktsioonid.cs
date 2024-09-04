@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -73,23 +74,57 @@ namespace KudriashevTARpv23
         }
         public static void Ulesanne3()
         {
-            Dictionary<string, double> toodedJaKalorid = new Dictionary<string, double>();
-            string nimi;
-            double kalorid;
-
+            List<Toode> tooted = new List<Toode>();
             Console.WriteLine("Sisestage toodete arv:");
             int toodearv = int.Parse(Console.ReadLine());
+            string nimetus;
+            int kalorid;
 
             for (int i = 0; i < toodearv; i++)
             {
                 Console.WriteLine($"Sisestage {i+1} toote nimi:");
-                nimi = Console.ReadLine();
+                nimetus = Console.ReadLine();
                 Console.WriteLine($"Sisestage {i+1} toote kalorid:");
-                toodedJaKalorid.Add(nimi, double.Parse(Console.ReadLine()));
+                kalorid = int.Parse(Console.ReadLine());
+                Toode toode = new Toode(nimetus, kalorid);
+                tooted.Add(toode);
             }
-            foreach (var key in toodedJaKalorid.Keys)
+
+            //for (int i = 0; i < tooted.Count; i++)
+            //{
+            //    Console.WriteLine($"Toode {i + 1}: Nimi = {tooted[i].Nimetus}, Kalorid = {tooted[i].Kalorid}");
+            //}
+
+            Console.WriteLine("Mis on sinu sugu?");
+            string sugu = Console.ReadLine();
+            while (!(sugu.ToLower() == "mees" || sugu.ToLower() == "naine"))
             {
-                System.Console.WriteLine("{0}: {1}", key, String.Join(", ", toodedJaKalorid[key]));
+                Console.WriteLine("Proovi uuesti:");
+                sugu = Console.ReadLine();
+            }
+
+            Console.WriteLine("Mis on sinu vanus?");
+            int vanus = int.Parse(Console.ReadLine());
+            Console.WriteLine("Mis on sinu pikkus?");
+            int pikkus = int.Parse(Console.ReadLine());
+            Console.WriteLine("Mis on sinu kaal?");
+            int kaal = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Mis on sinu eluviis?");
+            string eluviis = Console.ReadLine();
+            while (!new string[] { "istuv", "vahene", "moodukas", "korge", "vaga korge" }.Contains(eluviis.ToLower()))
+            {
+                Console.WriteLine("Proovi uuesti:");
+                eluviis = Console.ReadLine();
+            }
+
+            Inimene inimene = new Inimene(sugu, vanus, pikkus, kaal, eluviis);
+            double vastus = inimene.BMR();
+
+            foreach (Toode toode in tooted)
+            {
+                double kogus = vastus / toode.Kalorid * 100;
+                Console.WriteLine($"{toode.Nimetus}: {kogus} grammi");
             }
         }
     }
