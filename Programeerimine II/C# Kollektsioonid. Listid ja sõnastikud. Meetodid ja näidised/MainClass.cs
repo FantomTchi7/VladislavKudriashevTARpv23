@@ -10,9 +10,10 @@ namespace KudriashevTARpv23
     {
         public static void Main(string[] args)
         {
-        Funktsioonid.Ulesanne1();
-        Funktsioonid.Ulesanne2();
-        Funktsioonid.Ulesanne3();
+        //Funktsioonid.Ulesanne1();
+        //Funktsioonid.Ulesanne2();
+        //Funktsioonid.Ulesanne3();
+        Funktsioonid.Ulesanne4();
         }
     }
 }

@@ -127,5 +127,78 @@ namespace KudriashevTARpv23
                 Console.WriteLine($"{toode.Nimetus}: {kogus} grammi");
             }
         }
+
+        public static void Ulesanne4()
+        {
+            Sonastik sonastik = new Sonastik();
+
+            while (true)
+            {
+                Console.WriteLine("\nVali tegevus:");
+                Console.WriteLine("1. Näita maakonnad ja pealinnad");
+                Console.WriteLine("2. Leia pealinn maakonna järgi");
+                Console.WriteLine("3. Leia maakond pealinna järgi");
+                Console.WriteLine("4. Lisa uus maakond");
+                Console.WriteLine("5. Testi oma teadmisi");
+                Console.WriteLine("6. Välju");
+                Console.Write("Valik: ");
+                int valik = int.Parse(Console.ReadLine());
+
+                switch (valik)
+                {
+                    case 1:
+                        sonastik.NaitaTeaved();
+                        break;
+
+                    case 2:
+                        Console.Write("Sisesta maakonna nimi: ");
+                        string maakond = Console.ReadLine();
+                        string pealinn = sonastik.LeiaPealinn(maakond);
+                        if (pealinn != null)
+                        {
+                            Console.WriteLine($"Maakonna {maakond} pealinn on {pealinn}.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sellist maakonda ei leitud.");
+                        }
+                        break;
+
+                    case 3:
+                        Console.Write("Sisesta pealinna nimi: ");
+                        string linn = Console.ReadLine();
+                        string maakondNimi = sonastik.LeiaMaakond(linn);
+                        if (maakondNimi != null)
+                        {
+                            Console.WriteLine($"Pealinn {linn} asub {maakondNimi} maakonnas.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sellist pealinna ei leitud.");
+                        }
+                        break;
+
+                    case 4:
+                        Console.Write("Sisesta uus maakond: ");
+                        string uusMaakond = Console.ReadLine();
+                        Console.Write("Sisesta selle pealinn: ");
+                        string uusPealinn = Console.ReadLine();
+                        sonastik.LisaMaakond(uusMaakond, uusPealinn);
+                        Console.WriteLine("Maakond lisatud!");
+                        break;
+
+                    case 5:
+                        sonastik.TestiTeadmisi();
+                        break;
+
+                    case 6:
+                        return;
+
+                    default:
+                        Console.WriteLine("Vale valik, proovi uuesti.");
+                        break;
+                }
+            }
+        }
     }
 }
