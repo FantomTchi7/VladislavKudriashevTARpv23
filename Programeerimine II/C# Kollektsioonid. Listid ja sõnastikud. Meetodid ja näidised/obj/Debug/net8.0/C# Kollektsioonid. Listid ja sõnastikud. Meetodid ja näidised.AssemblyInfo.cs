@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("C# Kollektsioonid. Listid ja sõnastikud. Meetodid ja näidised")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da5b56a894bb21c7c2c7d3299d1a9e7739472b2d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b149d4fc8f240aed5f7885b9d327b53690096ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("C# Kollektsioonid. Listid ja sõnastikud. Meetodid ja näidised")]
 [assembly: System.Reflection.AssemblyTitleAttribute("C# Kollektsioonid. Listid ja sõnastikud. Meetodid ja näidised")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
