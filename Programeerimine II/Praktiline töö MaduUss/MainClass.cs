@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace Praktiline_töö_MaduUss
 {
@@ -11,6 +6,7 @@ namespace Praktiline_töö_MaduUss
     {
         public static void Main(string[] args)
         {
+            Console.Clear();
             int x = 80;
             int y = 25;
             string gameOver = "Mäng läbi!";
@@ -29,35 +25,53 @@ namespace Praktiline_töö_MaduUss
             Punkt food = foodCreator.LooToit();
             food.Draw(food.x, food.y, food.sym);
 
+            int foodCounter = 0;
+            double moveTime = 100;
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            Console.SetCursorPosition(0, 0);
+            Console.Write($"Söödud toit: {foodCounter} ");
+
             while (true)
             {
                 if (walls.KasLoob(snake) || snake.KasLoobSaba())
                 {
                     break;
                 }
-                if (snake.Soo(food))
+
+                if (stopwatch.ElapsedMilliseconds >= moveTime)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    food = foodCreator.LooToit();
-                    food.Draw(food.x, food.y, food.sym);
+                    bool hasEaten = snake.Soo(food);
+                    if (hasEaten)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        food = foodCreator.LooToit();
+                        food.Draw(food.x, food.y, food.sym);
+                        foodCounter += 1;
+                        Console.SetCursorPosition(0, 0);
+                        Console.Write($"Söödud toit: {foodCounter} ");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        snake.Move();
+                    }
+                    stopwatch.Restart();
                 }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    snake.Move();
-                }
+
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey(true);
                     snake.Juhtnupud(key.Key);
                 }
-                Thread.Sleep(100);
+                Thread.Sleep(10);
             }
+
             Console.ForegroundColor = ConsoleColor.Red;
-            walls.Draw();
             Console.SetCursorPosition((x / 2) - (gameOver.Length / 2) - 2, y / 2 - 1);
             Console.WriteLine(gameOver);
-            Console.ReadLine();
+            Console.ReadKey(true);
             Console.SetCursorPosition(x - 1, y - 1);
             Console.ForegroundColor = ConsoleColor.White;
         }
