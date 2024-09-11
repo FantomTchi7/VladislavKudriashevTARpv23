@@ -11,8 +11,20 @@
       "RelativeMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|solutionrelative:madu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\praktiline t\u00F6\u00F6 maduuss\\seinad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|solutionrelative:seinad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\praktiline t\u00F6\u00F6 maduuss\\punkt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|solutionrelative:punkt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\praktiline t\u00F6\u00F6 maduuss\\toitlooja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|solutionrelative:toitlooja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\praktiline t\u00F6\u00F6 maduuss\\kujund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B55D8B65-0010-4537-BDE7-7CBF75C7BE3A}|Praktiline t\u00F6\u00F6 MaduUss.csproj|solutionrelative:kujund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,19 +34,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Punkt.cs",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Punkt.cs",
-              "RelativeDocumentMoniker": "Punkt.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Punkt.cs",
-              "RelativeToolTip": "Punkt.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAuwDUAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Madu.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Madu.cs",
+              "RelativeDocumentMoniker": "Madu.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Madu.cs",
+              "RelativeToolTip": "Madu.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwDwAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T11:58:33.597Z",
+              "WhenOpened": "2024-09-11T08:27:32.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Seinad.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Seinad.cs",
+              "RelativeDocumentMoniker": "Seinad.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Seinad.cs",
+              "RelativeToolTip": "Seinad.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAgwBMAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T07:41:37.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ToitLooja.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\ToitLooja.cs",
+              "RelativeDocumentMoniker": "ToitLooja.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\ToitLooja.cs",
+              "RelativeToolTip": "ToitLooja.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T06:28:12.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Kujund.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Kujund.cs",
+              "RelativeDocumentMoniker": "Kujund.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Kujund.cs",
+              "RelativeToolTip": "Kujund.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T06:05:39.485Z",
               "EditorCaption": ""
             },
             {
@@ -45,22 +96,22 @@
               "RelativeDocumentMoniker": "MainClass.cs",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\MainClass.cs",
               "RelativeToolTip": "MainClass.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAkwCQAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwDgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-09T11:58:31.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Madu.cs",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Madu.cs",
-              "RelativeDocumentMoniker": "Madu.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Madu.cs",
-              "RelativeToolTip": "Madu.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwDwAAAA3AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Punkt.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Punkt.cs",
+              "RelativeDocumentMoniker": "Punkt.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline t\u00F6\u00F6 MaduUss\\Punkt.cs",
+              "RelativeToolTip": "Punkt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T11:45:48.516Z",
+              "WhenOpened": "2024-09-09T11:58:33.597Z",
               "EditorCaption": ""
             }
           ]

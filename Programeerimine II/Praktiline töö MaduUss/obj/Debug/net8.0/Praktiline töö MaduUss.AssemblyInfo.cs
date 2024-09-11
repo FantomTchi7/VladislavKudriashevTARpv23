@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Praktiline töö MaduUss")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c956ee6694f0c0b21220367a81dec8eeb56495e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a90be64cee2540168f04878a956f878b79e66293")]
 [assembly: System.Reflection.AssemblyProductAttribute("Praktiline töö MaduUss")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Praktiline töö MaduUss")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

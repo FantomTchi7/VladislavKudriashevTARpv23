@@ -46,22 +46,48 @@ namespace Praktiline_töö_MaduUss
 
         public void Juhtnupud(ConsoleKey key)
         {
-            if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
+            if ((key == ConsoleKey.LeftArrow || key == ConsoleKey.A) && direction != Suunas.RIGHT)
             {
                 direction = Suunas.LEFT;
             }
-            else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
+            else if ((key == ConsoleKey.RightArrow || key == ConsoleKey.D) && direction != Suunas.LEFT)
             {
                 direction = Suunas.RIGHT;
             }
-            else if (key == ConsoleKey.UpArrow || key == ConsoleKey.W)
+            else if ((key == ConsoleKey.UpArrow || key == ConsoleKey.W) && direction != Suunas.DOWN)
             {
                 direction = Suunas.UP;
             }
-            else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
+            else if ((key == ConsoleKey.DownArrow || key == ConsoleKey.S) && direction != Suunas.UP)
             {
                 direction = Suunas.DOWN;
             }
+        }
+
+        internal bool Soo(Punkt food)
+        {
+            Punkt head = hankigeJargminePunkt();
+            if (head.KasLoob(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        internal bool KasLoobSaba()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.KasLoob(pList[i]))
+                    return true;
+            }
+            return false;
         }
     }
 }

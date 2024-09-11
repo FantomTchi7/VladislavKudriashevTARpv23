@@ -49,6 +49,11 @@ namespace Praktiline_töö_MaduUss
             }
         }
 
+        public bool KasLoob(Punkt p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
+
         public void Draw(int x, int y, char sym)
         {
             Console.SetCursorPosition(x, y);
