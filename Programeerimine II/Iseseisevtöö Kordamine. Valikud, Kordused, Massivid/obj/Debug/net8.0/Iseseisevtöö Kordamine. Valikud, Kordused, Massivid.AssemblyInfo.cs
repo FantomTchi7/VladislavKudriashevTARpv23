@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Iseseisevtöö Kordamine. Valikud, Kordused, Massivid")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b19bdff3b93e5a5ec2848978107dd9b3baccbb51")]
 [assembly: System.Reflection.AssemblyProductAttribute("Iseseisevtöö Kordamine. Valikud, Kordused, Massivid")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Iseseisevtöö Kordamine. Valikud, Kordused, Massivid")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

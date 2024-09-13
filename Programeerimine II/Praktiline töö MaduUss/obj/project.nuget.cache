@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "330Yd1jrn0eoWR1qNhpYgvL8qHl70serWXwQSnU3q5XCKPohmDGXcynqzX2Sl8uZUUVEPkJ9bha+5cSaPCva3w==",
+  "dgSpecHash": "vikNbn8wvTw=",
   "success": true,
-  "projectFilePath": "/home/fantom/VladislavKudriashevTARpv23/Programeerimine II/Praktiline töö MaduUss/Praktiline töö MaduUss.csproj",
-  "expectedPackageFiles": [
-    "/home/fantom/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.8/microsoft.aspnetcore.app.ref.8.0.8.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Praktiline töö MaduUss\\Praktiline töö MaduUss.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
