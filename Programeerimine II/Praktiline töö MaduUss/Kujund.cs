@@ -1,39 +1,38 @@
-﻿namespace Praktiline_töö_MaduUss
+﻿using Praktiline_töö_MaduUss;
+
+class Kujund
 {
-    class Kujund
+    public List<Punkt> pList;
+
+    public virtual void Draw()
     {
-        protected List<Punkt> pList;
-
-        public virtual void Draw()
+        foreach (Punkt p in pList)
         {
-            foreach (Punkt p in pList)
+            p.Draw(p.x, p.y, p.sym);
+        }
+    }
+
+    internal bool KasLoob(Kujund figure)
+    {
+        foreach (var p in pList)
+        {
+            if (figure.KasLoob(p))
             {
-                p.Draw(p.x, p.y, p.sym);
+                return true;
             }
         }
+        return false;
+    }
 
-        internal bool KasLoob(Kujund figure)
+    internal bool KasLoob(Punkt point)
+    {
+        foreach (var p in pList)
         {
-            foreach(var p in pList)
+            if (p.KasLoob(point))
             {
-                if (figure.KasLoob(p))
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
         }
-
-        private bool KasLoob(Punkt point)
-        {
-            foreach (var p in pList)
-            {
-                if (p.KasLoob(point))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        return false;
     }
 }

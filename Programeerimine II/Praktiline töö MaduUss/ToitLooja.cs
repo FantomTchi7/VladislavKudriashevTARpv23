@@ -1,25 +1,34 @@
-﻿namespace Praktiline_töö_MaduUss
+﻿using Praktiline_töö_MaduUss;
+
+class ToitLooja
 {
-    class ToitLooja
+    public int mapWidth;
+    public int mapHeight;
+    public char sym;
+
+    Random random = new Random();
+
+    public ToitLooja(int mapWidth, int mapHeight, char sym)
     {
-        public int mapWidth;
-        public int mapHeight;
-        public char sym;
+        this.mapWidth = mapWidth;
+        this.mapHeight = mapHeight;
+        this.sym = sym;
+    }
 
-        Random random = new Random();
+    public Punkt LooToit(List<Punkt> snakeBody)
+    {
+        Punkt food;
+        bool isOnSnake;
 
-        public ToitLooja(int mapWidth, int mapHeight, char sym)
-        {
-            this.mapWidth = mapWidth;
-            this.mapHeight = mapHeight;
-            this.sym = sym;
-        }
-
-        public Punkt LooToit()
+        do
         {
             int x = random.Next(2, mapWidth - 2);
             int y = random.Next(2, mapHeight - 2);
-            return new Punkt(x, y, sym);
+            food = new Punkt(x, y, sym);
+            isOnSnake = snakeBody.Any(snakePart => snakePart.KasLoob(food));
         }
+        while (isOnSnake);
+
+        return food;
     }
 }

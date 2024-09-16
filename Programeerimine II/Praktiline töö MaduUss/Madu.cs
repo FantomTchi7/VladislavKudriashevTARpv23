@@ -3,10 +3,14 @@
     internal class Madu : Kujund
     {
         public Suunas direction;
+        private int maxX;
+        private int maxY;
 
-        public Madu(Punkt tail, int length, Suunas Direction)
+        public Madu(Punkt tail, int length, Suunas Direction, int maxX, int maxY)
         {
             direction = Direction;
+            this.maxX = maxX;
+            this.maxY = maxY;
             pList = new List<Punkt>();
             for (int i = 0; i < length; i++)
             {
@@ -21,10 +25,15 @@
             Punkt tail = pList.First();
             pList.Remove(tail);
             Punkt head = hankigeJargminePunkt();
-            pList.Add(head);
 
+            if (head.x >= maxX - 2) head.x = 1;
+            if (head.x <= 0) head.x = maxX - 3;
+            if (head.y >= maxY - 1) head.y = 1;
+            if (head.y <= 0) head.y = maxY - 2;
+
+            pList.Add(head);
             tail.Tuhjenda();
-            head.Draw(head.x, head.y, head.sym); 
+            head.Draw(head.x, head.y, head.sym);
         }
 
         public Punkt hankigeJargminePunkt()

@@ -5,6 +5,7 @@
         public static List<string> UpdateLeaderboard(List<string> recordTable)
         {
             Dictionary<string, int> leaderboard = new Dictionary<string, int>();
+            List<string> updatedLeaderboard = new List<string>();
 
             foreach (string record in recordTable)
             {
@@ -24,21 +25,16 @@
                     leaderboard.Add(username, score);
                 }
             }
-
-            List<string> updatedLeaderboard = new List<string>();
             foreach (var entry in leaderboard)
             {
                 updatedLeaderboard.Add($"{entry.Key}🗿{entry.Value}");
             }
-
             return updatedLeaderboard;
         }
 
-        public static void ShowLeaderboard(List<string> recordTable, string currentUser)
+        public static void ShowLeaderboard(List<string> recordTable, string currentUser, ConsoleColor foregroundColor)
         {
             var leaderboard = UpdateLeaderboard(recordTable);
-
-            Console.Clear();
             Console.WriteLine("Leaderboard:");
 
             foreach (var record in leaderboard)
@@ -49,16 +45,15 @@
 
                 if (username == currentUser)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{username}: {score}");
-                    Console.ResetColor();
+                    Console.ForegroundColor = foregroundColor;
+                    Console.WriteLine($"{username} - {score}");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
-                    Console.WriteLine($"{username}: {score}");
+                    Console.WriteLine($"{username} - {score}");
                 }
             }
-
             Console.ReadKey(true);
         }
     }

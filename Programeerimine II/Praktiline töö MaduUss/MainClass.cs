@@ -8,27 +8,41 @@ namespace Praktiline_töö_MaduUss
         {
             int x = 80;
             int y = 25;
+            int wallX;
+            int wallY;
             int choice;
+            int choice2;
             int foodCounter = 0;
             double moveTime = 100;
             string gameOver = "Mäng läbi!";
             string user = "opilane";
-            string snakeColor = "DarkGreen";
+            ConsoleColor snakeConsoleColor = ConsoleColor.Green;
             string recordTablePath = @"..\..\..\Resources\RekordiTabel.txt";
             List<string> recordTable = new List<string>(File.ReadAllLines(recordTablePath));
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
 
             while (true)
             {
                 Console.SetWindowSize(x, y);
                 Console.Clear();
+                Console.ForegroundColor = snakeConsoleColor;
+                Console.SetCursorPosition(36, 0);
+                Console.Write("____");
+                Console.SetCursorPosition(35, 1);
+                Console.Write("/ . .\\");
+                Console.SetCursorPosition(35, 2);
+                Console.Write("\\  ---<");
+                Console.SetCursorPosition(36, 3);
+                Console.Write("\\  /");
+                Console.SetCursorPosition(26, 4);
+                Console.Write("__________/ /");
+                Console.SetCursorPosition(23, 5);
+                Console.Write("-=:___________/");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.SetCursorPosition(0, 0);
-                Console.WriteLine("1. Play game");
-                Console.WriteLine("2. Change username & snake color");
-                Console.WriteLine("3. View leaderboard");
-                Console.WriteLine("4. Exit");
-                Console.WriteLine("");
-                Console.WriteLine($"Logged in as {user}");
+                Console.WriteLine("\r\n1. Play game\r\n2. Change username & snake color\r\n3. View leaderboard\r\n4. Exit\r\n");
+                Console.Write($"Logged in as {user}");
                 try
                 {
                     choice = int.Parse(Console.ReadKey(true).KeyChar.ToString());
@@ -41,24 +55,25 @@ namespace Praktiline_töö_MaduUss
                 if (choice == 1)
                 {
                     Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
                     Seinad walls = new Seinad(x, y);
                     walls.Draw();
 
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = snakeConsoleColor;
                     Punkt p = new Punkt(4, 5, '*');
-                    Madu snake = new Madu(p, 4, Suunas.RIGHT);
+                    Madu snake = new Madu(p, 4, Suunas.RIGHT, x, y);
                     snake.Draw();
 
                     ToitLooja foodCreator = new ToitLooja(x, y, '$');
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Punkt food = foodCreator.LooToit();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Punkt food = foodCreator.LooToit(snake.pList);
                     food.Draw(food.x, food.y, food.sym);
 
                     Stopwatch stopwatch = new Stopwatch();
                     stopwatch.Start();
 
                     Console.SetCursorPosition(0, 0);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"Söödud toit: {foodCounter} ");
 
                     while (true)
@@ -72,18 +87,36 @@ namespace Praktiline_töö_MaduUss
                             bool hasEaten = snake.Soo(food);
                             if (hasEaten)
                             {
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                food = foodCreator.LooToit();
-                                food.Draw(food.x, food.y, food.sym);
-                                foodCounter += 1;
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Punkt newWall;
+                                Random rand = new Random();
+                                do
+                                {
+                                    wallX = rand.Next(1, x - 2);
+                                    wallY = rand.Next(1, y - 2);
+                                    newWall = new Punkt(wallX, wallY, '#');
+                                } while (!walls.IsPositionValid(newWall.x, newWall.y, snake.pList, food));
 
+                                walls.AddDynamicWall(newWall);
+                                newWall.Draw(newWall.x, newWall.y, newWall.sym);
+
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Punkt newFood = foodCreator.LooToit(snake.pList);
+                                newFood.Draw(newFood.x, newFood.y, newFood.sym);
+                                food = newFood;
+                                foodCounter += 1;
                                 recordTable.Add($"{user}🗿{foodCounter}");
                                 Console.SetCursorPosition(0, 0);
+                                Console.ForegroundColor = ConsoleColor.Cyan;
                                 Console.Write($"Söödud toit: {foodCounter} ");
                             }
                             else
                             {
-                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                Console.SetCursorPosition(Console.WindowWidth - 12, 0);
+                                TimeSpan timerTime = timer.Elapsed;
+                                Console.WriteLine($" Aeg: {timerTime.Minutes:D2}:{timerTime.Seconds:D2}");
+                                Console.ForegroundColor = snakeConsoleColor;
                                 snake.Move();
                             }
                             stopwatch.Restart();
@@ -99,9 +132,9 @@ namespace Praktiline_töö_MaduUss
                     recordTable = RekordiTabel.UpdateLeaderboard(recordTable);
                     File.WriteAllLines(recordTablePath, recordTable);
                     foodCounter = 0;
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.SetCursorPosition((x / 2) - (gameOver.Length / 2) - 2, y / 2 - 1);
-                    Console.WriteLine(gameOver);
+                    Console.Write(gameOver);
                     Console.ReadKey(true);
                 }
                 else if (choice == 2)
@@ -113,36 +146,62 @@ namespace Praktiline_töö_MaduUss
                     {
                         Console.Clear();
                         Console.WriteLine("Pick snake color:");
-                        Console.WriteLine("1. White     ");
-                        Console.WriteLine("2. Red       ");
-                        Console.WriteLine("3. Green     ");
-                        Console.WriteLine("4. Blue      ");
-                        Console.WriteLine("5. Yellow    ");
-                        Console.WriteLine("6. Cyan      ");
-                        Console.WriteLine("7. Magenta   ");
-                        Console.WriteLine("8. Gray      ");
-                        Console.WriteLine("9. Orange    ");
-                        Console.WriteLine("10. Purple    ");
-                        Console.WriteLine("11. Brown     ");
-                        Console.WriteLine("12. Pink      ");
-                        Console.WriteLine("13. Violet    ");
-                        Console.WriteLine("14. DarkBlue  ");
-                        Console.WriteLine("15. DarkGreen ");
-                        Console.WriteLine("16. DarkRed   ");
-                        Console.WriteLine("17. DarkGray  ");
-                        Console.WriteLine("18. LightBlue ");
-                        Console.WriteLine("19. LightGreen");
-                        Console.WriteLine("20. LightGray ");
-                        Console.WriteLine("21. LightCoral");
-                        Console.WriteLine("22. LightCyan ");
-                        Console.WriteLine("23. Aqua      ");
-                        Console.WriteLine("24. Lime      ");
-                        Console.WriteLine("25. Turquoise ");
+                        Console.WriteLine("1. Blue\r\n2. Cyan\r\n3. DarkBlue\r\n4. DarkCyan\r\n5. DarkGray\r\n6. DarkGreen\r\n7. DarkMagenta\r\n8. DarkRed\r\n9. DarkYellow\r\n10. Gray\r\n11. Green\r\n12. Magenta\r\n13. Red\r\n14. White\r\n15. Yellow");
+                        choice2 = int.Parse(Console.ReadLine());
+                        switch (choice2)
+                        {
+                            case 1:
+                                snakeConsoleColor = ConsoleColor.Blue;
+                                break;
+                            case 2:
+                                snakeConsoleColor = ConsoleColor.Cyan;
+                                break;
+                            case 3:
+                                snakeConsoleColor = ConsoleColor.DarkBlue;
+                                break;
+                            case 4:
+                                snakeConsoleColor = ConsoleColor.DarkCyan;
+                                break;
+                            case 5:
+                                snakeConsoleColor = ConsoleColor.DarkGray;
+                                break;
+                            case 6:
+                                snakeConsoleColor = ConsoleColor.DarkGreen;
+                                break;
+                            case 7:
+                                snakeConsoleColor = ConsoleColor.DarkMagenta;
+                                break;
+                            case 8:
+                                snakeConsoleColor = ConsoleColor.DarkRed;
+                                break;
+                            case 9:
+                                snakeConsoleColor = ConsoleColor.DarkYellow;
+                                break;
+                            case 10:
+                                snakeConsoleColor = ConsoleColor.Gray;
+                                break;
+                            case 11:
+                                snakeConsoleColor = ConsoleColor.Green;
+                                break;
+                            case 12:
+                                snakeConsoleColor = ConsoleColor.Magenta;
+                                break;
+                            case 13:
+                                snakeConsoleColor = ConsoleColor.Red;
+                                break;
+                            case 14:
+                                snakeConsoleColor = ConsoleColor.White;
+                                break;
+                            case 15:
+                                snakeConsoleColor = ConsoleColor.Yellow;
+                                break;
+                        }
                     }
                 }
                 else if (choice == 3)
                 {
-                    RekordiTabel.ShowLeaderboard(recordTable, user);
+                    Console.Clear();
+                    RekordiTabel.ShowLeaderboard(recordTable, user, snakeConsoleColor);
                 }
                 else if (choice == 4)
                 {
