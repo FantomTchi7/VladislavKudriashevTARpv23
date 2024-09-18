@@ -13,8 +13,8 @@ namespace Praktiline_töö_MaduUss
             string gameOver = "Mäng läbi!";
             string user = "opilane";
             ConsoleColor snakeConsoleColor = ConsoleColor.Green;
-            // string recordTablePath = @"..\..\..\Resources\RekordiTabel.txt";
-            string recordTablePath = @"Resources/RekordiTabel.txt"; // Linux
+            string recordTablePath = @"..\..\..\Resources\RekordiTabel.txt"; // Windows
+            // string recordTablePath = @"Resources/RekordiTabel.txt"; // Linux
             List<string> recordTable = new List<string>(File.ReadAllLines(recordTablePath));
 
             while (true)
@@ -95,7 +95,19 @@ namespace Praktiline_töö_MaduUss
                     if (snake.Soo(food))
                     {
                         foodCounter++;
-                        recordTable.Add($"{user}🗿{foodCounter}");
+
+                        if (timer.Elapsed.Hours > 0)
+                        {
+                            recordTable.Add($"{user}🗿{foodCounter}🗿{timer.Elapsed.Hours:D1}h {timer.Elapsed.Minutes:D1}m {timer.Elapsed.Seconds:D1}s");
+                        }
+                        else if (timer.Elapsed.Minutes > 0)
+                        {
+                            recordTable.Add($"{user}🗿{foodCounter}🗿{timer.Elapsed.Minutes:D1}m {timer.Elapsed.Seconds:D1}s");
+                        }
+                        else
+                        {
+                            recordTable.Add($"{user}🗿{foodCounter}🗿{timer.Elapsed.Seconds:D1}s");
+                        }
 
                         Punkt newWall;
                         do
@@ -139,6 +151,7 @@ namespace Praktiline_töö_MaduUss
 
             Punkt snakeStartPoint = new Punkt(4, 5, '*');
             Madu snake = new Madu(snakeStartPoint, 4, Suunas.RIGHT, x, y);
+            Console.ForegroundColor = snakeConsoleColor;
             snake.Draw();
 
             return snake;

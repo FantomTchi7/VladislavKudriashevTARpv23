@@ -1,10 +1,12 @@
-﻿namespace Praktiline_töö_MaduUss
+﻿using System.Diagnostics;
+
+namespace Praktiline_töö_MaduUss
 {
     class RekordiTabel
     {
         public static List<string> UpdateLeaderboard(List<string> recordTable)
         {
-            Dictionary<string, int> leaderboard = new Dictionary<string, int>();
+            Dictionary<string, (int Score, string Timer)> leaderboard = new Dictionary<string, (int Score, string Timer)>();
             List<string> updatedLeaderboard = new List<string>();
 
             foreach (string record in recordTable)
@@ -12,23 +14,26 @@
                 var splitRecord = record.Split("🗿");
                 string username = splitRecord[0];
                 int score = int.Parse(splitRecord[1]);
+                string timer = splitRecord[2];
 
                 if (leaderboard.ContainsKey(username))
                 {
-                    if (score > leaderboard[username])
+                    if (score > leaderboard[username].Score)
                     {
-                        leaderboard[username] = score;
+                        leaderboard[username] = (score, timer);
                     }
                 }
                 else
                 {
-                    leaderboard.Add(username, score);
+                    leaderboard.Add(username, (score, timer));
                 }
             }
+
             foreach (var entry in leaderboard)
             {
-                updatedLeaderboard.Add($"{entry.Key}🗿{entry.Value}");
+                updatedLeaderboard.Add($"{entry.Key}🗿{entry.Value.Score}🗿{entry.Value.Timer}");
             }
+
             return updatedLeaderboard;
         }
 
@@ -42,16 +47,17 @@
                 var splitRecord = record.Split("🗿");
                 string username = splitRecord[0];
                 int score = int.Parse(splitRecord[1]);
+                string timer = splitRecord[2];
 
                 if (username == currentUser)
                 {
                     Console.ForegroundColor = foregroundColor;
-                    Console.WriteLine($"{username} - {score}");
+                    Console.WriteLine($"{username} - {score} in {timer}");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
-                    Console.WriteLine($"{username} - {score}");
+                    Console.WriteLine($"{username} - {score} in {timer}");
                 }
             }
             Console.ReadKey(true);
