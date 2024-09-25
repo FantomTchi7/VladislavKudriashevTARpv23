@@ -1,0 +1,14 @@
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.AssemblyInfoInputs.cache
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.AssemblyInfo.cs
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.csproj.CoreCompileInputs.cache
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\bin\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.exe
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\bin\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.deps.json
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\bin\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.runtimeconfig.json
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\bin\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.dll
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\bin\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.pdb
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.dll
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\refint\Ülesanne 4 Jalgpalli mäng.dll
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.pdb
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\Ülesanne 4 Jalgpalli mäng.genruntimeconfig.cache
+C:\Users\opilane\source\repos\Ülesanne 4 Jalgpalli mäng\obj\Debug\net8.0\ref\Ülesanne 4 Jalgpalli mäng.dll

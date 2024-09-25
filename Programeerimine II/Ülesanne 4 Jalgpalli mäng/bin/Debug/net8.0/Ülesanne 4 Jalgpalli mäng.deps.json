@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Ülesanne 4 Jalgpalli mäng/1.0.0": {
+        "runtime": {
+          "Ülesanne 4 Jalgpalli mäng.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ülesanne 4 Jalgpalli mäng/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

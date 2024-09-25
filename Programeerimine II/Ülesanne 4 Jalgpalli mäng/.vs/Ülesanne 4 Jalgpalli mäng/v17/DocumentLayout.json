@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|c:\\users\\opilane\\source\\repos\\\u00FClesanne 4 jalgpalli m\u00E4ng\\stadium.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|solutionrelative:stadium.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|c:\\users\\opilane\\source\\repos\\\u00FClesanne 4 jalgpalli m\u00E4ng\\ball.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|solutionrelative:ball.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|c:\\users\\opilane\\source\\repos\\\u00FClesanne 4 jalgpalli m\u00E4ng\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|c:\\users\\opilane\\source\\repos\\\u00FClesanne 4 jalgpalli m\u00E4ng\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|solutionrelative:team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|c:\\users\\opilane\\source\\repos\\\u00FClesanne 4 jalgpalli m\u00E4ng\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|c:\\users\\opilane\\source\\repos\\\u00FClesanne 4 jalgpalli m\u00E4ng\\mainclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{369C540F-865B-4AEB-BA62-C963153E387D}|\u00DClesanne 4 Jalgpalli m\u00E4ng.csproj|solutionrelative:mainclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainClass.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\MainClass.cs",
+              "RelativeDocumentMoniker": "MainClass.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\MainClass.cs",
+              "RelativeToolTip": "MainClass.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T07:11:22.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Team.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Team.cs",
+              "RelativeDocumentMoniker": "Team.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Team.cs",
+              "RelativeToolTip": "Team.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T06:38:52.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Stadium.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Stadium.cs",
+              "RelativeDocumentMoniker": "Stadium.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Stadium.cs",
+              "RelativeToolTip": "Stadium.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T06:39:28.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ball.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Ball.cs",
+              "RelativeDocumentMoniker": "Ball.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Ball.cs",
+              "RelativeToolTip": "Ball.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T06:39:08.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T06:39:54.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Game.cs",
+              "RelativeDocumentMoniker": "Game.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\\u00DClesanne 4 Jalgpalli m\u00E4ng\\Game.cs",
+              "RelativeToolTip": "Game.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAADUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T06:37:58.056Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
