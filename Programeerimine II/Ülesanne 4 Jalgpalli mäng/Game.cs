@@ -16,28 +16,24 @@ public class Game
         Stadium = stadium;
     }
 
-    public void Start() // Создаём мяч и комманды
+    public void Start()
     {
         Ball = new Ball(Stadium.Width / 2, Stadium.Height / 2, this);
         HomeTeam.StartGame(Stadium.Width / 2, Stadium.Height);
         AwayTeam.StartGame(Stadium.Width / 2, Stadium.Height);
     }
-    private (double, double) GetPositionForAwayTeam(double x, double y) // Получение позиции для комманды Away
+
+    public (int, int) GetPositionForTeam(Team team, int x, int y)
     {
-        return (Stadium.Width - x, Stadium.Height - y);
+        return team == HomeTeam ? (x, y) : (Stadium.Width - x, Stadium.Height - y);
     }
 
-    public (double, double) GetPositionForTeam(Team team, double x, double y) // Получение позиции для комманды
-    {
-        return team == HomeTeam ? (x, y) : GetPositionForAwayTeam(x, y);
-    }
-
-    public (double, double) GetBallPositionForTeam(Team team) // Получение позиции мяча для комманды
+    public (int, int) GetBallPositionForTeam(Team team)
     {
         return GetPositionForTeam(team, Ball.X, Ball.Y);
     }
 
-    public void SetBallSpeedForTeam(Team team, double vx, double vy) // Установка скорости мяча для комманды
+    public void SetBallSpeedForTeam(Team team, int vx, int vy)
     {
         if (team == HomeTeam)
         {
@@ -49,10 +45,44 @@ public class Game
         }
     }
 
-    public void Move() // Ввести всё в движение
+    public void Move()
     {
         HomeTeam.Move();
         AwayTeam.Move();
         Ball.Move();
+    }
+
+    public void Display()
+    {
+        var stadium = new char[Stadium.Height, Stadium.Width];
+
+        for (int i = 0; i < Stadium.Height; i++)
+        {
+            for (int j = 0; j < Stadium.Width; j++)
+            {
+                stadium[i, j] = ' ';
+            }
+        }
+
+        stadium[Ball.Y, Ball.X] = 'O'; // Ball represented by 'O'
+
+        foreach (var player in HomeTeam.Players)
+        {
+            stadium[player.Y, player.X] = 'H'; // Home team players represented by 'H'
+        }
+
+        foreach (var player in AwayTeam.Players)
+        {
+            stadium[player.Y, player.X] = 'A'; // Away team players represented by 'A'
+        }
+
+        for (int i = 0; i < Stadium.Height; i++)
+        {
+            for (int j = 0; j < Stadium.Width; j++)
+            {
+                Console.Write(stadium[i, j]);
+            }
+            Console.WriteLine();
+        }
     }
 }

@@ -4,38 +4,38 @@ public class Team
 {
     public List<Player> Players { get; } = new List<Player>();
     public string Name { get; private set; }
-    public Game Game { get; set; } // движение к мячу
+    public Game Game { get; set; }
 
     public Team(string name)
     {
         Name = name;
     }
 
-    public void StartGame(int width, int height) // выдаёт позиции каждому игроку
+    public void StartGame(int width, int height)
     {
         Random rnd = new Random();
         foreach (var player in Players)
         {
             player.SetPosition(
-                rnd.NextDouble() * width,
-                rnd.NextDouble() * height
-                );
+                rnd.Next(width),
+                rnd.Next(height)
+            );
         }
     }
 
-    public void AddPlayer(Player player) // добавление игрока
+    public void AddPlayer(Player player)
     {
         if (player.Team != null) return;
         Players.Add(player);
         player.Team = this;
     }
 
-    public (double, double) GetBallPosition() // найти позицию мяча
+    public (int, int) GetBallPosition()
     {
         return Game.GetBallPositionForTeam(this);
     }
 
-    public void SetBallSpeed(double vx, double vy) // установка скорости мяча
+    public void SetBallSpeed(int vx, int vy)
     {
         Game.SetBallSpeedForTeam(this, vx, vy);
     }
@@ -43,7 +43,7 @@ public class Team
     public Player GetClosestPlayerToBall()
     {
         Player closestPlayer = Players[0];
-        double bestDistance = Double.MaxValue;
+        int bestDistance = Int32.MaxValue;
         foreach (var player in Players)
         {
             var distance = player.GetDistanceToBall();

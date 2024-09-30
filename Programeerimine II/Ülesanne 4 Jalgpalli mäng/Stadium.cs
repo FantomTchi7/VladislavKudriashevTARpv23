@@ -2,7 +2,7 @@
 
 public class Stadium
 {
-    public Stadium(int width, int height) // Создаём стадион
+    public Stadium(int width, int height)
     {
         Width = width;
         Height = height;
@@ -12,7 +12,7 @@ public class Stadium
 
     public int Height { get; }
 
-    public bool IsIn(double x, double y) // Проверка пределов стадиона
+    public bool IsIn(int x, int y)
     {
         return x >= 0 && x < Width && y >= 0 && y < Height;
     }

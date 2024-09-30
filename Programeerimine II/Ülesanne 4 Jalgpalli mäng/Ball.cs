@@ -2,30 +2,35 @@
 
 public class Ball
 {
-    public double X { get; private set; }
-    public double Y { get; private set; }
+    public int X { get; private set; }
+    public int Y { get; private set; }
 
-    private double _vx, _vy;
+    private int _vx, _vy;
+    private int _previousX;
+    private int _previousY;
 
     private Game _game;
 
-    public Ball(double x, double y, Game game) // Создание мяча
+    public Ball(int x, int y, Game game)
     {
         _game = game;
         X = x;
         Y = y;
     }
 
-    public void SetSpeed(double vx, double vy) // Установка скорости
+    public void SetSpeed(int vx, int vy)
     {
         _vx = vx;
         _vy = vy;
     }
 
-    public void Move() // Движение мяча в пределах стадиона
+    public void Move()
     {
-        double newX = X + _vx;
-        double newY = Y + _vy;
+        _previousX = X;
+        _previousY = Y;
+
+        int newX = X + _vx;
+        int newY = Y + _vy;
         if (_game.Stadium.IsIn(newX, newY))
         {
             X = newX;
@@ -38,4 +43,20 @@ public class Ball
         }
     }
 
+    public void Draw(char Char, Stadium stadium)
+    {
+        if (_previousX >= 0 && _previousX < stadium.Width && 
+            _previousY >= 0 && _previousY < stadium.Height)
+        {
+            Console.SetCursorPosition(_previousX, _previousY);
+            Console.Write(' ');
+        }
+    
+        if (X >= 0 && X < stadium.Width && 
+            Y >= 0 && Y < stadium.Height)
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.Write(Char);
+        }
+    }
 }
