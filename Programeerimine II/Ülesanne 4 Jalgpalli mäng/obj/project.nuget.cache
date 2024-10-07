@@ -1,14 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2mSxgEyKmjTEVmxaagbIiJiSP3gyr3pWP7ZR1VB3oiD4q35vvrdo1RHaY9Nt+yKSFa8+cHU+Z+2Vv+flWo+Iow==",
+  "dgSpecHash": "xtU+0jpcqAI=",
   "success": true,
-  "projectFilePath": "/home/fantom/VladislavKudriashevTARpv23/Programeerimine II/Ülesanne 4 Jalgpalli mäng/Ülesanne 4 Jalgpalli mäng.csproj",
-  "expectedPackageFiles": [
-    "/home/fantom/.nuget/packages/microsoft.net.illink.tasks/8.0.8/microsoft.net.illink.tasks.8.0.8.nupkg.sha512",
-    "/home/fantom/.nuget/packages/microsoft.netcore.app.runtime.win-x64/8.0.8/microsoft.netcore.app.runtime.win-x64.8.0.8.nupkg.sha512",
-    "/home/fantom/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.8/microsoft.aspnetcore.app.ref.8.0.8.nupkg.sha512",
-    "/home/fantom/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/8.0.8/microsoft.aspnetcore.app.runtime.win-x64.8.0.8.nupkg.sha512",
-    "/home/fantom/.nuget/packages/microsoft.netcore.app.host.win-x64/8.0.8/microsoft.netcore.app.host.win-x64.8.0.8.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Ülesanne 4 Jalgpalli mäng\\Ülesanne 4 Jalgpalli mäng.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
