@@ -16,6 +16,7 @@ namespace WinForms
         private ListBox listBox;
         private DataGridView dGV;
         private DataSet dS;
+        private Button btnAddData;
         private HashSet<Control> addedControls = new HashSet<Control>();
         private int pictureIndex = 0;
 
@@ -37,6 +38,7 @@ namespace WinForms
             tn.Nodes.Add(new TreeNode("ListBox"));
             tn.Nodes.Add(new TreeNode("DataGridView"));
             tn.Nodes.Add(new TreeNode("Dialogue"));
+            tn.Nodes.Add(new TreeNode("Add Plant"));
             tree.Nodes.Add(tn);
             tree.Dock = DockStyle.Left;
             tree.AfterSelect += Tree_AfterSelect;
@@ -103,6 +105,8 @@ namespace WinForms
             dGV.DataMember = "PLANT";
             dGV.Click += DGV_Click;
 
+            btnAddData = new Button() { Text = "Sisesta taime", Location = new Point(200, 530) };
+            btnAddData.Click += BtnAddData_Click;
         }
 
         private void Tree_AfterSelect(object sender, TreeViewEventArgs e)
@@ -140,6 +144,10 @@ namespace WinForms
 
                 case "Dialogue":
                     DG_Show();
+                    break;
+
+                case "Add Plant":
+                    AddControlIfNotExists(btnAddData);
                     break;
             }
         }
@@ -224,6 +232,34 @@ namespace WinForms
             {
                 string text = Interaction.InputBox("Write something here", "Data insertion");
                 MessageBox.Show("You wrote: " + text, text);
+            }
+        }
+
+        private void BtnAddData_Click(object sender, EventArgs e)
+        {
+            DataRow newRow = dS.Tables["PLANT"].NewRow();
+            newRow["COMMON"] = CheckEmpty(Interaction.InputBox("Insert COMMON"));
+            newRow["BOTANICAL"] = CheckEmpty(Interaction.InputBox("Insert BOTANICAL"));
+            newRow["ZONE"] = CheckEmpty(Interaction.InputBox("Insert ZONE"));
+            newRow["LIGHT"] = CheckEmpty(Interaction.InputBox("Insert LIGHT"));
+            newRow["PRICE"] = CheckEmpty(Interaction.InputBox("Insert PRICE"));
+            newRow["AVAILABILITY"] = CheckEmpty(Interaction.InputBox("Insert AVAILABILITY"));
+
+            dS.Tables["PLANT"].Rows.Add(newRow);
+
+            dS.WriteXml(@"..\..\..\plant_catalog.xml");
+
+            MessageBox.Show("New plant added successfully!");
+        }
+
+        private string? CheckEmpty(string text)
+        {
+            if (text == "" || text == null)
+            {
+                MessageBox.Show("Viga, pole sisestanud andmed");
+                return null;
+            } else {
+                return text;
             }
         }
     }
