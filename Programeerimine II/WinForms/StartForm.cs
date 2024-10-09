@@ -8,6 +8,8 @@ namespace WinForms
     {
         private TreeView tree;
         private Button btn;
+        private Button btn2;
+        private Button btn3;
         private Label lbl;
         private PictureBox pictureBox;
         private CheckBox chk1, chk2;
@@ -58,16 +60,29 @@ namespace WinForms
             lbl.MouseLeave += Lbl_MouseLeave;
 
             btn = new Button();
-            btn.Text = "Vajuta siia";
+            btn.Text = "Esimene vorm";
             btn.Location = new Point(200, 80);
             btn.Click += Btn_Click;
+            btn.Width = 200;
+
+            btn2 = new Button();
+            btn2.Text = "Teine vorm";
+            btn2.Location = new Point(200, 100);
+            btn2.Click += Btn2_Click;
+            btn2.Width = 200;
+
+            btn3 = new Button();
+            btn3.Text = "Kolmas vorm";
+            btn3.Location = new Point(200, 120);
+            btn3.Click += Btn3_Click;
+            btn3.Width = 200;
 
             pictureBox = new PictureBox();
             pictureBox.Image = Image.FromFile(@"..\..\..\cat.jpg");
             pictureBox.Size = new Size(100, 100);
             pictureBox.Location = new Point(200, 150);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox.DoubleClick += Pbox_DoubleClick;
+            pictureBox.DoubleClick += pictureBox1ox_DoubleClick;
 
             chk1 = new CheckBox();
             chk1.Text = "Valik 1";
@@ -115,6 +130,8 @@ namespace WinForms
             {
                 case "Nupp":
                     AddControlIfNotExists(btn);
+                    AddControlIfNotExists(btn2);
+                    AddControlIfNotExists(btn3);
                     break;
 
                 case "Silt":
@@ -163,10 +180,23 @@ namespace WinForms
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Kõige lihtsam aken");
+            TeineVorm teineVorm = new TeineVorm(800, 400);
+            teineVorm.Show();
         }
 
-        private void Pbox_DoubleClick(object? sender, EventArgs e)
+        private void Btn2_Click(object sender, EventArgs e)
+        {
+            KolmasVorm kolmasVorm = new KolmasVorm(500, 400);
+            kolmasVorm.Show();
+        }
+
+        private void Btn3_Click(object sender, EventArgs e)
+        {
+            TeineVorm teineVorm = new TeineVorm(800, 400);
+            teineVorm.Show();
+        }
+
+        private void pictureBox1ox_DoubleClick(object? sender, EventArgs e)
         {
             string[] pildid = { "cat.jpg", "cat2.jpg", "cat3.jpg" };
             pictureIndex = (pictureIndex + 1) % pildid.Length;
