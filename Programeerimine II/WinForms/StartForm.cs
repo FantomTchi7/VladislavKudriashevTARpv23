@@ -1,6 +1,5 @@
 using Microsoft.VisualBasic;
 using System.Data;
-using System.Windows.Forms;
 
 namespace WinForms
 {
@@ -192,8 +191,8 @@ namespace WinForms
 
         private void Btn3_Click(object sender, EventArgs e)
         {
-            TeineVorm teineVorm = new TeineVorm(800, 400);
-            teineVorm.Show();
+            NeljasVorm neljasVorm = new NeljasVorm(550, 550);
+            neljasVorm.Show();
         }
 
         private void pictureBox1ox_DoubleClick(object? sender, EventArgs e)

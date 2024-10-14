@@ -33,3 +33,4 @@ C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\WinF
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\WinForms\obj\Debug\net8.0-windows\WinForms.MainForm.resources
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\WinForms\obj\Debug\net8.0-windows\WinForms.TeineVorm.resources
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\WinForms\obj\Debug\net8.0-windows\WinForms.KolmasVorm.resources
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\WinForms\obj\Debug\net8.0-windows\WinForms.NeljasVorm.resources
