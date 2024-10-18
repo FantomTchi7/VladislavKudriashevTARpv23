@@ -1,4 +1,6 @@
-﻿namespace WinForms
+﻿using System.Windows.Forms;
+
+namespace WinForms
 {
     public partial class TeineVorm : Form
     {
@@ -12,10 +14,12 @@
         private Button showButton;
         private OpenFileDialog openFileDialog1;
         private ColorDialog colorDialog1;
+
+        private Button rotateButton;
         public TeineVorm(int w, int h)
         {
-            this.Width = w;
-            this.Height = h;
+            this.Height = 375;
+            this.Width = 575;
 
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -62,15 +66,21 @@
 
             colorDialog1 = new ColorDialog();
 
+            rotateButton = new Button();
+            rotateButton.Text = "Rotate picture";
+            rotateButton.AutoSize = true;
+            rotateButton.Click += rotateButton_Click;
+
             InitializeControls();
         }
         private void InitializeControls()
         {
             Controls.Add(tableLayoutPanel1);
-            
+
             flowLayoutPanel1.Controls.Add(showButton);
             flowLayoutPanel1.Controls.Add(clearButton);
             flowLayoutPanel1.Controls.Add(backgroundButton);
+            flowLayoutPanel1.Controls.Add(rotateButton);
             flowLayoutPanel1.Controls.Add(closeButton);
 
             tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
@@ -85,6 +95,8 @@
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Load(openFileDialog1.FileName);
+                this.Width = Math.Max(pictureBox1.Image.Size.Width, 575);
+                this.Height = Math.Max(pictureBox1.Image.Size.Height, 375);
             }
         }
         private void clearButton_Click(object sender, EventArgs e)
@@ -114,6 +126,14 @@
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             else
                 pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
+        }
+        private void rotateButton_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                pictureBox1.Refresh();
+            }
         }
     }
 }

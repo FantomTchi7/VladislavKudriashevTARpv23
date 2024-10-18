@@ -31,7 +31,7 @@ namespace WinForms
 
             tree = new TreeView();
             TreeNode tn = new TreeNode("Elemendid:");
-            tn.Nodes.Add(new TreeNode("Nupp"));
+            tn.Nodes.Add(new TreeNode("Kolm rakendust"));
             tn.Nodes.Add(new TreeNode("Silt"));
             tn.Nodes.Add(new TreeNode("Pilt"));
             tn.Nodes.Add(new TreeNode("Märkeruut"));
@@ -127,7 +127,7 @@ namespace WinForms
         {
             switch (e.Node.Text)
             {
-                case "Nupp":
+                case "Kolm rakendust":
                     AddControlIfNotExists(btn);
                     AddControlIfNotExists(btn2);
                     AddControlIfNotExists(btn3);
