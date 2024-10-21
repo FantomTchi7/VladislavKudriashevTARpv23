@@ -1,138 +1,216 @@
-﻿using System.Windows.Forms;
-
-namespace WinForms
+﻿namespace WinForms
 {
     public partial class TeineVorm : Form
     {
-        private TableLayoutPanel tableLayoutPanel1;
         private PictureBox pictureBox1;
         private CheckBox checkBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button closeButton;
-        private Button backgroundButton;
-        private Button clearButton;
         private Button showButton;
         private OpenFileDialog openFileDialog1;
-        private ColorDialog colorDialog1;
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem stretchMenuItem;
+        private ToolStripMenuItem fileMenuItem;
+        private ToolStripMenuItem editMenuItem;
+        private ToolStripMenuItem viewMenuItem;
 
         private Button rotateButton;
+        private SaveFileDialog saveFileDialog1;
+        private string currentImagePath;
+
+        private ToolStripMenuItem themeMenuItem;
         public TeineVorm(int w, int h)
         {
             this.Height = 375;
             this.Width = 575;
 
-            tableLayoutPanel1 = new TableLayoutPanel();
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            menuStrip1 = new MenuStrip();
+            fileMenuItem = new ToolStripMenuItem("File");
+            ToolStripMenuItem openMenuItem = new ToolStripMenuItem("Open picture...");
+            ToolStripMenuItem saveMenuItem = new ToolStripMenuItem("Save as...");
 
+            openMenuItem.Click += showButton_Click;
+            saveMenuItem.Click += saveButton_Click;
+            fileMenuItem.DropDownItems.Add(openMenuItem);
+            fileMenuItem.DropDownItems.Add(saveMenuItem);
+            menuStrip1.Items.Add(fileMenuItem);
+
+            editMenuItem = new ToolStripMenuItem("Edit");
+            stretchMenuItem = new ToolStripMenuItem("Stretch picture");
+            ToolStripMenuItem rotateLeftMenuItem = new ToolStripMenuItem("Rotate 90 to the left");
+            ToolStripMenuItem rotateRightMenuItem = new ToolStripMenuItem("Rotate 90 to the right");
+            ToolStripMenuItem resetMenuItem = new ToolStripMenuItem("Reset picture");
+
+            stretchMenuItem.CheckOnClick = true;
+            stretchMenuItem.CheckedChanged += checkBox1_CheckedChanged;
+            rotateLeftMenuItem.Click += (sender, e) => rotateButton_Click("left", sender, e);
+            rotateRightMenuItem.Click += (sender, e) => rotateButton_Click("right", sender, e);
+            resetMenuItem.Click += resetButton_Click;
+
+            editMenuItem.DropDownItems.Add(stretchMenuItem);
+            editMenuItem.DropDownItems.Add(rotateLeftMenuItem);
+            editMenuItem.DropDownItems.Add(rotateRightMenuItem);
+            editMenuItem.DropDownItems.Add(resetMenuItem);
+            menuStrip1.Items.Add(editMenuItem);
+
+            viewMenuItem = new ToolStripMenuItem("View");
+            themeMenuItem = new ToolStripMenuItem("Black theme");
+            themeMenuItem.CheckOnClick = true;
+            themeMenuItem.CheckedChanged += themeMenuItem_CheckedChanged;
+            viewMenuItem.DropDownItems.Add(themeMenuItem);
+            menuStrip1.Items.Add(viewMenuItem);
+
+            Controls.Add(menuStrip1);
 
             pictureBox1 = new PictureBox();
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
 
-            checkBox1 = new CheckBox();
-            checkBox1.Text = "Stretch";
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            openFileDialog1 = new OpenFileDialog
+            {
+                Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All files (*.*)|*.*",
+                Title = "Select picture file"
+            };
 
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            saveFileDialog1 = new SaveFileDialog
+            {
+                Filter = "PNG Files (*.png)|*.png",
+                Title = "Save picture file"
+            };
 
-            closeButton = new Button();
-            closeButton.Text = "Close";
-            closeButton.AutoSize = true;
-            closeButton.Click += closeButton_Click;
-            backgroundButton = new Button();
-            backgroundButton.Text = "Set the background color";
-            backgroundButton.AutoSize = true;
-            backgroundButton.Click += backgroundButton_Click;
-            clearButton = new Button();
-            clearButton.Text = "Clear the picture";
-            clearButton.AutoSize = true;
-            clearButton.Click += clearButton_Click;
-            showButton = new Button();
-            showButton.Text = "Show a picture";
-            showButton.AutoSize = true;
-            showButton.Click += showButton_Click;
+            this.BackColor = Color.White;
+            menuStrip1.BackColor = Color.White;
+            menuStrip1.ForeColor = Color.Black;
 
-            openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All files (*.*)|*.*";
-            openFileDialog1.Title = "Select a picture file";
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                item.BackColor = Color.White;
+                item.ForeColor = Color.Black;
+            }
 
-            colorDialog1 = new ColorDialog();
-
-            rotateButton = new Button();
-            rotateButton.Text = "Rotate picture";
-            rotateButton.AutoSize = true;
-            rotateButton.Click += rotateButton_Click;
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.ForeColor = Color.Black;
 
             InitializeControls();
         }
         private void InitializeControls()
         {
-            Controls.Add(tableLayoutPanel1);
-
-            flowLayoutPanel1.Controls.Add(showButton);
-            flowLayoutPanel1.Controls.Add(clearButton);
-            flowLayoutPanel1.Controls.Add(backgroundButton);
-            flowLayoutPanel1.Controls.Add(rotateButton);
-            flowLayoutPanel1.Controls.Add(closeButton);
-
-            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
-            tableLayoutPanel1.SetColumnSpan(pictureBox1, 2);
-            tableLayoutPanel1.Controls.Add(checkBox1, 0, 1);
-            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 1, 1);
+            Controls.Add(menuStrip1);
+            Controls.Add(pictureBox1);
         }
         private void showButton_Click(object sender, EventArgs e)
         {
-            // Show the Open File dialog. If the user clicks OK, load the
-            // picture that the user chose.
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Load(openFileDialog1.FileName);
-                this.Width = Math.Max(pictureBox1.Image.Size.Width, 575);
-                this.Height = Math.Max(pictureBox1.Image.Size.Height, 375);
+                currentImagePath = openFileDialog1.FileName;
+                pictureBox1.Load(currentImagePath);
+                this.Text = System.IO.Path.GetFileName(currentImagePath);
+                adjustPictureBoxSize();
             }
         }
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            // Clear the picture.
-            pictureBox1.Image = null;
-        }
-        private void backgroundButton_Click(object sender, EventArgs e)
-        {
-            // Show the color dialog box. If the user clicks OK, change the
-            // PictureBox control's background to the color the user chose.
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-                pictureBox1.BackColor = colorDialog1.Color;
-        }
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            // Close the form.
-            this.Close();
-        }
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            // If the user selects the Stretch check box, 
-            // change the PictureBox's
-            // SizeMode property to "Stretch". If the user clears 
-            // the check box, change it to "Normal".
-            if (checkBox1.Checked)
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            else
-                pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
-        }
-        private void rotateButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null)
             {
-                pictureBox1.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image.Save(saveFileDialog1.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No image to save.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = stretchMenuItem.Checked ? PictureBoxSizeMode.StretchImage : PictureBoxSizeMode.Normal;
+        }
+        private void rotateButton_Click(string side, object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                if (side == "left")
+                {
+                    pictureBox1.Image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                }
+                else if (side == "right")
+                {
+                    pictureBox1.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                }
                 pictureBox1.Refresh();
+                adjustPictureBoxSize();
+            }
+            else
+            {
+                MessageBox.Show("No image to rotate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void adjustPictureBoxSize()
+        {
+            if (pictureBox1.Image != null)
+            {
+                this.Width = pictureBox1.Image.Size.Width + 16;
+                this.Height = pictureBox1.Image.Size.Height + menuStrip1.Height + 15;
+            }
+        }
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            if (currentImagePath != null)
+            {
+                pictureBox1.Load(currentImagePath);
+                adjustPictureBoxSize();
+            }
+            else
+            {
+                MessageBox.Show("No image loaded to reset.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void themeMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            ApplyTheme(themeMenuItem.Checked);
+        }
+
+        private void ApplyTheme(bool isDarkTheme)
+        {
+            if (isDarkTheme)
+            {
+                this.BackColor = Color.FromArgb(45, 45, 48);
+                menuStrip1.BackColor = Color.FromArgb(45, 45, 48);
+                menuStrip1.ForeColor = Color.White;
+
+                foreach (ToolStripItem item in menuStrip1.Items)
+                {
+                    ApplyItemTheme(item, Color.FromArgb(45, 45, 48), Color.White);
+                }
+
+                pictureBox1.BackColor = Color.FromArgb(45, 45, 48);
+                pictureBox1.ForeColor = Color.White;
+            }
+            else
+            {
+                this.BackColor = Color.White;
+                menuStrip1.BackColor = Color.White;
+                menuStrip1.ForeColor = Color.Black;
+
+                foreach (ToolStripItem item in menuStrip1.Items)
+                {
+                    ApplyItemTheme(item, Color.White, Color.Black);
+                }
+
+                pictureBox1.BackColor = Color.White;
+                pictureBox1.ForeColor = Color.Black;
+            }
+        }
+        private void ApplyItemTheme(ToolStripItem item, Color backColor, Color foreColor)
+        {
+            item.BackColor = backColor;
+            item.ForeColor = foreColor;
+
+            if (item is ToolStripDropDownItem dropDownItem)
+            {
+                foreach (ToolStripItem subItem in dropDownItem.DropDownItems)
+                {
+                    ApplyItemTheme(subItem, backColor, foreColor);
+                }
             }
         }
     }
