@@ -1,6 +1,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using Font = System.Drawing.Font;
 
 namespace Часть_1._Создание_класса_Triangle_в_проекте_WindowsForm
 {
@@ -11,7 +13,7 @@ namespace Часть_1._Создание_класса_Triangle_в_проекте
         private ColumnHeader columnHeader1, columnHeader2;
         private Label lblA, lblB, lblC;
         private TextBox txtA, txtB, txtC;
-        private Panel panel1;
+        private Panel panel, panel1;
         private Triangle triangle;
         public TriangleForm()
         {
@@ -66,11 +68,16 @@ namespace Часть_1._Создание_класса_Triangle_в_проекте
             txtB.Location = new Point(225, 280);
             txtC.Location = new Point(225, 310);
 
+            panel = new Panel();
+            panel.Location = new Point(500, 180);
+            panel.BackColor = Color.FromArgb(0, 192, 192);
+            panel.Padding = new Padding(10);
+            panel.Width = 200;
+            panel.Height = 175;
+
             panel1 = new Panel();
-            panel1.Location = new Point(500, 180);
-            panel1.Width = 150;
-            panel1.Height = 150;
-            panel1.BackColor = Color.Black;
+            panel1.BackColor = Color.FromArgb(255, 255, 192);
+            panel1.Dock = DockStyle.Fill;
             panel1.Paint += new PaintEventHandler(panel1_Paint);
 
             triangle = new Triangle();
@@ -264,6 +271,7 @@ namespace Часть_1._Создание_класса_Triangle_в_проекте
             listView1.Items.Add("Сторона a");
             listView1.Items.Add("Сторона b");
             listView1.Items.Add("Сторона c");
+            listView1.Items.Add("Высота");
             listView1.Items.Add("Периметр");
             listView1.Items.Add("Площадь");
             listView1.Items.Add("Существует?");
@@ -271,48 +279,85 @@ namespace Часть_1._Создание_класса_Triangle_в_проекте
             listView1.Items[0].SubItems.Add(triangle.outputA());
             listView1.Items[1].SubItems.Add(triangle.outputB());
             listView1.Items[2].SubItems.Add(triangle.outputC());
-            listView1.Items[3].SubItems.Add(Convert.ToString(triangle.Perimeter()));
-            listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface()));
-            if (triangle.ExistTriangle) { listView1.Items[5].SubItems.Add("Существует"); }
-            else listView1.Items[5].SubItems.Add("Не существует");
+            listView1.Items[3].SubItems.Add(Convert.ToString(triangle.CalculateH()));
+            listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Perimeter()));
+            listView1.Items[5].SubItems.Add(Convert.ToString(triangle.Surface()));
+            if (triangle.ExistTriangle) { listView1.Items[6].SubItems.Add("Существует"); }
+            else listView1.Items[6].SubItems.Add("Не существует");
+            if (triangle.TriangleType() == "Equilateral triangle")
+            {
+                listView1.Items[7].SubItems.Add("Равносторонний треугольник");
+            }
+            else if (triangle.TriangleType() == "Right-angled triangle")
+            {
+                listView1.Items[7].SubItems.Add("Прямоугольный треугольник");
+            } else if (triangle.TriangleType() == "Scalene triangle")
+            {
+                listView1.Items[7].SubItems.Add("Разносторонний треугольник");
+            }
             panel1.Invalidate();
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            PointF[] points;
+            double a = triangle.a;
+            double b = triangle.b;
+            double c = triangle.c;
 
-            if (triangle.TriangleType() == "Equilateral triangle")
-            {
-                points = new PointF[]
-                {
-                    new PointF(panel1.Width / 2, (float)(panel1.Height - (Math.Sqrt(3) / 2 * panel1.Height))),
-                    new PointF(0, panel1.Height),
-                    new PointF(panel1.Width, panel1.Height)
-                };
-            } else if (triangle.TriangleType() == "Right-angled triangle")
-            {
-                points = new PointF[]
-                {
-                    new PointF(0, 0),
-                    new PointF(0, panel1.Height),
-                    new PointF(panel1.Width, panel1.Width)
-                };
-            } else if (triangle.TriangleType() == "Scalene triangle")
-            {
-                points = new PointF[]
-                {
-                    new Point(0, 0)
-                };
-            } else
-            {
-                points = new PointF[]
-                {
-                    new Point(0, 0)
-                };
-            }
+            double maxSide = Math.Max(a, Math.Max(b, c));
+            double scale = Math.Min(panel1.Width, panel1.Height) / maxSide * 0.8;
 
-            g.FillPolygon(Brushes.Blue, points);
+            a *= scale;
+            b *= scale;
+            c *= scale;
+
+            PointF pointA = new PointF(0, 0);
+            PointF pointB = new PointF(pointA.X + (float)a, pointA.Y);
+
+            double angleC = Math.Acos((a * a + b * b - c * c) / (2 * a * b));
+            float xC = (float)(pointA.X + b * Math.Cos(angleC));
+            float yC = (float)(pointA.Y - b * Math.Sin(angleC));
+            PointF pointC = new PointF(xC, yC);
+
+            Pen pen = new Pen(Color.FromArgb(0, 192, 192), 2);
+            Font font = new Font("Mongolian Baiti", 12);
+
+            SizeF textSizeA = g.MeasureString("A", font);
+            SizeF textSizeB = g.MeasureString("B", font);
+            SizeF textSizeC = g.MeasureString("C", font);
+
+            float minX = Math.Min(pointA.X - textSizeA.Width / 2, Math.Min(pointB.X - textSizeB.Width / 2, pointC.X - textSizeC.Width / 2));
+            float maxX = Math.Max(pointA.X + textSizeA.Width / 2, Math.Max(pointB.X + textSizeB.Width / 2, pointC.X + textSizeC.Width / 2));
+            float minY = Math.Min(pointA.Y, Math.Min(pointB.Y, pointC.Y - textSizeC.Height));
+            float maxY = Math.Max(pointA.Y + textSizeA.Height, Math.Max(pointB.Y + textSizeB.Height, pointC.Y));
+
+            float offsetX = (panel1.Width - (maxX - minX)) / 2 - minX;
+            float offsetY = (panel1.Height - (maxY - minY)) / 2 - minY;
+            pointA.X += offsetX;
+            pointA.Y += offsetY;
+            pointB.X += offsetX;
+            pointB.Y += offsetY;
+            pointC.X += offsetX;
+            pointC.Y += offsetY;
+
+            g.DrawString("A", font, Brushes.Black, pointA.X - textSizeA.Width / 2, pointA.Y);
+            g.DrawString("B", font, Brushes.Black, pointB.X - textSizeB.Width / 2, pointB.Y);
+            g.DrawString("C", font, Brushes.Black, pointC.X - textSizeC.Width / 2, pointC.Y - textSizeC.Height);
+
+            g.DrawLine(pen, pointA, pointB);
+            g.DrawLine(pen, pointB, pointC);
+            g.DrawLine(pen, pointC, pointA);
+
+            Font sideFont = new Font("Mongolian Baiti", 10);
+            string lengthA = Math.Round(triangle.a, 2).ToString();
+            string lengthB = Math.Round(triangle.b, 2).ToString();
+            string lengthC = Math.Round(triangle.c, 2).ToString();
+            textSizeA = g.MeasureString(lengthA, font);
+            textSizeB = g.MeasureString(lengthB, font);
+            textSizeC = g.MeasureString(lengthC, font);
+            g.DrawString(lengthA, sideFont, Brushes.Black, (pointA.X + pointB.X) / 2, (pointA.Y + pointB.Y) / 2);
+            g.DrawString(lengthB, sideFont, Brushes.Black, (pointB.X + pointC.X) / 2, (pointB.Y + pointC.Y) / 2);
+            g.DrawString(lengthC, sideFont, Brushes.Black, (pointC.X + pointA.X) / 2, (pointC.Y + pointA.Y) / 2);
         }
         private void InitializeControls()
         {
@@ -324,7 +369,8 @@ namespace Часть_1._Создание_класса_Triangle_в_проекте
             Controls.Add(lblA);
             Controls.Add(lblB);
             Controls.Add(lblC);
-            Controls.Add(panel1);
+            Controls.Add(panel);
+            panel.Controls.Add(panel1);
         }
     }
 }
