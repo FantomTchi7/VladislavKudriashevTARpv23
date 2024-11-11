@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Часть 1. Создание класса Triangle в проекте WindowsForm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6cf92e126e14da72f3c042808c53c19144ff0ddb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0243e91e53694eab85c8c0f3b4ab205ae33cbf3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Часть 1. Создание класса Triangle в проекте WindowsForm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Часть 1. Создание класса Triangle в проекте WindowsForm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

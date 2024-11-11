@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Xml;
 
 namespace Создание_класса_Triangle_в_проекте_WindowsForm
 {
-    public partial class TriangleForm : Form
+    public partial class TriangleForm2 : Form
     {
         private Button Run_button, Export_button, Form_button;
         private ListView listView1;
@@ -15,7 +15,7 @@ namespace Создание_класса_Triangle_в_проекте_WindowsForm
         private Panel panel, panel1;
         private Triangle triangle;
         private SaveFileDialog saveFileDialog;
-        public TriangleForm()
+        public TriangleForm2()
         {
             this.Text = "Работа с треугольником";
             this.Width = 800;
@@ -128,17 +128,20 @@ namespace Создание_класса_Triangle_в_проекте_WindowsForm
                     a = length;
                     b = height;
                     c = CalculateHypotenuse(a, b);
-                } else if (missingSide.ToString().ToUpper() == "B")
+                }
+                else if (missingSide.ToString().ToUpper() == "B")
                 {
                     a = length;
                     c = height;
                     b = CalculateHypotenuse(a, c);
-                } else if (missingSide.ToString().ToUpper() == "A")
+                }
+                else if (missingSide.ToString().ToUpper() == "A")
                 {
                     b = length;
                     c = height;
                     a = CalculateHypotenuse(b, c);
-                } else
+                }
+                else
                 {
                     a = 0;
                     b = 0;
@@ -267,26 +270,32 @@ namespace Создание_класса_Triangle_в_проекте_WindowsForm
             double.TryParse(txtA.Text, out a);
             double.TryParse(txtB.Text, out b);
             double.TryParse(txtC.Text, out c);
-            
+
             if (aFilled && bFilled && cFilled)
             {
                 triangle = new Triangle(a, b, c);
-            } else if (aFilled && bFilled)
+            }
+            else if (aFilled && bFilled)
             {
                 triangle = new Triangle(a, b, 'C');
-            } else if (bFilled && cFilled)
+            }
+            else if (bFilled && cFilled)
             {
                 triangle = new Triangle(b, c, 'A');
-            } else if (cFilled && aFilled)
+            }
+            else if (cFilled && aFilled)
             {
                 triangle = new Triangle(a, c, 'B');
-            } else if (aFilled)
+            }
+            else if (aFilled)
             {
                 triangle = new Triangle(a);
-            } else if (bFilled)
+            }
+            else if (bFilled)
             {
                 triangle = new Triangle(b);
-            } else if (cFilled)
+            }
+            else if (cFilled)
             {
                 triangle = new Triangle(c);
             }
@@ -315,7 +324,8 @@ namespace Создание_класса_Triangle_в_проекте_WindowsForm
             else if (triangle.TriangleType() == "Right-angled triangle")
             {
                 listView1.Items[7].SubItems.Add("Прямоугольный треугольник");
-            } else if (triangle.TriangleType() == "Scalene triangle")
+            }
+            else if (triangle.TriangleType() == "Scalene triangle")
             {
                 listView1.Items[7].SubItems.Add("Разносторонний треугольник");
             }
@@ -368,8 +378,7 @@ namespace Создание_класса_Triangle_в_проекте_WindowsForm
         }
         private void Form_button_Click(object sender, EventArgs e)
         {
-            TriangleForm2 triangleForm2 = new TriangleForm2();
-            triangleForm2.Show();
+
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {

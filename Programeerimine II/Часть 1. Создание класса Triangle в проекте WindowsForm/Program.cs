@@ -1,4 +1,4 @@
-namespace Часть_1._Создание_класса_Triangle_в_проекте_WindowsForm
+namespace Создание_класса_Triangle_в_проекте_WindowsForm
 {
     internal static class Program
     {

@@ -4,5 +4,8 @@
     <Compile Update="TriangleForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TriangleForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
