@@ -63,7 +63,7 @@
             this.productAmountDataGridViewTextBoxColumn,
             this.productPriceDataGridViewTextBoxColumn});
             this.dataGridViewProducts.DataSource = this.productsBindingSource;
-            this.dataGridViewProducts.Location = new System.Drawing.Point(28, 129);
+            this.dataGridViewProducts.Location = new System.Drawing.Point(25, 100);
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewProducts.TabIndex = 0;
@@ -110,7 +110,7 @@
             // labelProductName
             // 
             this.labelProductName.AutoSize = true;
-            this.labelProductName.Location = new System.Drawing.Point(25, 26);
+            this.labelProductName.Location = new System.Drawing.Point(25, 25);
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(45, 13);
             this.labelProductName.TabIndex = 1;
@@ -158,7 +158,7 @@
             // buttonInsert
             // 
             this.buttonInsert.AutoSize = true;
-            this.buttonInsert.Location = new System.Drawing.Point(28, 100);
+            this.buttonInsert.Location = new System.Drawing.Point(25, 284);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(77, 23);
             this.buttonInsert.TabIndex = 7;
@@ -169,7 +169,7 @@
             // buttonDelete
             // 
             this.buttonDelete.AutoSize = true;
-            this.buttonDelete.Location = new System.Drawing.Point(111, 100);
+            this.buttonDelete.Location = new System.Drawing.Point(111, 284);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(94, 23);
             this.buttonDelete.TabIndex = 8;
@@ -180,7 +180,7 @@
             // labelProductID
             // 
             this.labelProductID.AutoSize = true;
-            this.labelProductID.Location = new System.Drawing.Point(182, 25);
+            this.labelProductID.Location = new System.Drawing.Point(111, 261);
             this.labelProductID.Name = "labelProductID";
             this.labelProductID.Size = new System.Drawing.Size(18, 13);
             this.labelProductID.TabIndex = 9;
@@ -188,15 +188,15 @@
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(206, 22);
+            this.textBoxID.Location = new System.Drawing.Point(135, 258);
             this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxID.Size = new System.Drawing.Size(172, 20);
             this.textBoxID.TabIndex = 10;
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.AutoSize = true;
-            this.buttonUpdate.Location = new System.Drawing.Point(206, 48);
+            this.buttonUpdate.Location = new System.Drawing.Point(211, 284);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(96, 23);
             this.buttonUpdate.TabIndex = 11;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ProductsWinForms
@@ -28,10 +29,17 @@ namespace ProductsWinForms
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             connection.Open();
-            command = new SqlCommand("DELETE FROM Products WHERE ProductName = @Name AND ProductAmount = @Amount AND ProductPrice = @Price", connection);
-            command.Parameters.AddWithValue("@Name", textBoxName.Text);
-            command.Parameters.AddWithValue("@Amount", textBoxAmount.Text);
-            command.Parameters.AddWithValue("@Price", textBoxPrice.Text);
+            if (textBoxID.Text == null)
+            {
+                command = new SqlCommand("DELETE FROM Products WHERE ProductName = @Name AND ProductAmount = @Amount AND ProductPrice = @Price", connection);
+                command.Parameters.AddWithValue("@Name", textBoxName.Text);
+                command.Parameters.AddWithValue("@Amount", textBoxAmount.Text);
+                command.Parameters.AddWithValue("@Price", textBoxPrice.Text);
+            } else
+            {
+                command = new SqlCommand("DELETE FROM Products WHERE ProductID = @ProductID", connection);
+                command.Parameters.AddWithValue("@ProductID", textBoxID.Text);
+            }
             command.ExecuteNonQuery();
 
             command = new SqlCommand("DBCC CHECKIDENT ('Products', RESEED, 0)", connection);
@@ -56,7 +64,12 @@ namespace ProductsWinForms
         private void ProductsForm_Load(object sender, EventArgs e)
         {
             dataGridViewProducts.AutoSize = true;
-            Width = dataGridViewProducts.Width + 25;
+            Width = dataGridViewProducts.PreferredSize.Width + SystemInformation.VerticalScrollBarWidth + (dataGridViewProducts.Location.X * 2);
+            Height = dataGridViewProducts.PreferredSize.Height + dataGridViewProducts.Location.Y;
+
+            labelProductID.Top = dataGridViewProducts.ClientSize.Height + dataGridViewProducts.Location.Y + 10;
+            textBoxID.Top = dataGridViewProducts.ClientSize.Height + dataGridViewProducts.Location.Y + 7;
+
             // TODO: This line of code loads data into the 'productsDataSet.Products' table. You can move, or remove it, as needed.
             productsTableAdapter.Fill(productsDataSet.Products);
         }
