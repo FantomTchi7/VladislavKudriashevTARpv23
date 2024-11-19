@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
-using System.Net.NetworkInformation;
 
 namespace ProductsWinForms
 {
@@ -22,6 +21,12 @@ namespace ProductsWinForms
 
         SqlCommand command;
         SqlDataAdapter adapter;
+        int currentMouseOverRow;
+        ContextMenu contextMenu = new ContextMenu(
+        new MenuItem[] { new MenuItem("Kustuta") }
+        );
+        byte[] bytes;
+        MemoryStream ms;
         public ProductsForm()
         {
             InitializeComponent();
@@ -34,8 +39,6 @@ namespace ProductsWinForms
             command.Parameters.AddWithValue("@Amount", textBoxAmount.Text);
             command.Parameters.AddWithValue("@Price", textBoxPrice.Text);
 
-            openFileDialog.Filter = "Bitmap Image (*.bmp)|*.bmp|Metafile Image (*.wmf)|*.wmf|Icon (*.ico)|*.ico|JPEG Image (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF Image (*.gif)|*.gif|PNG Image (*.png)|*.png";
-            
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 byte[] imageBytes = File.ReadAllBytes(openFileDialog.FileName);
@@ -77,8 +80,6 @@ namespace ProductsWinForms
             command.Parameters.AddWithValue("@Amount", textBoxAmount.Text);
             command.Parameters.AddWithValue("@Price", textBoxPrice.Text);
 
-            openFileDialog.Filter = "Bitmap Image (*.bmp)|*.bmp|Metafile Image (*.wmf)|*.wmf|Icon (*.ico)|*.ico|JPEG Image (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF Image (*.gif)|*.gif|PNG Image (*.png)|*.png";
-
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 byte[] imageBytes = File.ReadAllBytes(openFileDialog.FileName);
@@ -98,23 +99,30 @@ namespace ProductsWinForms
             buttonDelete.Top = dataGridViewProducts.Bottom + 36;
             buttonUpdate.Top = dataGridViewProducts.Bottom + 36;
 
-            Width = dataGridViewProducts.ClientSize.Width + SystemInformation.VerticalScrollBarWidth + (dataGridViewProducts.Location.X * 2);
+            pictureBox.Width = dataGridViewProducts.Right - pictureBox.Left;
+
+            Width = dataGridViewProducts.Right + SystemInformation.VerticalScrollBarWidth + 24;
             Height = dataGridViewProducts.Bottom + 122;
             Refresh();
         }
         private void dataGridViewProducts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            byte[] bytes = (byte[]) dataGridViewProducts[e.ColumnIndex, e.RowIndex].Value;
-            using (MemoryStream ms = new MemoryStream(bytes))
+            bytes = (byte[]) dataGridViewProducts[4, e.RowIndex].Value;
+            using (ms = new MemoryStream(bytes))
             {
                 pictureBox.Image = Image.FromStream(ms);
+            }
+        }
+        private void dataGridViewProducts_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenu.Show(dataGridViewProducts, new Point(e.X, e.Y));
             }
         }
         private void ProductsForm_Load(object sender, EventArgs e)
         {
             dataGridViewProducts.AutoSize = true;
-
-            dataGridViewProducts.CellDoubleClick += dataGridViewProducts_CellDoubleClick;
 
             labelProductID.Top = dataGridViewProducts.Bottom + 10;
             textBoxID.Top = dataGridViewProducts.Bottom + 7;
@@ -123,13 +131,10 @@ namespace ProductsWinForms
             buttonDelete.Top = dataGridViewProducts.Bottom + 36;
             buttonUpdate.Top = dataGridViewProducts.Bottom + 36;
 
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox.Width = dataGridViewProducts.Right - pictureBox.Location.X;
+            pictureBox.Width = dataGridViewProducts.Right - pictureBox.Left;
 
-            Width = dataGridViewProducts.ClientSize.Width + SystemInformation.VerticalScrollBarWidth + (dataGridViewProducts.Location.X * 2);
+            Width = dataGridViewProducts.Right + SystemInformation.VerticalScrollBarWidth + 24;
             Height = dataGridViewProducts.Bottom + 122;
-
-            dataGridViewProducts.ClientSizeChanged += dataGridViewProducts_ClientSizeChanged;
 
             // TODO: This line of code loads data into the 'productsDataSet.Products' table. You can move, or remove it, as needed.
             productsTableAdapter.Fill(productsDataSet.Products);
