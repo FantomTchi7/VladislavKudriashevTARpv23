@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewProducts = new System.Windows.Forms.DataGridView();
-            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productsDataSet = new ProductsWinForms.ProductsDataSet();
             this.productsTableAdapter = new ProductsWinForms.ProductsDataSetTableAdapters.ProductsTableAdapter();
             this.labelProductName = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -48,9 +42,19 @@
             this.labelProductID = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.buttonUpdate = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.productsDataSet = new ProductsWinForms.ProductsDataSet();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productPictureDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewProducts
@@ -61,47 +65,13 @@
             this.productIDDataGridViewTextBoxColumn,
             this.productNameDataGridViewTextBoxColumn,
             this.productAmountDataGridViewTextBoxColumn,
-            this.productPriceDataGridViewTextBoxColumn});
+            this.productPriceDataGridViewTextBoxColumn,
+            this.productPictureDataGridViewImageColumn});
             this.dataGridViewProducts.DataSource = this.productsBindingSource;
             this.dataGridViewProducts.Location = new System.Drawing.Point(25, 100);
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewProducts.TabIndex = 0;
-            // 
-            // productIDDataGridViewTextBoxColumn
-            // 
-            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
-            this.productIDDataGridViewTextBoxColumn.HeaderText = "ProductID";
-            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
-            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            // 
-            // productAmountDataGridViewTextBoxColumn
-            // 
-            this.productAmountDataGridViewTextBoxColumn.DataPropertyName = "ProductAmount";
-            this.productAmountDataGridViewTextBoxColumn.HeaderText = "ProductAmount";
-            this.productAmountDataGridViewTextBoxColumn.Name = "productAmountDataGridViewTextBoxColumn";
-            // 
-            // productPriceDataGridViewTextBoxColumn
-            // 
-            this.productPriceDataGridViewTextBoxColumn.DataPropertyName = "ProductPrice";
-            this.productPriceDataGridViewTextBoxColumn.HeaderText = "ProductPrice";
-            this.productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "Products";
-            this.productsBindingSource.DataSource = this.productsDataSet;
-            // 
-            // productsDataSet
-            // 
-            this.productsDataSet.DataSetName = "ProductsDataSet";
-            this.productsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // productsTableAdapter
             // 
@@ -169,7 +139,7 @@
             // buttonDelete
             // 
             this.buttonDelete.AutoSize = true;
-            this.buttonDelete.Location = new System.Drawing.Point(111, 284);
+            this.buttonDelete.Location = new System.Drawing.Point(108, 284);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(94, 23);
             this.buttonDelete.TabIndex = 8;
@@ -190,13 +160,13 @@
             // 
             this.textBoxID.Location = new System.Drawing.Point(135, 258);
             this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(172, 20);
+            this.textBoxID.Size = new System.Drawing.Size(169, 20);
             this.textBoxID.TabIndex = 10;
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.AutoSize = true;
-            this.buttonUpdate.Location = new System.Drawing.Point(211, 284);
+            this.buttonUpdate.Location = new System.Drawing.Point(208, 284);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(96, 23);
             this.buttonUpdate.TabIndex = 11;
@@ -204,11 +174,65 @@
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
+            // productsDataSet
+            // 
+            this.productsDataSet.DataSetName = "ProductsDataSet";
+            this.productsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "Products";
+            this.productsBindingSource.DataSource = this.productsDataSet;
+            // 
+            // productIDDataGridViewTextBoxColumn
+            // 
+            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
+            this.productIDDataGridViewTextBoxColumn.HeaderText = "ProductID";
+            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.productIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            // 
+            // productAmountDataGridViewTextBoxColumn
+            // 
+            this.productAmountDataGridViewTextBoxColumn.DataPropertyName = "ProductAmount";
+            this.productAmountDataGridViewTextBoxColumn.HeaderText = "ProductAmount";
+            this.productAmountDataGridViewTextBoxColumn.Name = "productAmountDataGridViewTextBoxColumn";
+            // 
+            // productPriceDataGridViewTextBoxColumn
+            // 
+            this.productPriceDataGridViewTextBoxColumn.DataPropertyName = "ProductPrice";
+            this.productPriceDataGridViewTextBoxColumn.HeaderText = "ProductPrice";
+            this.productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
+            // 
+            // productPictureDataGridViewImageColumn
+            // 
+            this.productPictureDataGridViewImageColumn.DataPropertyName = "ProductPicture";
+            this.productPictureDataGridViewImageColumn.HeaderText = "ProductPicture";
+            this.productPictureDataGridViewImageColumn.Name = "productPictureDataGridViewImageColumn";
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(183, 22);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(121, 72);
+            this.pictureBox.TabIndex = 12;
+            this.pictureBox.TabStop = false;
+            // 
             // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 361);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.labelProductID);
@@ -225,8 +249,9 @@
             this.Text = "Products Form";
             this.Load += new System.EventHandler(this.ProductsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,13 +260,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewProducts;
-        private ProductsDataSet productsDataSet;
-        private System.Windows.Forms.BindingSource productsBindingSource;
         private ProductsDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label labelProductName;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelAmount;
@@ -253,6 +272,15 @@
         private System.Windows.Forms.Label labelProductID;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private ProductsDataSet productsDataSet;
+        private System.Windows.Forms.BindingSource productsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn productPictureDataGridViewImageColumn;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }
 

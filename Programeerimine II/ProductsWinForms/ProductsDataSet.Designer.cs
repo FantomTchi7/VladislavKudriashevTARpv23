@@ -287,6 +287,8 @@ namespace ProductsWinForms {
             
             private global::System.Data.DataColumn columnProductPrice;
             
+            private global::System.Data.DataColumn columnProductPicture;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ProductsDataTable() {
@@ -354,6 +356,14 @@ namespace ProductsWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProductPictureColumn {
+                get {
+                    return this.columnProductPicture;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace ProductsWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProductsRow AddProductsRow(string ProductName, int ProductAmount, decimal ProductPrice) {
+            public ProductsRow AddProductsRow(string ProductName, int ProductAmount, decimal ProductPrice, byte[] ProductPicture) {
                 ProductsRow rowProductsRow = ((ProductsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         ProductName,
                         ProductAmount,
-                        ProductPrice};
+                        ProductPrice,
+                        ProductPicture};
                 rowProductsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductsRow);
                 return rowProductsRow;
@@ -429,6 +440,7 @@ namespace ProductsWinForms {
                 this.columnProductName = base.Columns["ProductName"];
                 this.columnProductAmount = base.Columns["ProductAmount"];
                 this.columnProductPrice = base.Columns["ProductPrice"];
+                this.columnProductPicture = base.Columns["ProductPicture"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -442,6 +454,8 @@ namespace ProductsWinForms {
                 base.Columns.Add(this.columnProductAmount);
                 this.columnProductPrice = new global::System.Data.DataColumn("ProductPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductPrice);
+                this.columnProductPicture = new global::System.Data.DataColumn("ProductPicture", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductPicture);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProductID}, true));
                 this.columnProductID.AutoIncrement = true;
@@ -450,7 +464,7 @@ namespace ProductsWinForms {
                 this.columnProductID.AllowDBNull = false;
                 this.columnProductID.ReadOnly = true;
                 this.columnProductID.Unique = true;
-                this.columnProductName.MaxLength = 25;
+                this.columnProductName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -652,6 +666,22 @@ namespace ProductsWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public byte[] ProductPicture {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableProducts.ProductPictureColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductPicture\' in table \'Products\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProducts.ProductPictureColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsProductNameNull() {
                 return this.IsNull(this.tableProducts.ProductNameColumn);
             }
@@ -684,6 +714,18 @@ namespace ProductsWinForms {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetProductPriceNull() {
                 this[this.tableProducts.ProductPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProductPictureNull() {
+                return this.IsNull(this.tableProducts.ProductPictureColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProductPictureNull() {
+                this[this.tableProducts.ProductPictureColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -850,6 +892,7 @@ namespace ProductsWinForms.ProductsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ProductName", "ProductName");
             tableMapping.ColumnMappings.Add("ProductAmount", "ProductAmount");
             tableMapping.ColumnMappings.Add("ProductPrice", "ProductPrice");
+            tableMapping.ColumnMappings.Add("ProductPicture", "ProductPicture");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -864,22 +907,22 @@ namespace ProductsWinForms.ProductsDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 3, 0, "ProductPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Products] ([ProductName], [ProductAmount], [ProductPrice]) VAL" +
-                "UES (@ProductName, @ProductAmount, @ProductPrice);\r\nSELECT ProductID, ProductNam" +
-                "e, ProductAmount, ProductPrice FROM Products WHERE (ProductID = SCOPE_IDENTITY()" +
-                ")";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Products] ([ProductName], [ProductAmount], [ProductPrice], [ProductPicture]) VALUES (@ProductName, @ProductAmount, @ProductPrice, @ProductPicture);
+SELECT ProductID, ProductName, ProductAmount, ProductPrice, ProductPicture FROM Products WHERE (ProductID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 3, 0, "ProductPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductPicture", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductPicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Products] SET [ProductName] = @ProductName, [ProductAmount] = @ProductAmount, [ProductPrice] = @ProductPrice WHERE (([ProductID] = @Original_ProductID) AND ((@IsNull_ProductName = 1 AND [ProductName] IS NULL) OR ([ProductName] = @Original_ProductName)) AND ((@IsNull_ProductAmount = 1 AND [ProductAmount] IS NULL) OR ([ProductAmount] = @Original_ProductAmount)) AND ((@IsNull_ProductPrice = 1 AND [ProductPrice] IS NULL) OR ([ProductPrice] = @Original_ProductPrice)));
-SELECT ProductID, ProductName, ProductAmount, ProductPrice FROM Products WHERE (ProductID = @ProductID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Products] SET [ProductName] = @ProductName, [ProductAmount] = @ProductAmount, [ProductPrice] = @ProductPrice, [ProductPicture] = @ProductPicture WHERE (([ProductID] = @Original_ProductID) AND ((@IsNull_ProductName = 1 AND [ProductName] IS NULL) OR ([ProductName] = @Original_ProductName)) AND ((@IsNull_ProductAmount = 1 AND [ProductAmount] IS NULL) OR ([ProductAmount] = @Original_ProductAmount)) AND ((@IsNull_ProductPrice = 1 AND [ProductPrice] IS NULL) OR ([ProductPrice] = @Original_ProductPrice)));
+SELECT ProductID, ProductName, ProductAmount, ProductPrice, ProductPicture FROM Products WHERE (ProductID = @ProductID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 3, 0, "ProductPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductPicture", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductPicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -903,7 +946,8 @@ SELECT ProductID, ProductName, ProductAmount, ProductPrice FROM Products WHERE (
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ProductID, ProductName, ProductAmount, ProductPrice FROM dbo.Products";
+            this._commandCollection[0].CommandText = "SELECT ProductID, ProductName, ProductAmount, ProductPrice, ProductPicture FROM d" +
+                "bo.Products";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1010,7 +1054,7 @@ SELECT ProductID, ProductName, ProductAmount, ProductPrice FROM Products WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ProductName, global::System.Nullable<int> ProductAmount, global::System.Nullable<decimal> ProductPrice) {
+        public virtual int Insert(string ProductName, global::System.Nullable<int> ProductAmount, global::System.Nullable<decimal> ProductPrice, byte[] ProductPicture) {
             if ((ProductName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1028,6 +1072,12 @@ SELECT ProductID, ProductName, ProductAmount, ProductPrice FROM Products WHERE (
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((ProductPicture == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((byte[])(ProductPicture));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1049,7 +1099,7 @@ SELECT ProductID, ProductName, ProductAmount, ProductPrice FROM Products WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ProductName, global::System.Nullable<int> ProductAmount, global::System.Nullable<decimal> ProductPrice, int Original_ProductID, string Original_ProductName, global::System.Nullable<int> Original_ProductAmount, global::System.Nullable<decimal> Original_ProductPrice, int ProductID) {
+        public virtual int Update(string ProductName, global::System.Nullable<int> ProductAmount, global::System.Nullable<decimal> ProductPrice, byte[] ProductPicture, int Original_ProductID, string Original_ProductName, global::System.Nullable<int> Original_ProductAmount, global::System.Nullable<decimal> Original_ProductPrice, int ProductID) {
             if ((ProductName == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1068,32 +1118,38 @@ SELECT ProductID, ProductName, ProductAmount, ProductPrice FROM Products WHERE (
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ProductID));
-            if ((Original_ProductName == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((ProductPicture == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_ProductName));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((byte[])(ProductPicture));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ProductID));
+            if ((Original_ProductName == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_ProductName));
             }
             if ((Original_ProductAmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ProductAmount.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ProductAmount.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((Original_ProductPrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_ProductPrice.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_ProductPrice.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(ProductID));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(ProductID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1114,8 +1170,8 @@ SELECT ProductID, ProductName, ProductAmount, ProductPrice FROM Products WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ProductName, global::System.Nullable<int> ProductAmount, global::System.Nullable<decimal> ProductPrice, int Original_ProductID, string Original_ProductName, global::System.Nullable<int> Original_ProductAmount, global::System.Nullable<decimal> Original_ProductPrice) {
-            return this.Update(ProductName, ProductAmount, ProductPrice, Original_ProductID, Original_ProductName, Original_ProductAmount, Original_ProductPrice, Original_ProductID);
+        public virtual int Update(string ProductName, global::System.Nullable<int> ProductAmount, global::System.Nullable<decimal> ProductPrice, byte[] ProductPicture, int Original_ProductID, string Original_ProductName, global::System.Nullable<int> Original_ProductAmount, global::System.Nullable<decimal> Original_ProductPrice) {
+            return this.Update(ProductName, ProductAmount, ProductPrice, ProductPicture, Original_ProductID, Original_ProductName, Original_ProductAmount, Original_ProductPrice, Original_ProductID);
         }
     }
     
