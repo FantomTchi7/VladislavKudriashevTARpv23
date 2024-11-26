@@ -8,3 +8,4 @@ C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Prod
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\bin\Debug\ProductsWinForms.pdb
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.exe
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.pdb
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.MenuForm.resources

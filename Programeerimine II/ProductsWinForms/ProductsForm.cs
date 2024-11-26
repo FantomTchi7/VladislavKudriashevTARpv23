@@ -12,7 +12,7 @@ namespace ProductsWinForms
 
         /*
         CREATE TABLE Products (
-        ProductID INT PRIMARY KEY IDENTITY(1,1),
+        ProductID INT PRIMARY KEY,
         ProductName VARCHAR(50),
         ProductAmount INT,
         ProductPrice DECIMAL(3),
@@ -21,12 +21,27 @@ namespace ProductsWinForms
 
         SqlCommand command;
         SqlDataAdapter adapter;
-        int currentMouseOverRow;
+
         ContextMenu contextMenu = new ContextMenu(
-        new MenuItem[] { new MenuItem("Kustuta") }
+            new MenuItem[] {
+                menuItemInsert = new MenuItem("Lisada"),
+                menuItemDelete = new MenuItem("Kustuta"),
+                menuItemUpdate = new MenuItem("Uuenda")
+            }
         );
+
+        int ProductID;
+        int ProductRightClickID;
+
         byte[] bytes;
         MemoryStream ms;
+        
+        private static MenuItem menuItemInsert;
+        private static MenuItem menuItemDelete;
+        private static MenuItem menuItemUpdate;
+
+        MenuForm menuForm = new MenuForm();
+
         public ProductsForm()
         {
             InitializeComponent();
@@ -34,7 +49,9 @@ namespace ProductsWinForms
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             connection.Open();
-            command = new SqlCommand("INSERT INTO Products(ProductName, ProductAmount, ProductPrice, ProductPicture) VALUES (@Name, @Amount, @Price, @Picture)", connection);
+            ProductID = incrementID();
+            command = new SqlCommand("INSERT INTO Products(ProductID, ProductName, ProductAmount, ProductPrice, ProductPicture) VALUES (@ID, @Name, @Amount, @Price, @Picture)", connection);
+            command.Parameters.AddWithValue("@ID", ProductID);
             command.Parameters.AddWithValue("@Name", textBoxName.Text);
             command.Parameters.AddWithValue("@Amount", textBoxAmount.Text);
             command.Parameters.AddWithValue("@Price", textBoxPrice.Text);
@@ -63,9 +80,6 @@ namespace ProductsWinForms
                 command = new SqlCommand("DELETE FROM Products WHERE ProductID = @ProductID", connection);
                 command.Parameters.AddWithValue("@ProductID", textBoxID.Text);
             }
-            command.ExecuteNonQuery();
-
-            command = new SqlCommand("DBCC CHECKIDENT ('Products', RESEED, 0)", connection);
             command.ExecuteNonQuery();
 
             connection.Close();
@@ -117,12 +131,72 @@ namespace ProductsWinForms
         {
             if (e.Button == MouseButtons.Right)
             {
+                DataGridView.HitTestInfo hit = dataGridViewProducts.HitTest(e.X, e.Y);
+                ProductRightClickID = hit.RowIndex + 1;
+
                 contextMenu.Show(dataGridViewProducts, new Point(e.X, e.Y));
             }
+        }
+        private void menuItemInsert_Click(object sender, EventArgs e)
+        {
+            menuForm.ShowDialog();
+            connection.Open();
+            command = new SqlCommand("INSERT INTO Products(ProductID, ProductName, ProductAmount, ProductPrice, ProductPicture) VALUES (@ID, @Name, @Amount, @Price, @Picture)", connection);
+            command.Parameters.AddWithValue("@ID", checkIncrementID(ProductRightClickID));
+            command.Parameters.AddWithValue("@Name", MenuForm.textMenuName.Text);
+            command.Parameters.AddWithValue("@Amount", MenuForm.textMenuAmount.Text);
+            command.Parameters.AddWithValue("@Price", MenuForm.textMenuPrice.Text);
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                byte[] imageBytes = File.ReadAllBytes(openFileDialog.FileName);
+                command.Parameters.AddWithValue("@Picture", imageBytes);
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+            productsTableAdapter.Fill(productsDataSet.Products);
+        }
+        private void menuItemDelete_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            command = new SqlCommand("DELETE FROM Products WHERE ProductName = @Name AND ProductAmount = @Amount AND ProductPrice = @Price", connection);
+            command.Parameters.AddWithValue("@Name", MenuForm.textMenuName.Text);
+            command.Parameters.AddWithValue("@Amount", MenuForm.textMenuAmount.Text);
+            command.Parameters.AddWithValue("@Price", MenuForm.textMenuPrice.Text);
+            
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            productsTableAdapter.Fill(productsDataSet.Products);
+        }
+        private void menuItemUpdate_Click(object sender, EventArgs e)
+        {
+            menuForm.ShowDialog();
+            connection.Open();
+            command = new SqlCommand("UPDATE Products SET ProductName = @Name, ProductAmount = @Amount, ProductPrice = @Price, ProductPicture = @Picture WHERE ProductID = @ID", connection);
+            command.Parameters.AddWithValue("@ID", textBoxID.Text);
+            command.Parameters.AddWithValue("@Name", MenuForm.textMenuName.Text);
+            command.Parameters.AddWithValue("@Amount", MenuForm.textMenuAmount.Text);
+            command.Parameters.AddWithValue("@Price", MenuForm.textMenuPrice.Text);
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                byte[] imageBytes = File.ReadAllBytes(openFileDialog.FileName);
+                command.Parameters.AddWithValue("@Picture", imageBytes);
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+            productsTableAdapter.Fill(productsDataSet.Products);
         }
         private void ProductsForm_Load(object sender, EventArgs e)
         {
             dataGridViewProducts.AutoSize = true;
+
+            menuItemInsert.Click += menuItemInsert_Click;
+            menuItemDelete.Click += menuItemDelete_Click;
+            menuItemUpdate.Click += menuItemUpdate_Click;
 
             labelProductID.Top = dataGridViewProducts.Bottom + 10;
             textBoxID.Top = dataGridViewProducts.Bottom + 7;
@@ -138,6 +212,37 @@ namespace ProductsWinForms
 
             // TODO: This line of code loads data into the 'productsDataSet.Products' table. You can move, or remove it, as needed.
             productsTableAdapter.Fill(productsDataSet.Products);
+        }
+        private int incrementID()
+        {
+            int newID = 1;
+            foreach (DataGridViewRow row in dataGridViewProducts.Rows)
+            {
+                if (row.Cells[0].Value != DBNull.Value)
+                {
+                    int currentID = Convert.ToInt32(row.Cells[0].Value);
+                    if (currentID == newID)
+                    {
+                        newID++;
+                    }
+                }
+            }
+            return newID;
+        }
+        private int checkIncrementID(int ID)
+        {
+            for (int i = ID; i < dataGridViewProducts.RowCount; i++)
+            {
+                if (i == (int)dataGridViewProducts[0, i].Value)
+                // System.NullReferenceException: 'Object reference not set to an instance of an object.'
+                {
+                    return ID;
+                } else
+                {
+                    ID++;
+                }
+            }
+            return ID;
         }
     }
 }
