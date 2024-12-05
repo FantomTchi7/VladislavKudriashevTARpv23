@@ -1,0 +1,9 @@
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\bin\Debug\Kino.exe.config
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\bin\Debug\Kino.exe
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\bin\Debug\Kino.pdb
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.csproj.AssemblyReference.cache
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.Properties.Resources.resources
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.csproj.GenerateResource.cache
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.csproj.CoreCompileInputs.cache
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.exe
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.pdb
