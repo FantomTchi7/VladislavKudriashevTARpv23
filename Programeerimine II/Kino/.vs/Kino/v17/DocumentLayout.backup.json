@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Kino\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69C1E33F-C8EC-4AF1-BA42-B49BAB97F1EE}|Kino.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\kino\\peavorm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69C1E33F-C8EC-4AF1-BA42-B49BAB97F1EE}|Kino.csproj|solutionrelative:peavorm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{69C1E33F-C8EC-4AF1-BA42-B49BAB97F1EE}|Kino.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\kino\\sisselogiminevorm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69C1E33F-C8EC-4AF1-BA42-B49BAB97F1EE}|Kino.csproj|solutionrelative:sisselogiminevorm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,12 +23,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Peavorm.cs",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Kino\\Peavorm.cs",
-              "RelativeDocumentMoniker": "Peavorm.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Kino\\Peavorm.cs",
-              "RelativeToolTip": "Peavorm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAiAAAAAAAAAA==",
+              "Title": "SisselogimineVorm.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Kino\\SisselogimineVorm.cs",
+              "RelativeDocumentMoniker": "SisselogimineVorm.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Kino\\SisselogimineVorm.cs",
+              "RelativeToolTip": "SisselogimineVorm.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAQwDYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T06:52:50.657Z",
               "EditorCaption": ""
