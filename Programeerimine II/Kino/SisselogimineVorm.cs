@@ -16,12 +16,13 @@ namespace Kino
         SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\KinoAndmebaas.mdf;Integrated Security=True");
         SqlCommand command;
         SqlDataAdapter adapter;
+        SqlDataReader reader;
 
         private static TableLayoutPanel tableLayoutPanel1 = new TableLayoutPanel();
         private static Label label1 = new Label
         {
             Dock = DockStyle.Left,
-            Text = "Nimi:",
+            Text = "Nimi või email:",
             AutoSize = true
         };
         private static Label label2 = new Label
@@ -50,7 +51,6 @@ namespace Kino
             Text = "Logi sisse",
             Anchor = AnchorStyles.Top
         };
-
         public SisselogimineVorm()
         {
             InitializeComponent();
@@ -61,6 +61,8 @@ namespace Kino
 
             label3.MouseEnter += label3_MouseEnter;
             label3.MouseLeave += label3_MouseLeave;
+            button1.Click += button1_Click;
+            label3.Click += label3_Click;
 
             tableLayoutPanel1.Anchor = AnchorStyles.None;
 
@@ -80,18 +82,61 @@ namespace Kino
 
             this.Resize += (sender, e) => CenterTableLayoutPanel();
         }
-
         private void CenterTableLayoutPanel()
         {
             tableLayoutPanel1.Left = (this.ClientSize.Width - tableLayoutPanel1.Width) / 2;
             tableLayoutPanel1.Top = (this.ClientSize.Height - tableLayoutPanel1.Height) / 2;
         }
+        private void label3_Click(object sender, EventArgs e)
+        {
 
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string nimiVoiEmail = textBox1.Text;
+            string parool = textBox2.Text;
+
+            try
+            {
+                connection.Open();
+
+                command = new SqlCommand("SELECT Huudnimi, Tuup FROM Kontod WHERE (Huudnimi = @nimiVoiEmail OR Email = @nimiVoiEmail) AND Parool = @parool", connection);
+                command.Parameters.AddWithValue("@nimiVoiEmail", nimiVoiEmail);
+                command.Parameters.AddWithValue("@parool", parool);
+
+                reader = command.ExecuteReader();
+                string result = null;
+                string result2 = null;
+
+                if (reader.Read())
+                {
+                    result = reader["Huudnimi"]?.ToString();
+                    result2 = reader["Tuup"]?.ToString();
+                }
+
+                if (result != null)
+                {
+                    VaatamineVorm vaatamineVorm = new VaatamineVorm(result2);
+                    vaatamineVorm.Closed += (s, args) => this.Show();
+                    this.Hide();
+                    vaatamineVorm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Vale kasutajanimi/email või parool.", "Sisselogimine ebaõnnestus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                connection.Close();
+            }
+            catch (SqlException sqlE)
+            {
+                MessageBox.Show($"Viga andmebaasiga ühenduse loomisel: {sqlE.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void label3_MouseEnter(object sender, EventArgs e)
         {
             label3.Font = new Font(label1.Font, FontStyle.Underline);
         }
-
         private void label3_MouseLeave(object sender, EventArgs e)
         {
             label3.Font = new Font(label1.Font, FontStyle.Regular);

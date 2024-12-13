@@ -83,7 +83,8 @@ CREATE TABLE Kontod (
 ID INT PRIMARY KEY IDENTITY,
 Huudnimi NVARCHAR(50) NOT NULL,
 Email NVARCHAR(100) NOT NULL UNIQUE,
-Parool NVARCHAR(MAX) NOT NULL
+Parool NVARCHAR(25) NOT NULL,
+Tuup NVARCHAR(25) NOT NULL,
 );
 
 CREATE TABLE Piletid (
@@ -94,3 +95,9 @@ KontoID INT NOT NULL,
 FOREIGN KEY (SeanssiIstmedID) REFERENCES SeanssiIstmed(ID),
 FOREIGN KEY (KontoID) REFERENCES Kontod(ID)
 );
+
+INSERT INTO Kontod (Huudnimi, Email, Parool, Tuup) 
+VALUES ('Kasutaja', 'Kasutaja', '1234', 'Kasutaja');
+
+INSERT INTO Kontod (Huudnimi, Email, Parool, Tuup) 
+VALUES ('Admin', 'Admin', '1234', 'Admin');

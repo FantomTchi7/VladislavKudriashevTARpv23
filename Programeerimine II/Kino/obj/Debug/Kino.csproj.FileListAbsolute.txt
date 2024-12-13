@@ -7,3 +7,5 @@ C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.csproj.CoreCompileInputs.cache
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.exe
 C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\obj\Debug\Kino.pdb
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\bin\Debug\KinoAndmebaas.mdf
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\Kino\bin\Debug\KinoAndmebaas_log.ldf
