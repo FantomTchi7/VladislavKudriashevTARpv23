@@ -48,17 +48,17 @@ namespace Kino {
         
         private VanusepiirangudDataTable tableVanusepiirangud;
         
-        private global::System.Data.DataRelation relationFK__Filmid__Rezissoo__3D5E1FD2;
+        private global::System.Data.DataRelation relationFK__Filmid__Rezissoo__3C69FB99;
         
-        private global::System.Data.DataRelation relationFK__Filmid__ZanrID__3E52440B;
+        private global::System.Data.DataRelation relationFK__Filmid__ZanrID__3D5E1FD2;
         
-        private global::System.Data.DataRelation relationFK__Filmid__Vanusepi__3F466844;
+        private global::System.Data.DataRelation relationFK__Filmid__Vanusepi__3E52440B;
         
         private global::System.Data.DataRelation relationFK__Istmed__SaalID__4F7CD00D;
         
-        private global::System.Data.DataRelation relationFK__Piletid__KontoID__5BE2A6F2;
+        private global::System.Data.DataRelation relationFK__Piletid__KontoID__5CD6CB2B;
         
-        private global::System.Data.DataRelation relationFK__Piletid__Seanssi__5AEE82B9;
+        private global::System.Data.DataRelation relationFK__Piletid__Seanssi__5BE2A6F2;
         
         private global::System.Data.DataRelation relationFK__Saalid__KinoID__440B1D61;
         
@@ -482,12 +482,12 @@ namespace Kino {
                     this.tableVanusepiirangud.InitVars();
                 }
             }
-            this.relationFK__Filmid__Rezissoo__3D5E1FD2 = this.Relations["FK__Filmid__Rezissoo__3D5E1FD2"];
-            this.relationFK__Filmid__ZanrID__3E52440B = this.Relations["FK__Filmid__ZanrID__3E52440B"];
-            this.relationFK__Filmid__Vanusepi__3F466844 = this.Relations["FK__Filmid__Vanusepi__3F466844"];
+            this.relationFK__Filmid__Rezissoo__3C69FB99 = this.Relations["FK__Filmid__Rezissoo__3C69FB99"];
+            this.relationFK__Filmid__ZanrID__3D5E1FD2 = this.Relations["FK__Filmid__ZanrID__3D5E1FD2"];
+            this.relationFK__Filmid__Vanusepi__3E52440B = this.Relations["FK__Filmid__Vanusepi__3E52440B"];
             this.relationFK__Istmed__SaalID__4F7CD00D = this.Relations["FK__Istmed__SaalID__4F7CD00D"];
-            this.relationFK__Piletid__KontoID__5BE2A6F2 = this.Relations["FK__Piletid__KontoID__5BE2A6F2"];
-            this.relationFK__Piletid__Seanssi__5AEE82B9 = this.Relations["FK__Piletid__Seanssi__5AEE82B9"];
+            this.relationFK__Piletid__KontoID__5CD6CB2B = this.Relations["FK__Piletid__KontoID__5CD6CB2B"];
+            this.relationFK__Piletid__Seanssi__5BE2A6F2 = this.Relations["FK__Piletid__Seanssi__5BE2A6F2"];
             this.relationFK__Saalid__KinoID__440B1D61 = this.Relations["FK__Saalid__KinoID__440B1D61"];
             this.relationFK__Seanssid__FilmID__49C3F6B7 = this.Relations["FK__Seanssid__FilmID__49C3F6B7"];
             this.relationFK__Seanssid__KeelID__4AB81AF0 = this.Relations["FK__Seanssid__KeelID__4AB81AF0"];
@@ -528,30 +528,30 @@ namespace Kino {
             base.Tables.Add(this.tableZanrid);
             this.tableVanusepiirangud = new VanusepiirangudDataTable();
             base.Tables.Add(this.tableVanusepiirangud);
-            this.relationFK__Filmid__Rezissoo__3D5E1FD2 = new global::System.Data.DataRelation("FK__Filmid__Rezissoo__3D5E1FD2", new global::System.Data.DataColumn[] {
+            this.relationFK__Filmid__Rezissoo__3C69FB99 = new global::System.Data.DataRelation("FK__Filmid__Rezissoo__3C69FB99", new global::System.Data.DataColumn[] {
                         this.tableRezissoorid.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableFilmid.RezissoorIDColumn}, false);
-            this.Relations.Add(this.relationFK__Filmid__Rezissoo__3D5E1FD2);
-            this.relationFK__Filmid__ZanrID__3E52440B = new global::System.Data.DataRelation("FK__Filmid__ZanrID__3E52440B", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Filmid__Rezissoo__3C69FB99);
+            this.relationFK__Filmid__ZanrID__3D5E1FD2 = new global::System.Data.DataRelation("FK__Filmid__ZanrID__3D5E1FD2", new global::System.Data.DataColumn[] {
                         this.tableZanrid.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableFilmid.ZanrIDColumn}, false);
-            this.Relations.Add(this.relationFK__Filmid__ZanrID__3E52440B);
-            this.relationFK__Filmid__Vanusepi__3F466844 = new global::System.Data.DataRelation("FK__Filmid__Vanusepi__3F466844", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Filmid__ZanrID__3D5E1FD2);
+            this.relationFK__Filmid__Vanusepi__3E52440B = new global::System.Data.DataRelation("FK__Filmid__Vanusepi__3E52440B", new global::System.Data.DataColumn[] {
                         this.tableVanusepiirangud.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableFilmid.VanusepiirangIDColumn}, false);
-            this.Relations.Add(this.relationFK__Filmid__Vanusepi__3F466844);
+            this.Relations.Add(this.relationFK__Filmid__Vanusepi__3E52440B);
             this.relationFK__Istmed__SaalID__4F7CD00D = new global::System.Data.DataRelation("FK__Istmed__SaalID__4F7CD00D", new global::System.Data.DataColumn[] {
                         this.tableSaalid.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableIstmed.SaalIDColumn}, false);
             this.Relations.Add(this.relationFK__Istmed__SaalID__4F7CD00D);
-            this.relationFK__Piletid__KontoID__5BE2A6F2 = new global::System.Data.DataRelation("FK__Piletid__KontoID__5BE2A6F2", new global::System.Data.DataColumn[] {
+            this.relationFK__Piletid__KontoID__5CD6CB2B = new global::System.Data.DataRelation("FK__Piletid__KontoID__5CD6CB2B", new global::System.Data.DataColumn[] {
                         this.tableKontod.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePiletid.KontoIDColumn}, false);
-            this.Relations.Add(this.relationFK__Piletid__KontoID__5BE2A6F2);
-            this.relationFK__Piletid__Seanssi__5AEE82B9 = new global::System.Data.DataRelation("FK__Piletid__Seanssi__5AEE82B9", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Piletid__KontoID__5CD6CB2B);
+            this.relationFK__Piletid__Seanssi__5BE2A6F2 = new global::System.Data.DataRelation("FK__Piletid__Seanssi__5BE2A6F2", new global::System.Data.DataColumn[] {
                         this.tableSeanssiIstmed.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePiletid.SeanssiIstmedIDColumn}, false);
-            this.Relations.Add(this.relationFK__Piletid__Seanssi__5AEE82B9);
+            this.Relations.Add(this.relationFK__Piletid__Seanssi__5BE2A6F2);
             this.relationFK__Saalid__KinoID__440B1D61 = new global::System.Data.DataRelation("FK__Saalid__KinoID__440B1D61", new global::System.Data.DataColumn[] {
                         this.tableKinod.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableSaalid.KinoIDColumn}, false);
@@ -908,7 +908,7 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FilmidRow AddFilmidRow(string Nimetus, string Kirjeldus, int Kestus, System.DateTime Väljalaskeaeg, byte[] Poster, RezissooridRow parentRezissooridRowByFK__Filmid__Rezissoo__3D5E1FD2, ZanridRow parentZanridRowByFK__Filmid__ZanrID__3E52440B, VanusepiirangudRow parentVanusepiirangudRowByFK__Filmid__Vanusepi__3F466844) {
+            public FilmidRow AddFilmidRow(string Nimetus, string Kirjeldus, int Kestus, System.DateTime Väljalaskeaeg, byte[] Poster, RezissooridRow parentRezissooridRowByFK__Filmid__Rezissoo__3C69FB99, ZanridRow parentZanridRowByFK__Filmid__ZanrID__3D5E1FD2, VanusepiirangudRow parentVanusepiirangudRowByFK__Filmid__Vanusepi__3E52440B) {
                 FilmidRow rowFilmidRow = ((FilmidRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -920,14 +920,14 @@ namespace Kino {
                         null,
                         null,
                         null};
-                if ((parentRezissooridRowByFK__Filmid__Rezissoo__3D5E1FD2 != null)) {
-                    columnValuesArray[6] = parentRezissooridRowByFK__Filmid__Rezissoo__3D5E1FD2[0];
+                if ((parentRezissooridRowByFK__Filmid__Rezissoo__3C69FB99 != null)) {
+                    columnValuesArray[6] = parentRezissooridRowByFK__Filmid__Rezissoo__3C69FB99[0];
                 }
-                if ((parentZanridRowByFK__Filmid__ZanrID__3E52440B != null)) {
-                    columnValuesArray[7] = parentZanridRowByFK__Filmid__ZanrID__3E52440B[0];
+                if ((parentZanridRowByFK__Filmid__ZanrID__3D5E1FD2 != null)) {
+                    columnValuesArray[7] = parentZanridRowByFK__Filmid__ZanrID__3D5E1FD2[0];
                 }
-                if ((parentVanusepiirangudRowByFK__Filmid__Vanusepi__3F466844 != null)) {
-                    columnValuesArray[8] = parentVanusepiirangudRowByFK__Filmid__Vanusepi__3F466844[0];
+                if ((parentVanusepiirangudRowByFK__Filmid__Vanusepi__3E52440B != null)) {
+                    columnValuesArray[8] = parentVanusepiirangudRowByFK__Filmid__Vanusepi__3E52440B[0];
                 }
                 rowFilmidRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFilmidRow);
@@ -999,7 +999,7 @@ namespace Kino {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnNimetus.AllowDBNull = false;
-                this.columnNimetus.MaxLength = 50;
+                this.columnNimetus.MaxLength = 255;
                 this.columnKirjeldus.AllowDBNull = false;
                 this.columnKirjeldus.MaxLength = 2147483647;
                 this.columnKestus.AllowDBNull = false;
@@ -1143,11 +1143,11 @@ namespace Kino {
             
             private global::System.Data.DataColumn columnID;
             
+            private global::System.Data.DataColumn columnSaalID;
+            
             private global::System.Data.DataColumn columnRida;
             
             private global::System.Data.DataColumn columnVeerg;
-            
-            private global::System.Data.DataColumn columnSaalID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1192,6 +1192,14 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SaalIDColumn {
+                get {
+                    return this.columnSaalID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn RidaColumn {
                 get {
                     return this.columnRida;
@@ -1203,14 +1211,6 @@ namespace Kino {
             public global::System.Data.DataColumn VeergColumn {
                 get {
                     return this.columnVeerg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SaalIDColumn {
-                get {
-                    return this.columnSaalID;
                 }
             }
             
@@ -1251,15 +1251,15 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public IstmedRow AddIstmedRow(int Rida, int Veerg, SaalidRow parentSaalidRowByFK__Istmed__SaalID__4F7CD00D) {
+            public IstmedRow AddIstmedRow(SaalidRow parentSaalidRowByFK__Istmed__SaalID__4F7CD00D, int Rida, int Veerg) {
                 IstmedRow rowIstmedRow = ((IstmedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        null,
                         Rida,
-                        Veerg,
-                        null};
+                        Veerg};
                 if ((parentSaalidRowByFK__Istmed__SaalID__4F7CD00D != null)) {
-                    columnValuesArray[3] = parentSaalidRowByFK__Istmed__SaalID__4F7CD00D[0];
+                    columnValuesArray[1] = parentSaalidRowByFK__Istmed__SaalID__4F7CD00D[0];
                 }
                 rowIstmedRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIstmedRow);
@@ -1291,9 +1291,9 @@ namespace Kino {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
+                this.columnSaalID = base.Columns["SaalID"];
                 this.columnRida = base.Columns["Rida"];
                 this.columnVeerg = base.Columns["Veerg"];
-                this.columnSaalID = base.Columns["SaalID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1301,12 +1301,12 @@ namespace Kino {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
+                this.columnSaalID = new global::System.Data.DataColumn("SaalID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaalID);
                 this.columnRida = new global::System.Data.DataColumn("Rida", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRida);
                 this.columnVeerg = new global::System.Data.DataColumn("Veerg", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVeerg);
-                this.columnSaalID = new global::System.Data.DataColumn("SaalID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSaalID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1315,9 +1315,9 @@ namespace Kino {
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
+                this.columnSaalID.AllowDBNull = false;
                 this.columnRida.AllowDBNull = false;
                 this.columnVeerg.AllowDBNull = false;
-                this.columnSaalID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1595,7 +1595,7 @@ namespace Kino {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnNimetus.AllowDBNull = false;
-                this.columnNimetus.MaxLength = 25;
+                this.columnNimetus.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1887,9 +1887,9 @@ namespace Kino {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnNimetus.AllowDBNull = false;
-                this.columnNimetus.MaxLength = 50;
+                this.columnNimetus.MaxLength = 255;
                 this.columnAadress.AllowDBNull = false;
-                this.columnAadress.MaxLength = 100;
+                this.columnAadress.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2031,7 +2031,7 @@ namespace Kino {
             
             private global::System.Data.DataColumn columnParool;
             
-            private global::System.Data.DataColumn columnTuup;
+            private global::System.Data.DataColumn columnTüüp;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2100,9 +2100,9 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TuupColumn {
+            public global::System.Data.DataColumn TüüpColumn {
                 get {
-                    return this.columnTuup;
+                    return this.columnTüüp;
                 }
             }
             
@@ -2143,14 +2143,14 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public KontodRow AddKontodRow(string Huudnimi, string Email, string Parool, string Tuup) {
+            public KontodRow AddKontodRow(string Huudnimi, string Email, string Parool, string Tüüp) {
                 KontodRow rowKontodRow = ((KontodRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Huudnimi,
                         Email,
                         Parool,
-                        Tuup};
+                        Tüüp};
                 rowKontodRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKontodRow);
                 return rowKontodRow;
@@ -2184,7 +2184,7 @@ namespace Kino {
                 this.columnHuudnimi = base.Columns["Huudnimi"];
                 this.columnEmail = base.Columns["Email"];
                 this.columnParool = base.Columns["Parool"];
-                this.columnTuup = base.Columns["Tuup"];
+                this.columnTüüp = base.Columns["Tüüp"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2198,8 +2198,8 @@ namespace Kino {
                 base.Columns.Add(this.columnEmail);
                 this.columnParool = new global::System.Data.DataColumn("Parool", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnParool);
-                this.columnTuup = new global::System.Data.DataColumn("Tuup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTuup);
+                this.columnTüüp = new global::System.Data.DataColumn("Tüüp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTüüp);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2209,13 +2209,12 @@ namespace Kino {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnHuudnimi.AllowDBNull = false;
-                this.columnHuudnimi.MaxLength = 50;
+                this.columnHuudnimi.MaxLength = 255;
                 this.columnEmail.AllowDBNull = false;
-                this.columnEmail.MaxLength = 100;
+                this.columnEmail.MaxLength = 255;
                 this.columnParool.AllowDBNull = false;
-                this.columnParool.MaxLength = 25;
-                this.columnTuup.AllowDBNull = false;
-                this.columnTuup.MaxLength = 25;
+                this.columnParool.MaxLength = 2147483647;
+                this.columnTüüp.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2351,11 +2350,11 @@ namespace Kino {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnHind;
-            
             private global::System.Data.DataColumn columnSeanssiIstmedID;
             
             private global::System.Data.DataColumn columnKontoID;
+            
+            private global::System.Data.DataColumn columnHind;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2400,14 +2399,6 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HindColumn {
-                get {
-                    return this.columnHind;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn SeanssiIstmedIDColumn {
                 get {
                     return this.columnSeanssiIstmedID;
@@ -2419,6 +2410,14 @@ namespace Kino {
             public global::System.Data.DataColumn KontoIDColumn {
                 get {
                     return this.columnKontoID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HindColumn {
+                get {
+                    return this.columnHind;
                 }
             }
             
@@ -2459,18 +2458,18 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PiletidRow AddPiletidRow(decimal Hind, SeanssiIstmedRow parentSeanssiIstmedRowByFK__Piletid__Seanssi__5AEE82B9, KontodRow parentKontodRowByFK__Piletid__KontoID__5BE2A6F2) {
+            public PiletidRow AddPiletidRow(SeanssiIstmedRow parentSeanssiIstmedRowByFK__Piletid__Seanssi__5BE2A6F2, KontodRow parentKontodRowByFK__Piletid__KontoID__5CD6CB2B, decimal Hind) {
                 PiletidRow rowPiletidRow = ((PiletidRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Hind,
                         null,
-                        null};
-                if ((parentSeanssiIstmedRowByFK__Piletid__Seanssi__5AEE82B9 != null)) {
-                    columnValuesArray[2] = parentSeanssiIstmedRowByFK__Piletid__Seanssi__5AEE82B9[0];
+                        null,
+                        Hind};
+                if ((parentSeanssiIstmedRowByFK__Piletid__Seanssi__5BE2A6F2 != null)) {
+                    columnValuesArray[1] = parentSeanssiIstmedRowByFK__Piletid__Seanssi__5BE2A6F2[0];
                 }
-                if ((parentKontodRowByFK__Piletid__KontoID__5BE2A6F2 != null)) {
-                    columnValuesArray[3] = parentKontodRowByFK__Piletid__KontoID__5BE2A6F2[0];
+                if ((parentKontodRowByFK__Piletid__KontoID__5CD6CB2B != null)) {
+                    columnValuesArray[2] = parentKontodRowByFK__Piletid__KontoID__5CD6CB2B[0];
                 }
                 rowPiletidRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPiletidRow);
@@ -2502,9 +2501,9 @@ namespace Kino {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnHind = base.Columns["Hind"];
                 this.columnSeanssiIstmedID = base.Columns["SeanssiIstmedID"];
                 this.columnKontoID = base.Columns["KontoID"];
+                this.columnHind = base.Columns["Hind"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2512,12 +2511,12 @@ namespace Kino {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnHind = new global::System.Data.DataColumn("Hind", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHind);
                 this.columnSeanssiIstmedID = new global::System.Data.DataColumn("SeanssiIstmedID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSeanssiIstmedID);
                 this.columnKontoID = new global::System.Data.DataColumn("KontoID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKontoID);
+                this.columnHind = new global::System.Data.DataColumn("Hind", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHind);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2526,9 +2525,9 @@ namespace Kino {
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
-                this.columnHind.AllowDBNull = false;
                 this.columnSeanssiIstmedID.AllowDBNull = false;
                 this.columnKontoID.AllowDBNull = false;
+                this.columnHind.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2806,7 +2805,7 @@ namespace Kino {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnTaisnimi.AllowDBNull = false;
-                this.columnTaisnimi.MaxLength = 50;
+                this.columnTaisnimi.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2948,9 +2947,9 @@ namespace Kino {
             
             private global::System.Data.DataColumn columnKinoID;
             
-            private global::System.Data.DataColumn columnVeerudArv;
+            private global::System.Data.DataColumn columnSaalVeerud;
             
-            private global::System.Data.DataColumn columnReadArv;
+            private global::System.Data.DataColumn columnSaalRead;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3019,17 +3018,17 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn VeerudArvColumn {
+            public global::System.Data.DataColumn SaalVeerudColumn {
                 get {
-                    return this.columnVeerudArv;
+                    return this.columnSaalVeerud;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ReadArvColumn {
+            public global::System.Data.DataColumn SaalReadColumn {
                 get {
-                    return this.columnReadArv;
+                    return this.columnSaalRead;
                 }
             }
             
@@ -3070,15 +3069,15 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SaalidRow AddSaalidRow(string Nimetus, string Tuup, KinodRow parentKinodRowByFK__Saalid__KinoID__440B1D61, int VeerudArv, int ReadArv) {
+            public SaalidRow AddSaalidRow(string Nimetus, string Tuup, KinodRow parentKinodRowByFK__Saalid__KinoID__440B1D61, int SaalVeerud, int SaalRead) {
                 SaalidRow rowSaalidRow = ((SaalidRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Nimetus,
                         Tuup,
                         null,
-                        VeerudArv,
-                        ReadArv};
+                        SaalVeerud,
+                        SaalRead};
                 if ((parentKinodRowByFK__Saalid__KinoID__440B1D61 != null)) {
                     columnValuesArray[3] = parentKinodRowByFK__Saalid__KinoID__440B1D61[0];
                 }
@@ -3115,8 +3114,8 @@ namespace Kino {
                 this.columnNimetus = base.Columns["Nimetus"];
                 this.columnTuup = base.Columns["Tuup"];
                 this.columnKinoID = base.Columns["KinoID"];
-                this.columnVeerudArv = base.Columns["VeerudArv"];
-                this.columnReadArv = base.Columns["ReadArv"];
+                this.columnSaalVeerud = base.Columns["SaalVeerud"];
+                this.columnSaalRead = base.Columns["SaalRead"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3130,10 +3129,10 @@ namespace Kino {
                 base.Columns.Add(this.columnTuup);
                 this.columnKinoID = new global::System.Data.DataColumn("KinoID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKinoID);
-                this.columnVeerudArv = new global::System.Data.DataColumn("VeerudArv", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVeerudArv);
-                this.columnReadArv = new global::System.Data.DataColumn("ReadArv", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReadArv);
+                this.columnSaalVeerud = new global::System.Data.DataColumn("SaalVeerud", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaalVeerud);
+                this.columnSaalRead = new global::System.Data.DataColumn("SaalRead", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaalRead);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3143,12 +3142,12 @@ namespace Kino {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnNimetus.AllowDBNull = false;
-                this.columnNimetus.MaxLength = 25;
+                this.columnNimetus.MaxLength = 255;
                 this.columnTuup.AllowDBNull = false;
-                this.columnTuup.MaxLength = 25;
+                this.columnTuup.MaxLength = 255;
                 this.columnKinoID.AllowDBNull = false;
-                this.columnVeerudArv.AllowDBNull = false;
-                this.columnReadArv.AllowDBNull = false;
+                this.columnSaalVeerud.AllowDBNull = false;
+                this.columnSaalRead.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3615,11 +3614,11 @@ namespace Kino {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnKasOnHõivatud;
-            
             private global::System.Data.DataColumn columnSeanssID;
             
             private global::System.Data.DataColumn columnIstmedID;
+            
+            private global::System.Data.DataColumn columnKasOnHõivatud;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3664,14 +3663,6 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn KasOnHõivatudColumn {
-                get {
-                    return this.columnKasOnHõivatud;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn SeanssIDColumn {
                 get {
                     return this.columnSeanssID;
@@ -3683,6 +3674,14 @@ namespace Kino {
             public global::System.Data.DataColumn IstmedIDColumn {
                 get {
                     return this.columnIstmedID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KasOnHõivatudColumn {
+                get {
+                    return this.columnKasOnHõivatud;
                 }
             }
             
@@ -3723,18 +3722,18 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SeanssiIstmedRow AddSeanssiIstmedRow(bool KasOnHõivatud, SeanssidRow parentSeanssidRowByFK__SeanssiIs__Seans__5441852A, IstmedRow parentIstmedRowByFK__SeanssiIs__Istme__5535A963) {
+            public SeanssiIstmedRow AddSeanssiIstmedRow(SeanssidRow parentSeanssidRowByFK__SeanssiIs__Seans__5441852A, IstmedRow parentIstmedRowByFK__SeanssiIs__Istme__5535A963, bool KasOnHõivatud) {
                 SeanssiIstmedRow rowSeanssiIstmedRow = ((SeanssiIstmedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        KasOnHõivatud,
                         null,
-                        null};
+                        null,
+                        KasOnHõivatud};
                 if ((parentSeanssidRowByFK__SeanssiIs__Seans__5441852A != null)) {
-                    columnValuesArray[2] = parentSeanssidRowByFK__SeanssiIs__Seans__5441852A[0];
+                    columnValuesArray[1] = parentSeanssidRowByFK__SeanssiIs__Seans__5441852A[0];
                 }
                 if ((parentIstmedRowByFK__SeanssiIs__Istme__5535A963 != null)) {
-                    columnValuesArray[3] = parentIstmedRowByFK__SeanssiIs__Istme__5535A963[0];
+                    columnValuesArray[2] = parentIstmedRowByFK__SeanssiIs__Istme__5535A963[0];
                 }
                 rowSeanssiIstmedRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSeanssiIstmedRow);
@@ -3766,9 +3765,9 @@ namespace Kino {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnKasOnHõivatud = base.Columns["KasOnHõivatud"];
                 this.columnSeanssID = base.Columns["SeanssID"];
                 this.columnIstmedID = base.Columns["IstmedID"];
+                this.columnKasOnHõivatud = base.Columns["KasOnHõivatud"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3776,12 +3775,12 @@ namespace Kino {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnKasOnHõivatud = new global::System.Data.DataColumn("KasOnHõivatud", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKasOnHõivatud);
                 this.columnSeanssID = new global::System.Data.DataColumn("SeanssID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSeanssID);
                 this.columnIstmedID = new global::System.Data.DataColumn("IstmedID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIstmedID);
+                this.columnKasOnHõivatud = new global::System.Data.DataColumn("KasOnHõivatud", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKasOnHõivatud);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3790,9 +3789,9 @@ namespace Kino {
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
-                this.columnKasOnHõivatud.AllowDBNull = false;
                 this.columnSeanssID.AllowDBNull = false;
                 this.columnIstmedID.AllowDBNull = false;
+                this.columnKasOnHõivatud.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4070,7 +4069,7 @@ namespace Kino {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnNimetus.AllowDBNull = false;
-                this.columnNimetus.MaxLength = 25;
+                this.columnNimetus.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4348,7 +4347,7 @@ namespace Kino {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnNimetus.AllowDBNull = false;
-                this.columnNimetus.MaxLength = 25;
+                this.columnNimetus.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4592,10 +4591,10 @@ namespace Kino {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public RezissooridRow RezissooridRow {
                 get {
-                    return ((RezissooridRow)(this.GetParentRow(this.Table.ParentRelations["FK__Filmid__Rezissoo__3D5E1FD2"])));
+                    return ((RezissooridRow)(this.GetParentRow(this.Table.ParentRelations["FK__Filmid__Rezissoo__3C69FB99"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Filmid__Rezissoo__3D5E1FD2"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Filmid__Rezissoo__3C69FB99"]);
                 }
             }
             
@@ -4603,10 +4602,10 @@ namespace Kino {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ZanridRow ZanridRow {
                 get {
-                    return ((ZanridRow)(this.GetParentRow(this.Table.ParentRelations["FK__Filmid__ZanrID__3E52440B"])));
+                    return ((ZanridRow)(this.GetParentRow(this.Table.ParentRelations["FK__Filmid__ZanrID__3D5E1FD2"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Filmid__ZanrID__3E52440B"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Filmid__ZanrID__3D5E1FD2"]);
                 }
             }
             
@@ -4614,10 +4613,10 @@ namespace Kino {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public VanusepiirangudRow VanusepiirangudRow {
                 get {
-                    return ((VanusepiirangudRow)(this.GetParentRow(this.Table.ParentRelations["FK__Filmid__Vanusepi__3F466844"])));
+                    return ((VanusepiirangudRow)(this.GetParentRow(this.Table.ParentRelations["FK__Filmid__Vanusepi__3E52440B"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Filmid__Vanusepi__3F466844"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Filmid__Vanusepi__3E52440B"]);
                 }
             }
             
@@ -4660,6 +4659,17 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int SaalID {
+                get {
+                    return ((int)(this[this.tableIstmed.SaalIDColumn]));
+                }
+                set {
+                    this[this.tableIstmed.SaalIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Rida {
                 get {
                     return ((int)(this[this.tableIstmed.RidaColumn]));
@@ -4677,17 +4687,6 @@ namespace Kino {
                 }
                 set {
                     this[this.tableIstmed.VeergColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int SaalID {
-                get {
-                    return ((int)(this[this.tableIstmed.SaalIDColumn]));
-                }
-                set {
-                    this[this.tableIstmed.SaalIDColumn] = value;
                 }
             }
             
@@ -4881,23 +4880,40 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Tuup {
+            public string Tüüp {
                 get {
-                    return ((string)(this[this.tableKontod.TuupColumn]));
+                    try {
+                        return ((string)(this[this.tableKontod.TüüpColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tüüp\' in table \'Kontod\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableKontod.TuupColumn] = value;
+                    this[this.tableKontod.TüüpColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTüüpNull() {
+                return this.IsNull(this.tableKontod.TüüpColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTüüpNull() {
+                this[this.tableKontod.TüüpColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PiletidRow[] GetPiletidRows() {
-                if ((this.Table.ChildRelations["FK__Piletid__KontoID__5BE2A6F2"] == null)) {
+                if ((this.Table.ChildRelations["FK__Piletid__KontoID__5CD6CB2B"] == null)) {
                     return new PiletidRow[0];
                 }
                 else {
-                    return ((PiletidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Piletid__KontoID__5BE2A6F2"])));
+                    return ((PiletidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Piletid__KontoID__5CD6CB2B"])));
                 }
             }
         }
@@ -4929,17 +4945,6 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Hind {
-                get {
-                    return ((decimal)(this[this.tablePiletid.HindColumn]));
-                }
-                set {
-                    this[this.tablePiletid.HindColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int SeanssiIstmedID {
                 get {
                     return ((int)(this[this.tablePiletid.SeanssiIstmedIDColumn]));
@@ -4962,12 +4967,23 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public KontodRow KontodRow {
+            public decimal Hind {
                 get {
-                    return ((KontodRow)(this.GetParentRow(this.Table.ParentRelations["FK__Piletid__KontoID__5BE2A6F2"])));
+                    return ((decimal)(this[this.tablePiletid.HindColumn]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Piletid__KontoID__5BE2A6F2"]);
+                    this[this.tablePiletid.HindColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public KontodRow KontodRow {
+                get {
+                    return ((KontodRow)(this.GetParentRow(this.Table.ParentRelations["FK__Piletid__KontoID__5CD6CB2B"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Piletid__KontoID__5CD6CB2B"]);
                 }
             }
             
@@ -4975,10 +4991,10 @@ namespace Kino {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SeanssiIstmedRow SeanssiIstmedRow {
                 get {
-                    return ((SeanssiIstmedRow)(this.GetParentRow(this.Table.ParentRelations["FK__Piletid__Seanssi__5AEE82B9"])));
+                    return ((SeanssiIstmedRow)(this.GetParentRow(this.Table.ParentRelations["FK__Piletid__Seanssi__5BE2A6F2"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Piletid__Seanssi__5AEE82B9"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Piletid__Seanssi__5BE2A6F2"]);
                 }
             }
         }
@@ -5022,11 +5038,11 @@ namespace Kino {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public FilmidRow[] GetFilmidRows() {
-                if ((this.Table.ChildRelations["FK__Filmid__Rezissoo__3D5E1FD2"] == null)) {
+                if ((this.Table.ChildRelations["FK__Filmid__Rezissoo__3C69FB99"] == null)) {
                     return new FilmidRow[0];
                 }
                 else {
-                    return ((FilmidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Filmid__Rezissoo__3D5E1FD2"])));
+                    return ((FilmidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Filmid__Rezissoo__3C69FB99"])));
                 }
             }
         }
@@ -5091,23 +5107,23 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int VeerudArv {
+            public int SaalVeerud {
                 get {
-                    return ((int)(this[this.tableSaalid.VeerudArvColumn]));
+                    return ((int)(this[this.tableSaalid.SaalVeerudColumn]));
                 }
                 set {
-                    this[this.tableSaalid.VeerudArvColumn] = value;
+                    this[this.tableSaalid.SaalVeerudColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ReadArv {
+            public int SaalRead {
                 get {
-                    return ((int)(this[this.tableSaalid.ReadArvColumn]));
+                    return ((int)(this[this.tableSaalid.SaalReadColumn]));
                 }
                 set {
-                    this[this.tableSaalid.ReadArvColumn] = value;
+                    this[this.tableSaalid.SaalReadColumn] = value;
                 }
             }
             
@@ -5286,17 +5302,6 @@ namespace Kino {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool KasOnHõivatud {
-                get {
-                    return ((bool)(this[this.tableSeanssiIstmed.KasOnHõivatudColumn]));
-                }
-                set {
-                    this[this.tableSeanssiIstmed.KasOnHõivatudColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int SeanssID {
                 get {
                     return ((int)(this[this.tableSeanssiIstmed.SeanssIDColumn]));
@@ -5314,6 +5319,17 @@ namespace Kino {
                 }
                 set {
                     this[this.tableSeanssiIstmed.IstmedIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool KasOnHõivatud {
+                get {
+                    return ((bool)(this[this.tableSeanssiIstmed.KasOnHõivatudColumn]));
+                }
+                set {
+                    this[this.tableSeanssiIstmed.KasOnHõivatudColumn] = value;
                 }
             }
             
@@ -5342,11 +5358,11 @@ namespace Kino {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PiletidRow[] GetPiletidRows() {
-                if ((this.Table.ChildRelations["FK__Piletid__Seanssi__5AEE82B9"] == null)) {
+                if ((this.Table.ChildRelations["FK__Piletid__Seanssi__5BE2A6F2"] == null)) {
                     return new PiletidRow[0];
                 }
                 else {
-                    return ((PiletidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Piletid__Seanssi__5AEE82B9"])));
+                    return ((PiletidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Piletid__Seanssi__5BE2A6F2"])));
                 }
             }
         }
@@ -5390,11 +5406,11 @@ namespace Kino {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public FilmidRow[] GetFilmidRows() {
-                if ((this.Table.ChildRelations["FK__Filmid__ZanrID__3E52440B"] == null)) {
+                if ((this.Table.ChildRelations["FK__Filmid__ZanrID__3D5E1FD2"] == null)) {
                     return new FilmidRow[0];
                 }
                 else {
-                    return ((FilmidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Filmid__ZanrID__3E52440B"])));
+                    return ((FilmidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Filmid__ZanrID__3D5E1FD2"])));
                 }
             }
         }
@@ -5438,11 +5454,11 @@ namespace Kino {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public FilmidRow[] GetFilmidRows() {
-                if ((this.Table.ChildRelations["FK__Filmid__Vanusepi__3F466844"] == null)) {
+                if ((this.Table.ChildRelations["FK__Filmid__Vanusepi__3E52440B"] == null)) {
                     return new FilmidRow[0];
                 }
                 else {
-                    return ((FilmidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Filmid__Vanusepi__3F466844"])));
+                    return ((FilmidRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Filmid__Vanusepi__3E52440B"])));
                 }
             }
         }
@@ -6007,7 +6023,7 @@ namespace Kino.KinoAndmebaasDataSetTableAdapters {
 SELECT ID, Nimetus, Kirjeldus, Kestus, Väljalaskeaeg, Poster, RezissoorID, ZanrID, VanusepiirangID FROM Filmid WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nimetus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nimetus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kirjeldus", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kirjeldus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kirjeldus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kirjeldus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kestus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kestus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Väljalaskeaeg", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Väljalaskeaeg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Poster", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Poster", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6020,7 +6036,7 @@ SELECT ID, Nimetus, Kirjeldus, Kestus, Väljalaskeaeg, Poster, RezissoorID, Zanr
 SELECT ID, Nimetus, Kirjeldus, Kestus, Väljalaskeaeg, Poster, RezissoorID, ZanrID, VanusepiirangID FROM Filmid WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nimetus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nimetus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kirjeldus", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kirjeldus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kirjeldus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kirjeldus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kestus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kestus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Väljalaskeaeg", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Väljalaskeaeg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Poster", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Poster", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6389,40 +6405,40 @@ SELECT ID, Nimetus, Kirjeldus, Kestus, Väljalaskeaeg, Poster, RezissoorID, Zanr
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Istmed";
             tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("SaalID", "SaalID");
             tableMapping.ColumnMappings.Add("Rida", "Rida");
             tableMapping.ColumnMappings.Add("Veerg", "Veerg");
-            tableMapping.ColumnMappings.Add("SaalID", "SaalID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Istmed] WHERE (([ID] = @Original_ID) AND ([Rida] = @Original_R" +
-                "ida) AND ([Veerg] = @Original_Veerg) AND ([SaalID] = @Original_SaalID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Istmed] WHERE (([ID] = @Original_ID) AND ([SaalID] = @Original" +
+                "_SaalID) AND ([Rida] = @Original_Rida) AND ([Veerg] = @Original_Veerg))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SaalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rida", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rida", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Veerg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Veerg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SaalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Istmed] ([Rida], [Veerg], [SaalID]) VALUES (@Rida, @Veerg, @Sa" +
-                "alID);\r\nSELECT ID, Rida, Veerg, SaalID FROM Istmed WHERE (ID = SCOPE_IDENTITY())" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Istmed] ([SaalID], [Rida], [Veerg]) VALUES (@SaalID, @Rida, @V" +
+                "eerg);\r\nSELECT ID, SaalID, Rida, Veerg FROM Istmed WHERE (ID = SCOPE_IDENTITY())" +
                 "";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rida", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rida", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Veerg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Veerg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Istmed] SET [Rida] = @Rida, [Veerg] = @Veerg, [SaalID] = @SaalID WHERE (([ID] = @Original_ID) AND ([Rida] = @Original_Rida) AND ([Veerg] = @Original_Veerg) AND ([SaalID] = @Original_SaalID));
-SELECT ID, Rida, Veerg, SaalID FROM Istmed WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Istmed] SET [SaalID] = @SaalID, [Rida] = @Rida, [Veerg] = @Veerg WHERE (([ID] = @Original_ID) AND ([SaalID] = @Original_SaalID) AND ([Rida] = @Original_Rida) AND ([Veerg] = @Original_Veerg));
+SELECT ID, SaalID, Rida, Veerg FROM Istmed WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rida", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rida", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Veerg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Veerg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SaalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rida", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rida", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Veerg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Veerg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SaalID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6439,7 +6455,7 @@ SELECT ID, Rida, Veerg, SaalID FROM Istmed WHERE (ID = @ID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Rida, Veerg, SaalID FROM dbo.Istmed";
+            this._commandCollection[0].CommandText = "SELECT ID, SaalID, Rida, Veerg FROM dbo.Istmed";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6500,11 +6516,11 @@ SELECT ID, Rida, Veerg, SaalID FROM Istmed WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, int Original_Rida, int Original_Veerg, int Original_SaalID) {
+        public virtual int Delete(int Original_ID, int Original_SaalID, int Original_Rida, int Original_Veerg) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Rida));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Veerg));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_SaalID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_SaalID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Rida));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Veerg));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6525,10 +6541,10 @@ SELECT ID, Rida, Veerg, SaalID FROM Istmed WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Rida, int Veerg, int SaalID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Rida));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Veerg));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(SaalID));
+        public virtual int Insert(int SaalID, int Rida, int Veerg) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(SaalID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Rida));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Veerg));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6549,14 +6565,14 @@ SELECT ID, Rida, Veerg, SaalID FROM Istmed WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Rida, int Veerg, int SaalID, int Original_ID, int Original_Rida, int Original_Veerg, int Original_SaalID, int ID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Rida));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Veerg));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(SaalID));
+        public virtual int Update(int SaalID, int Rida, int Veerg, int Original_ID, int Original_SaalID, int Original_Rida, int Original_Veerg, int ID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(SaalID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Rida));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Veerg));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Rida));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Veerg));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_SaalID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_SaalID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Rida));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Veerg));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6578,8 +6594,8 @@ SELECT ID, Rida, Veerg, SaalID FROM Istmed WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Rida, int Veerg, int SaalID, int Original_ID, int Original_Rida, int Original_Veerg, int Original_SaalID) {
-            return this.Update(Rida, Veerg, SaalID, Original_ID, Original_Rida, Original_Veerg, Original_SaalID, Original_ID);
+        public virtual int Update(int SaalID, int Rida, int Veerg, int Original_ID, int Original_SaalID, int Original_Rida, int Original_Veerg) {
+            return this.Update(SaalID, Rida, Veerg, Original_ID, Original_SaalID, Original_Rida, Original_Veerg, Original_ID);
         }
     }
     
@@ -7373,43 +7389,43 @@ SELECT ID, Rida, Veerg, SaalID FROM Istmed WHERE (ID = @ID)";
             tableMapping.ColumnMappings.Add("Huudnimi", "Huudnimi");
             tableMapping.ColumnMappings.Add("Email", "Email");
             tableMapping.ColumnMappings.Add("Parool", "Parool");
-            tableMapping.ColumnMappings.Add("Tuup", "Tuup");
+            tableMapping.ColumnMappings.Add("Tüüp", "Tüüp");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Kontod] WHERE (([ID] = @Original_ID) AND ([Huudnimi] = @Origin" +
-                "al_Huudnimi) AND ([Email] = @Original_Email) AND ([Parool] = @Original_Parool) A" +
-                "ND ([Tuup] = @Original_Tuup))";
+                "al_Huudnimi) AND ([Email] = @Original_Email) AND ((@IsNull_Tüüp = 1 AND [Tüüp] I" +
+                "S NULL) OR ([Tüüp] = @Original_Tüüp)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Huudnimi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Huudnimi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Parool", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Parool", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tuup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tuup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Tüüp", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tüüp", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tüüp", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tüüp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Kontod] ([Huudnimi], [Email], [Parool], [Tuup]) VALUES (@Huudn" +
-                "imi, @Email, @Parool, @Tuup);\r\nSELECT ID, Huudnimi, Email, Parool, Tuup FROM Kon" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Kontod] ([Huudnimi], [Email], [Parool], [Tüüp]) VALUES (@Huudn" +
+                "imi, @Email, @Parool, @Tüüp);\r\nSELECT ID, Huudnimi, Email, Parool, Tüüp FROM Kon" +
                 "tod WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Huudnimi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Huudnimi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parool", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Parool", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tuup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tuup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tüüp", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tüüp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Kontod] SET [Huudnimi] = @Huudnimi, [Email] = @Email, [Parool] = @Parool, [Tuup] = @Tuup WHERE (([ID] = @Original_ID) AND ([Huudnimi] = @Original_Huudnimi) AND ([Email] = @Original_Email) AND ([Parool] = @Original_Parool) AND ([Tuup] = @Original_Tuup));
-SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Kontod] SET [Huudnimi] = @Huudnimi, [Email] = @Email, [Parool] = @Parool, [Tüüp] = @Tüüp WHERE (([ID] = @Original_ID) AND ([Huudnimi] = @Original_Huudnimi) AND ([Email] = @Original_Email) AND ((@IsNull_Tüüp = 1 AND [Tüüp] IS NULL) OR ([Tüüp] = @Original_Tüüp)));
+SELECT ID, Huudnimi, Email, Parool, Tüüp FROM Kontod WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Huudnimi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Huudnimi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parool", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Parool", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tuup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tuup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tüüp", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tüüp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Huudnimi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Huudnimi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Parool", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Parool", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tuup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tuup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Tüüp", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tüüp", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tüüp", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tüüp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -7426,7 +7442,7 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Huudnimi, Email, Parool, Tuup FROM dbo.Kontod";
+            this._commandCollection[0].CommandText = "SELECT ID, Huudnimi, Email, Parool, Tüüp FROM dbo.Kontod";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7487,7 +7503,7 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_Huudnimi, string Original_Email, string Original_Parool, string Original_Tuup) {
+        public virtual int Delete(int Original_ID, string Original_Huudnimi, string Original_Email, string Original_Tüüp) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Huudnimi == null)) {
                 throw new global::System.ArgumentNullException("Original_Huudnimi");
@@ -7501,17 +7517,13 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Email));
             }
-            if ((Original_Parool == null)) {
-                throw new global::System.ArgumentNullException("Original_Parool");
+            if ((Original_Tüüp == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Parool));
-            }
-            if ((Original_Tuup == null)) {
-                throw new global::System.ArgumentNullException("Original_Tuup");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Tuup));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Tüüp));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7533,7 +7545,7 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Huudnimi, string Email, string Parool, string Tuup) {
+        public virtual int Insert(string Huudnimi, string Email, string Parool, string Tüüp) {
             if ((Huudnimi == null)) {
                 throw new global::System.ArgumentNullException("Huudnimi");
             }
@@ -7552,11 +7564,11 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Parool));
             }
-            if ((Tuup == null)) {
-                throw new global::System.ArgumentNullException("Tuup");
+            if ((Tüüp == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Tuup));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Tüüp));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7578,7 +7590,7 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Huudnimi, string Email, string Parool, string Tuup, int Original_ID, string Original_Huudnimi, string Original_Email, string Original_Parool, string Original_Tuup, int ID) {
+        public virtual int Update(string Huudnimi, string Email, string Parool, string Tüüp, int Original_ID, string Original_Huudnimi, string Original_Email, string Original_Tüüp, int ID) {
             if ((Huudnimi == null)) {
                 throw new global::System.ArgumentNullException("Huudnimi");
             }
@@ -7597,11 +7609,11 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Parool));
             }
-            if ((Tuup == null)) {
-                throw new global::System.ArgumentNullException("Tuup");
+            if ((Tüüp == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Tuup));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Tüüp));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID));
             if ((Original_Huudnimi == null)) {
@@ -7616,17 +7628,13 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Email));
             }
-            if ((Original_Parool == null)) {
-                throw new global::System.ArgumentNullException("Original_Parool");
+            if ((Original_Tüüp == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Parool));
-            }
-            if ((Original_Tuup == null)) {
-                throw new global::System.ArgumentNullException("Original_Tuup");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Tuup));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Tüüp));
             }
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -7649,8 +7657,8 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Huudnimi, string Email, string Parool, string Tuup, int Original_ID, string Original_Huudnimi, string Original_Email, string Original_Parool, string Original_Tuup) {
-            return this.Update(Huudnimi, Email, Parool, Tuup, Original_ID, Original_Huudnimi, Original_Email, Original_Parool, Original_Tuup, Original_ID);
+        public virtual int Update(string Huudnimi, string Email, string Parool, string Tüüp, int Original_ID, string Original_Huudnimi, string Original_Email, string Original_Tüüp) {
+            return this.Update(Huudnimi, Email, Parool, Tüüp, Original_ID, Original_Huudnimi, Original_Email, Original_Tüüp, Original_ID);
         }
     }
     
@@ -7776,41 +7784,41 @@ SELECT ID, Huudnimi, Email, Parool, Tuup FROM Kontod WHERE (ID = @ID)";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Piletid";
             tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("Hind", "Hind");
             tableMapping.ColumnMappings.Add("SeanssiIstmedID", "SeanssiIstmedID");
             tableMapping.ColumnMappings.Add("KontoID", "KontoID");
+            tableMapping.ColumnMappings.Add("Hind", "Hind");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Piletid] WHERE (([ID] = @Original_ID) AND ([Hind] = @Original_" +
-                "Hind) AND ([SeanssiIstmedID] = @Original_SeanssiIstmedID) AND ([KontoID] = @Orig" +
-                "inal_KontoID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Piletid] WHERE (([ID] = @Original_ID) AND ([SeanssiIstmedID] =" +
+                " @Original_SeanssiIstmedID) AND ([KontoID] = @Original_KontoID) AND ([Hind] = @O" +
+                "riginal_Hind))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hind", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "Hind", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SeanssiIstmedID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeanssiIstmedID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KontoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KontoID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hind", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hind", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Piletid] ([Hind], [SeanssiIstmedID], [KontoID]) VALUES (@Hind," +
-                " @SeanssiIstmedID, @KontoID);\r\nSELECT ID, Hind, SeanssiIstmedID, KontoID FROM Pi" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Piletid] ([SeanssiIstmedID], [KontoID], [Hind]) VALUES (@Seans" +
+                "siIstmedID, @KontoID, @Hind);\r\nSELECT ID, SeanssiIstmedID, KontoID, Hind FROM Pi" +
                 "letid WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hind", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "Hind", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeanssiIstmedID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeanssiIstmedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KontoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KontoID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hind", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hind", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Piletid] SET [Hind] = @Hind, [SeanssiIstmedID] = @SeanssiIstmedID, [KontoID] = @KontoID WHERE (([ID] = @Original_ID) AND ([Hind] = @Original_Hind) AND ([SeanssiIstmedID] = @Original_SeanssiIstmedID) AND ([KontoID] = @Original_KontoID));
-SELECT ID, Hind, SeanssiIstmedID, KontoID FROM Piletid WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Piletid] SET [SeanssiIstmedID] = @SeanssiIstmedID, [KontoID] = @KontoID, [Hind] = @Hind WHERE (([ID] = @Original_ID) AND ([SeanssiIstmedID] = @Original_SeanssiIstmedID) AND ([KontoID] = @Original_KontoID) AND ([Hind] = @Original_Hind));
+SELECT ID, SeanssiIstmedID, KontoID, Hind FROM Piletid WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hind", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "Hind", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeanssiIstmedID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeanssiIstmedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KontoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KontoID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hind", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hind", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hind", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "Hind", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SeanssiIstmedID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeanssiIstmedID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KontoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KontoID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hind", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Hind", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -7827,7 +7835,7 @@ SELECT ID, Hind, SeanssiIstmedID, KontoID FROM Piletid WHERE (ID = @ID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Hind, SeanssiIstmedID, KontoID FROM dbo.Piletid";
+            this._commandCollection[0].CommandText = "SELECT ID, SeanssiIstmedID, KontoID, Hind FROM dbo.Piletid";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7888,11 +7896,11 @@ SELECT ID, Hind, SeanssiIstmedID, KontoID FROM Piletid WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, decimal Original_Hind, int Original_SeanssiIstmedID, int Original_KontoID) {
+        public virtual int Delete(int Original_ID, int Original_SeanssiIstmedID, int Original_KontoID, decimal Original_Hind) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(Original_Hind));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_SeanssiIstmedID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_KontoID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_SeanssiIstmedID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_KontoID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_Hind));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7913,10 +7921,10 @@ SELECT ID, Hind, SeanssiIstmedID, KontoID FROM Piletid WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal Hind, int SeanssiIstmedID, int KontoID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(Hind));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(SeanssiIstmedID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(KontoID));
+        public virtual int Insert(int SeanssiIstmedID, int KontoID, decimal Hind) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(SeanssiIstmedID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(KontoID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Hind));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7937,14 +7945,14 @@ SELECT ID, Hind, SeanssiIstmedID, KontoID FROM Piletid WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal Hind, int SeanssiIstmedID, int KontoID, int Original_ID, decimal Original_Hind, int Original_SeanssiIstmedID, int Original_KontoID, int ID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(Hind));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(SeanssiIstmedID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(KontoID));
+        public virtual int Update(int SeanssiIstmedID, int KontoID, decimal Hind, int Original_ID, int Original_SeanssiIstmedID, int Original_KontoID, decimal Original_Hind, int ID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(SeanssiIstmedID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(KontoID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Hind));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Original_Hind));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_SeanssiIstmedID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_KontoID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_SeanssiIstmedID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_KontoID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_Hind));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7966,8 +7974,8 @@ SELECT ID, Hind, SeanssiIstmedID, KontoID FROM Piletid WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal Hind, int SeanssiIstmedID, int KontoID, int Original_ID, decimal Original_Hind, int Original_SeanssiIstmedID, int Original_KontoID) {
-            return this.Update(Hind, SeanssiIstmedID, KontoID, Original_ID, Original_Hind, Original_SeanssiIstmedID, Original_KontoID, Original_ID);
+        public virtual int Update(int SeanssiIstmedID, int KontoID, decimal Hind, int Original_ID, int Original_SeanssiIstmedID, int Original_KontoID, decimal Original_Hind) {
+            return this.Update(SeanssiIstmedID, KontoID, Hind, Original_ID, Original_SeanssiIstmedID, Original_KontoID, Original_Hind, Original_ID);
         }
     }
     
@@ -8414,48 +8422,48 @@ SELECT ID, Hind, SeanssiIstmedID, KontoID FROM Piletid WHERE (ID = @ID)";
             tableMapping.ColumnMappings.Add("Nimetus", "Nimetus");
             tableMapping.ColumnMappings.Add("Tuup", "Tuup");
             tableMapping.ColumnMappings.Add("KinoID", "KinoID");
-            tableMapping.ColumnMappings.Add("VeerudArv", "VeerudArv");
-            tableMapping.ColumnMappings.Add("ReadArv", "ReadArv");
+            tableMapping.ColumnMappings.Add("SaalVeerud", "SaalVeerud");
+            tableMapping.ColumnMappings.Add("SaalRead", "SaalRead");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Saalid] WHERE (([ID] = @Original_ID) AND ([Nimetus] = @Origina" +
                 "l_Nimetus) AND ([Tuup] = @Original_Tuup) AND ([KinoID] = @Original_KinoID) AND (" +
-                "[VeerudArv] = @Original_VeerudArv) AND ([ReadArv] = @Original_ReadArv))";
+                "[SaalVeerud] = @Original_SaalVeerud) AND ([SaalRead] = @Original_SaalRead))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nimetus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nimetus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tuup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tuup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KinoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KinoID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VeerudArv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VeerudArv", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReadArv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReadArv", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SaalVeerud", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalVeerud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SaalRead", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalRead", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Saalid] ([Nimetus], [Tuup], [KinoID], [VeerudArv], [ReadArv]) " +
-                "VALUES (@Nimetus, @Tuup, @KinoID, @VeerudArv, @ReadArv);\r\nSELECT ID, Nimetus, Tu" +
-                "up, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Saalid] ([Nimetus], [Tuup], [KinoID], [SaalVeerud], [SaalRead]" +
+                ") VALUES (@Nimetus, @Tuup, @KinoID, @SaalVeerud, @SaalRead);\r\nSELECT ID, Nimetus" +
+                ", Tuup, KinoID, SaalVeerud, SaalRead FROM Saalid WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nimetus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nimetus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tuup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tuup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KinoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KinoID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VeerudArv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VeerudArv", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReadArv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReadArv", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaalVeerud", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalVeerud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaalRead", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalRead", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Saalid] SET [Nimetus] = @Nimetus, [Tuup] = @Tuup, [KinoID] = @KinoID, [VeerudArv] = @VeerudArv, [ReadArv] = @ReadArv WHERE (([ID] = @Original_ID) AND ([Nimetus] = @Original_Nimetus) AND ([Tuup] = @Original_Tuup) AND ([KinoID] = @Original_KinoID) AND ([VeerudArv] = @Original_VeerudArv) AND ([ReadArv] = @Original_ReadArv));
-SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Saalid] SET [Nimetus] = @Nimetus, [Tuup] = @Tuup, [KinoID] = @KinoID, [SaalVeerud] = @SaalVeerud, [SaalRead] = @SaalRead WHERE (([ID] = @Original_ID) AND ([Nimetus] = @Original_Nimetus) AND ([Tuup] = @Original_Tuup) AND ([KinoID] = @Original_KinoID) AND ([SaalVeerud] = @Original_SaalVeerud) AND ([SaalRead] = @Original_SaalRead));
+SELECT ID, Nimetus, Tuup, KinoID, SaalVeerud, SaalRead FROM Saalid WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nimetus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nimetus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tuup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tuup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KinoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KinoID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VeerudArv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VeerudArv", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReadArv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReadArv", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaalVeerud", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalVeerud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaalRead", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalRead", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nimetus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nimetus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tuup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tuup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KinoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KinoID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VeerudArv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VeerudArv", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReadArv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReadArv", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SaalVeerud", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalVeerud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SaalRead", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaalRead", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -8472,7 +8480,7 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM dbo.Saalid";
+            this._commandCollection[0].CommandText = "SELECT ID, Nimetus, Tuup, KinoID, SaalVeerud, SaalRead FROM dbo.Saalid";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8533,7 +8541,7 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_Nimetus, string Original_Tuup, int Original_KinoID, int Original_VeerudArv, int Original_ReadArv) {
+        public virtual int Delete(int Original_ID, string Original_Nimetus, string Original_Tuup, int Original_KinoID, int Original_SaalVeerud, int Original_SaalRead) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Nimetus == null)) {
                 throw new global::System.ArgumentNullException("Original_Nimetus");
@@ -8548,8 +8556,8 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Tuup));
             }
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_KinoID));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_VeerudArv));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_ReadArv));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_SaalVeerud));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_SaalRead));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8570,7 +8578,7 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nimetus, string Tuup, int KinoID, int VeerudArv, int ReadArv) {
+        public virtual int Insert(string Nimetus, string Tuup, int KinoID, int SaalVeerud, int SaalRead) {
             if ((Nimetus == null)) {
                 throw new global::System.ArgumentNullException("Nimetus");
             }
@@ -8584,8 +8592,8 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Tuup));
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(KinoID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(VeerudArv));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ReadArv));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(SaalVeerud));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(SaalRead));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8606,7 +8614,7 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nimetus, string Tuup, int KinoID, int VeerudArv, int ReadArv, int Original_ID, string Original_Nimetus, string Original_Tuup, int Original_KinoID, int Original_VeerudArv, int Original_ReadArv, int ID) {
+        public virtual int Update(string Nimetus, string Tuup, int KinoID, int SaalVeerud, int SaalRead, int Original_ID, string Original_Nimetus, string Original_Tuup, int Original_KinoID, int Original_SaalVeerud, int Original_SaalRead, int ID) {
             if ((Nimetus == null)) {
                 throw new global::System.ArgumentNullException("Nimetus");
             }
@@ -8620,8 +8628,8 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Tuup));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(KinoID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(VeerudArv));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ReadArv));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(SaalVeerud));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(SaalRead));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
             if ((Original_Nimetus == null)) {
                 throw new global::System.ArgumentNullException("Original_Nimetus");
@@ -8636,8 +8644,8 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Tuup));
             }
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_KinoID));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_VeerudArv));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ReadArv));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_SaalVeerud));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_SaalRead));
             this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8659,8 +8667,8 @@ SELECT ID, Nimetus, Tuup, KinoID, VeerudArv, ReadArv FROM Saalid WHERE (ID = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nimetus, string Tuup, int KinoID, int VeerudArv, int ReadArv, int Original_ID, string Original_Nimetus, string Original_Tuup, int Original_KinoID, int Original_VeerudArv, int Original_ReadArv) {
-            return this.Update(Nimetus, Tuup, KinoID, VeerudArv, ReadArv, Original_ID, Original_Nimetus, Original_Tuup, Original_KinoID, Original_VeerudArv, Original_ReadArv, Original_ID);
+        public virtual int Update(string Nimetus, string Tuup, int KinoID, int SaalVeerud, int SaalRead, int Original_ID, string Original_Nimetus, string Original_Tuup, int Original_KinoID, int Original_SaalVeerud, int Original_SaalRead) {
+            return this.Update(Nimetus, Tuup, KinoID, SaalVeerud, SaalRead, Original_ID, Original_Nimetus, Original_Tuup, Original_KinoID, Original_SaalVeerud, Original_SaalRead, Original_ID);
         }
     }
     
@@ -9112,41 +9120,41 @@ SELECT ID, Aeg, FilmID, KeelID, SaalID FROM Seanssid WHERE (ID = @ID)";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "SeanssiIstmed";
             tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("KasOnHõivatud", "KasOnHõivatud");
             tableMapping.ColumnMappings.Add("SeanssID", "SeanssID");
             tableMapping.ColumnMappings.Add("IstmedID", "IstmedID");
+            tableMapping.ColumnMappings.Add("KasOnHõivatud", "KasOnHõivatud");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[SeanssiIstmed] WHERE (([ID] = @Original_ID) AND ([KasOnHõivatu" +
-                "d] = @Original_KasOnHõivatud) AND ([SeanssID] = @Original_SeanssID) AND ([Istmed" +
-                "ID] = @Original_IstmedID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[SeanssiIstmed] WHERE (([ID] = @Original_ID) AND ([SeanssID] = " +
+                "@Original_SeanssID) AND ([IstmedID] = @Original_IstmedID) AND ([KasOnHõivatud] =" +
+                " @Original_KasOnHõivatud))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KasOnHõivatud", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KasOnHõivatud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SeanssID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeanssID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IstmedID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IstmedID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KasOnHõivatud", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KasOnHõivatud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[SeanssiIstmed] ([KasOnHõivatud], [SeanssID], [IstmedID]) VALUE" +
-                "S (@KasOnHõivatud, @SeanssID, @IstmedID);\r\nSELECT ID, KasOnHõivatud, SeanssID, I" +
-                "stmedID FROM SeanssiIstmed WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[SeanssiIstmed] ([SeanssID], [IstmedID], [KasOnHõivatud]) VALUE" +
+                "S (@SeanssID, @IstmedID, @KasOnHõivatud);\r\nSELECT ID, SeanssID, IstmedID, KasOnH" +
+                "õivatud FROM SeanssiIstmed WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KasOnHõivatud", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KasOnHõivatud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeanssID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeanssID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IstmedID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IstmedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KasOnHõivatud", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KasOnHõivatud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SeanssiIstmed] SET [KasOnHõivatud] = @KasOnHõivatud, [SeanssID] = @SeanssID, [IstmedID] = @IstmedID WHERE (([ID] = @Original_ID) AND ([KasOnHõivatud] = @Original_KasOnHõivatud) AND ([SeanssID] = @Original_SeanssID) AND ([IstmedID] = @Original_IstmedID));
-SELECT ID, KasOnHõivatud, SeanssID, IstmedID FROM SeanssiIstmed WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SeanssiIstmed] SET [SeanssID] = @SeanssID, [IstmedID] = @IstmedID, [KasOnHõivatud] = @KasOnHõivatud WHERE (([ID] = @Original_ID) AND ([SeanssID] = @Original_SeanssID) AND ([IstmedID] = @Original_IstmedID) AND ([KasOnHõivatud] = @Original_KasOnHõivatud));
+SELECT ID, SeanssID, IstmedID, KasOnHõivatud FROM SeanssiIstmed WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KasOnHõivatud", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KasOnHõivatud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SeanssID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeanssID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IstmedID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IstmedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KasOnHõivatud", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KasOnHõivatud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KasOnHõivatud", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KasOnHõivatud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SeanssID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SeanssID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IstmedID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IstmedID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KasOnHõivatud", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KasOnHõivatud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -9163,7 +9171,7 @@ SELECT ID, KasOnHõivatud, SeanssID, IstmedID FROM SeanssiIstmed WHERE (ID = @ID
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, KasOnHõivatud, SeanssID, IstmedID FROM dbo.SeanssiIstmed";
+            this._commandCollection[0].CommandText = "SELECT ID, SeanssID, IstmedID, KasOnHõivatud FROM dbo.SeanssiIstmed";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9224,11 +9232,11 @@ SELECT ID, KasOnHõivatud, SeanssID, IstmedID FROM SeanssiIstmed WHERE (ID = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, bool Original_KasOnHõivatud, int Original_SeanssID, int Original_IstmedID) {
+        public virtual int Delete(int Original_ID, int Original_SeanssID, int Original_IstmedID, bool Original_KasOnHõivatud) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((bool)(Original_KasOnHõivatud));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_SeanssID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_IstmedID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_SeanssID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_IstmedID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((bool)(Original_KasOnHõivatud));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9249,10 +9257,10 @@ SELECT ID, KasOnHõivatud, SeanssID, IstmedID FROM SeanssiIstmed WHERE (ID = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(bool KasOnHõivatud, int SeanssID, int IstmedID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((bool)(KasOnHõivatud));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(SeanssID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(IstmedID));
+        public virtual int Insert(int SeanssID, int IstmedID, bool KasOnHõivatud) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(SeanssID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(IstmedID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(KasOnHõivatud));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9273,14 +9281,14 @@ SELECT ID, KasOnHõivatud, SeanssID, IstmedID FROM SeanssiIstmed WHERE (ID = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(bool KasOnHõivatud, int SeanssID, int IstmedID, int Original_ID, bool Original_KasOnHõivatud, int Original_SeanssID, int Original_IstmedID, int ID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((bool)(KasOnHõivatud));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(SeanssID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(IstmedID));
+        public virtual int Update(int SeanssID, int IstmedID, bool KasOnHõivatud, int Original_ID, int Original_SeanssID, int Original_IstmedID, bool Original_KasOnHõivatud, int ID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(SeanssID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(IstmedID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(KasOnHõivatud));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(Original_KasOnHõivatud));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_SeanssID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_IstmedID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_SeanssID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_IstmedID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Original_KasOnHõivatud));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9302,8 +9310,8 @@ SELECT ID, KasOnHõivatud, SeanssID, IstmedID FROM SeanssiIstmed WHERE (ID = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(bool KasOnHõivatud, int SeanssID, int IstmedID, int Original_ID, bool Original_KasOnHõivatud, int Original_SeanssID, int Original_IstmedID) {
-            return this.Update(KasOnHõivatud, SeanssID, IstmedID, Original_ID, Original_KasOnHõivatud, Original_SeanssID, Original_IstmedID, Original_ID);
+        public virtual int Update(int SeanssID, int IstmedID, bool KasOnHõivatud, int Original_ID, int Original_SeanssID, int Original_IstmedID, bool Original_KasOnHõivatud) {
+            return this.Update(SeanssID, IstmedID, KasOnHõivatud, Original_ID, Original_SeanssID, Original_IstmedID, Original_KasOnHõivatud, Original_ID);
         }
     }
     
