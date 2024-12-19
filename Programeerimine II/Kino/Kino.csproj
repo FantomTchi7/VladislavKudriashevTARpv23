@@ -61,11 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KinoAndmebaasDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KinoAndmebaasDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SisselogimineVorm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,17 +84,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="KinoAndmebaasDataSet.xsc">
-      <DependentUpon>KinoAndmebaasDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="KinoAndmebaasDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KinoAndmebaasDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KinoAndmebaasDataSet.xss">
-      <DependentUpon>KinoAndmebaasDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
