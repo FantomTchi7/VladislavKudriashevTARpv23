@@ -1,2 +1,0 @@
-/home/fantom/VladislavKudriashevTARpv23/Programeerimine II/Ülesanne 4 Jalgpalli mäng/output/Ülesanne 4 Jalgpalli mäng.pdb
-/home/fantom/VladislavKudriashevTARpv23/Programeerimine II/Ülesanne 4 Jalgpalli mäng/output/Ülesanne 4 Jalgpalli mäng.exe
