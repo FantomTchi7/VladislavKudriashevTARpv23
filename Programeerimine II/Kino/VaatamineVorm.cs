@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace Kino
 {
@@ -43,10 +37,7 @@ namespace Kino
         public VaatamineVorm()
         {
             InitializeComponent();
-            this.ClientSizeChanged += VaatamineVorm_ClientSizeChanged;
-            tableLayoutPanel1.Width = this.Width - SystemInformation.VerticalScrollBarWidth;
-            flowLayoutPanel1.Width = this.Width - SystemInformation.VerticalScrollBarWidth;
-            flowLayoutPanel1.Height = this.Height - 25;
+            this.Resize += (sender, e) => resize();
             this.Text = "Vaatamine";
             button99.Click += button1_Click;
             this.Controls.Add(tableLayoutPanel1);
@@ -58,12 +49,25 @@ namespace Kino
             DisplayScreenings(connection);
         }
 
-        private void VaatamineVorm_ClientSizeChanged(object sender, EventArgs e)
+        private void resize()
         {
             tableLayoutPanel1.Width = this.Width - SystemInformation.VerticalScrollBarWidth;
             flowLayoutPanel1.Width = this.Width - SystemInformation.VerticalScrollBarWidth;
             flowLayoutPanel1.Height = this.Height - 25;
+
+            flowLayoutPanel1.Left = (flowLayoutPanel1.Width - (GetColumnCount(flowLayoutPanel1) * 420)) / 2;
         }
+
+        private int GetColumnCount(FlowLayoutPanel flp)
+        {
+            if (flp.Controls.Count == 0)
+                return 0;
+
+            int columnCount = (flp.ClientRectangle.Width - flp.Padding.Left - flp.Padding.Right) /
+                              (flp.Controls[0].Width + flp.Controls[0].Margin.Left + flp.Controls[0].Margin.Right);
+            return columnCount > 0 ? columnCount : 1;
+        }
+
 
         public void DisplayScreenings(SqlConnection conn)
         {

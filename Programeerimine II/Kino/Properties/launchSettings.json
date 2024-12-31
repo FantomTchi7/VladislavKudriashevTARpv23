@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Kino": {
+      "commandName": "Project",
+      "sqlDebugging": true
+    }
+  }
+}
