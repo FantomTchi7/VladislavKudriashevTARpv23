@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 
@@ -8,7 +13,7 @@ namespace Kino
 {
     public partial class VaatamineVorm : Form
     {
-        private SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\KinoAndmebaas.mdf;Integrated Security=True");
+        private SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Alena\\source\\repos\\Kino\\KinoAndmebaas.mdf;Integrated Security=True");
         private SqlCommand command;
         private SqlDataReader reader;
 
@@ -37,6 +42,7 @@ namespace Kino
         public VaatamineVorm()
         {
             InitializeComponent();
+            resize();
             this.Resize += (sender, e) => resize();
             this.Text = "Vaatamine";
             button99.Click += button1_Click;
