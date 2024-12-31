@@ -1,0 +1,14 @@
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\bin\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.exe
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\bin\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.deps.json
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\bin\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.runtimeconfig.json
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\bin\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.dll
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\bin\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.pdb
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.AssemblyInfoInputs.cache
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.AssemblyInfo.cs
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.csproj.CoreCompileInputs.cache
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.dll
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\refint\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.dll
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.pdb
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.genruntimeconfig.cache
+C:\Users\opilane\source\repos\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid\obj\Debug\net8.0\ref\Iseseisevtöö Kordamine. Valikud, Kordused, Massivid.dll

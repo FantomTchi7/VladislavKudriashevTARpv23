@@ -1,0 +1,11 @@
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.csproj.AssemblyReference.cache
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.ProductsForm.resources
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.Properties.Resources.resources
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.csproj.GenerateResource.cache
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.csproj.CoreCompileInputs.cache
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\bin\Debug\ProductsWinForms.exe.config
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\bin\Debug\ProductsWinForms.exe
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\bin\Debug\ProductsWinForms.pdb
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.exe
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.pdb
+C:\Users\opilane\source\repos\VladislavKudriashevTARpv23\Programeerimine II\ProductsWinForms\obj\Debug\ProductsWinForms.MenuForm.resources
