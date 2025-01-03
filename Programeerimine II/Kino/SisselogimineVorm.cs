@@ -13,7 +13,7 @@ namespace Kino
 {
     public partial class SisselogimineVorm : Form
     {
-        private SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Alena\\source\\repos\\Kino\\KinoAndmebaas.mdf;Integrated Security=True");
+        private SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Alena\\source\\repos\\FantomTchi7\\VladislavKudriashevTARpv23\\Programeerimine II\\Kino\\KinoAndmebaas.mdf\";Integrated Security=True");
         private SqlCommand command;
         private SqlDataReader reader;
 
@@ -40,7 +40,7 @@ namespace Kino
             tableLayoutPanel1.SetColumnSpan(button1, 2);
             tableLayoutPanel1.AutoSize = true;
             this.Controls.Add(tableLayoutPanel1);
-            this.Resize += (sender, e) => resize();
+            this.ClientSizeChanged += (sender, e) => resize();
         }
 
         private void resize()
