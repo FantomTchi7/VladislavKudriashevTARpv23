@@ -13,6 +13,16 @@ using System.Diagnostics;
 
 namespace Kino
 {
+    public static class Globals
+    {
+        public static string kasutajaTuup = "Vaataja";
+        public static string kasutajaNimi = "Vaataja";
+        public static int kasutajaID = 3;
+        public static VaatamineVorm vaatamineVorm = new VaatamineVorm();
+        public static SisselogimineVorm sisselogimineVorm = new SisselogimineVorm();
+        public static BroneerimineVorm broneerimineVorm;
+    }
+
     public partial class VaatamineVorm : Form
     {
         private int i;
@@ -118,6 +128,8 @@ namespace Kino
         Label dayHeader;
         Label noScreeningsLabel;
 
+        Button reservationButton;
+
         public VaatamineVorm()
         {
             InitializeComponent();
@@ -142,7 +154,7 @@ namespace Kino
                 // The first call is to correctly populate flowLayoutPanel1; if this step is omitted, then an increase in the control's width won't add columns appropriately. 
                 flowLayoutPanel1.Width = usableWidth;
 
-                flowLayoutPanel1.Height = this.Height - tableLayoutPanel1Height;
+                flowLayoutPanel1.Height = this.Height - (tableLayoutPanel1Height * 2) - (SystemInformation.HorizontalScrollBarHeight / 2);
 
                 controlSpan = GetColumnCount(flowLayoutPanel1) * (moviePanelWidth + padding + margin);
                 flowLayoutPanel1X = (flowLayoutPanel1.Width - controlSpan) / 2;
@@ -226,7 +238,7 @@ namespace Kino
             ExecuteQuery(
                 "SELECT " +
                 "Seanssid.ID AS SeanssID, Seanssid.Aeg, " +
-                "filmid.ID AS FilmID, filmid.Nimetus AS FilmNimetus, filmid.Kirjeldus, filmid.Kestus, filmid.Väljalaskeaeg, filmid.Poster, " +
+                "filmid.ID AS FilmID, filmid.Nimetus AS FilmNimetus, filmid.Kirjeldus, filmid.Kestus, filmid.Valjalaskeaeg, filmid.Poster, " +
                 "keeled.Nimetus AS KeelNimetus, " +
                 "saalid.Nimetus AS SaalNimetus, saalid.Tuup " +
                 "FROM Seanssid " +
@@ -256,11 +268,11 @@ namespace Kino
                     moviePanels = screeningsByDate[day];
                     for (j = 0; j < moviePanels.Count; j++)
                     {
-                        flowLayoutPanel1.Controls.Add(moviePanels[j]);
                         if (j == moviePanels.Count - 1)
                         {
                             flowLayoutPanel1.SetFlowBreak(moviePanels[j], true);
                         }
+                        flowLayoutPanel1.Controls.Add(moviePanels[j]);
                     }
                 }
                 else
@@ -286,7 +298,7 @@ namespace Kino
                 "Filmid.Nimetus, " +
                 "Filmid.Kirjeldus, " +
                 "Filmid.Kestus, " +
-                "Filmid.Väljalaskeaeg, " +
+                "Filmid.Valjalaskeaeg, " +
                 "Filmid.Poster, " +
                 "Rezissoorid.Taisnimi AS RezissoorNimi, " +
                 "Zanrid.Nimetus AS ZanrNimetus, " +
@@ -409,12 +421,21 @@ namespace Kino
                     AutoSize = true
                 };
 
+                reservationButton = new Button
+                {
+                    Tag = (int)reader["SeanssID"],
+                    Text = $"Broneerin"
+                };
+
+                reservationButton.Click += reservationButton_Click;
+
                 infoPanel.Controls.Add(titleLabel);
                 infoPanel.Controls.Add(descriptionLabel);
                 infoPanel.Controls.Add(durationLabel);
                 infoPanel.Controls.Add(languageLabel);
                 infoPanel.Controls.Add(hallLabel);
                 infoPanel.Controls.Add(timeLabel);
+                infoPanel.Controls.Add(reservationButton);
             }
             else
             {
@@ -433,7 +454,7 @@ namespace Kino
                 };
                 releaseDateLabel = new Label
                 {
-                    Text = $"Esilinastus: {Convert.ToDateTime(reader["Väljalaskeaeg"]).ToString("d", cultureInfo)}",
+                    Text = $"Esilinastus: {Convert.ToDateTime(reader["Valjalaskeaeg"]).ToString("d", cultureInfo)}",
                     AutoSize = true
                 };
                 durationLabel = new Label
@@ -485,6 +506,12 @@ namespace Kino
 
             moviePanel.Controls.Add(mainPanel);
             return moviePanel;
+        }
+
+        private void reservationButton_Click(object sender, EventArgs e)
+        {
+            Globals.broneerimineVorm = new BroneerimineVorm((int)((Button)sender).Tag);
+            Globals.broneerimineVorm.ShowDialog();
         }
 
         private Image ByteArrayToImage(byte[] byteArray)
@@ -543,11 +570,7 @@ namespace Kino
                 try
                 {
                     connection.Open();
-                } catch
-                {
-                    connection.Close();
-                    connection.Open();
-                }
+                } catch { }
 
                 SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                 DataTable table = new DataTable();
@@ -636,7 +659,7 @@ namespace Kino
 
         public void UpdateData()
         {
-            button99.Text = Globals.kasutajaTuup;
+            button99.Text = Globals.kasutajaNimi;
 
             if (Globals.kasutajaTuup == "Admin")
             {

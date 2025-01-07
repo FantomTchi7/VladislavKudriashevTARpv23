@@ -1,12 +1,5 @@
 namespace Kino
 {
-    public static class Globals
-    {
-        public static string kasutajaTuup = "Vaataja";
-        public static VaatamineVorm vaatamineVorm = new VaatamineVorm();
-        public static SisselogimineVorm sisselogimineVorm = new SisselogimineVorm();
-    }
-
     internal static class Program
     {
         /// <summary>

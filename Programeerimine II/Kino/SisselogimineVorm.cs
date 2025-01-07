@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -57,14 +58,17 @@ namespace Kino
             try
             {
                 connection.Open();
-                command = new SqlCommand("SELECT Huudnimi, Tüüp FROM Kontod WHERE (Huudnimi = @nimiVoiEmail OR Email = @nimiVoiEmail) AND Parool = @parool", connection);
+                command = new SqlCommand("SELECT ID, Huudnimi, Tuup FROM Kontod WHERE (Huudnimi = @nimiVoiEmail OR Email = @nimiVoiEmail) AND Parool = @parool", connection);
                 command.Parameters.AddWithValue("@nimiVoiEmail", nimiVoiEmail);
                 command.Parameters.AddWithValue("@parool", parool);
                 reader = command.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    Globals.kasutajaTuup = reader["Tüüp"].ToString();
+                    Globals.kasutajaID = (int)reader["ID"];
+                    Globals.kasutajaNimi = reader["Huudnimi"].ToString();
+                    Globals.kasutajaTuup = reader["Tuup"].ToString();
+
                     this.Hide();
                     Globals.vaatamineVorm.UpdateData();
                     Globals.vaatamineVorm.Show();
@@ -76,7 +80,7 @@ namespace Kino
             }
             catch (SqlException sqlE)
             {
-                MessageBox.Show($"Viga andmebaasiga ühenduse loomisel: {sqlE.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Viga andmebaasiga uhenduse loomisel: {sqlE.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

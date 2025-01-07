@@ -18,7 +18,7 @@ CREATE TABLE Filmid (
     Nimetus NVARCHAR(255) NOT NULL,
     Kirjeldus NVARCHAR(MAX) NOT NULL,
     Kestus INT NOT NULL,
-    Väljalaskeaeg DATE NOT NULL,
+    Valjalaskeaeg DATE NOT NULL,
     Poster VARBINARY(MAX) NOT NULL,
     RezissoorID INT NOT NULL,
     ZanrID INT NOT NULL,
@@ -38,9 +38,9 @@ CREATE TABLE Saalid (
     ID INT PRIMARY KEY IDENTITY,
     Nimetus NVARCHAR(255) NOT NULL,
     Tuup NVARCHAR(255) NOT NULL,
-    KinoID INT NOT NULL,
     SaalVeerud INT NOT NULL,
     SaalRead INT NOT NULL,
+    KinoID INT NOT NULL,
     FOREIGN KEY (KinoID) REFERENCES Kinod(ID),
     UNIQUE (KinoID, Nimetus)
 );
@@ -61,52 +61,39 @@ CREATE TABLE Seanssid (
     FOREIGN KEY (SaalID) REFERENCES Saalid(ID)
 );
 
-CREATE TABLE Istmed (
-    ID INT PRIMARY KEY IDENTITY,
-    SaalID INT NOT NULL,
-    Rida INT NOT NULL,
-    Veerg INT NOT NULL,
-    FOREIGN KEY (SaalID) REFERENCES Saalid(ID),
-    UNIQUE (SaalID, Rida, Veerg)
-);
-
-CREATE TABLE SeanssiIstmed (
-    ID INT PRIMARY KEY IDENTITY,
-    SeanssID INT NOT NULL,
-    IstmedID INT NOT NULL,
-    KasOnHõivatud BIT NOT NULL DEFAULT 0,
-    FOREIGN KEY (SeanssID) REFERENCES Seanssid(ID),
-    FOREIGN KEY (IstmedID) REFERENCES Istmed(ID),
-    UNIQUE (SeanssID, IstmedID)
-);
-
 CREATE TABLE Kontod (
     ID INT PRIMARY KEY IDENTITY,
     Huudnimi NVARCHAR(255) NOT NULL UNIQUE,
     Email NVARCHAR(255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL UNIQUE,
     Parool NVARCHAR(MAX) NOT NULL,
-	Tüüp NVARCHAR(25)
+    Tuup NVARCHAR(25)
+);
+
+CREATE TABLE Piletituubid (
+    ID INT PRIMARY KEY IDENTITY,
+    Tuup NVARCHAR(25) NOT NULL,
+    Hind DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE Piletid (
     ID INT PRIMARY KEY IDENTITY,
-    SeanssiIstmedID INT NOT NULL,
+    Rida INT NOT NULL,
+    Veerg INT NOT NULL,
+    Valjastatud DATETIME NOT NULL DEFAULT GETDATE(),
+    PiletituupID INT NOT NULL,
     KontoID INT NOT NULL,
-    Hind DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (SeanssiIstmedID) REFERENCES SeanssiIstmed(ID),
-    FOREIGN KEY (KontoID) REFERENCES Kontod(ID)
+    SeanssID INT NOT NULL,
+    FOREIGN KEY (PiletituupID) REFERENCES Piletituubid(ID),
+    FOREIGN KEY (KontoID) REFERENCES Kontod(ID),
+    FOREIGN KEY (SeanssID) REFERENCES Seanssid(ID),
+    UNIQUE (SeanssID, Rida, Veerg)
 );
 
-CREATE INDEX idx_FilmID ON Seanssid(FilmID);
-CREATE INDEX idx_SaalID ON Istmed(SaalID);
-CREATE INDEX idx_SeanssID ON SeanssiIstmed(SeanssID);
-CREATE INDEX idx_KontoID ON Piletid(KontoID);
-
-INSERT INTO Kontod (Huudnimi, Email, Parool, Tüüp) 
+INSERT INTO Kontod (Huudnimi, Email, Parool, Tuup) 
 VALUES ('Kasutaja', 'Kasutaja', '1234', 'Kasutaja');
 
-INSERT INTO Kontod (Huudnimi, Email, Parool, Tüüp) 
+INSERT INTO Kontod (Huudnimi, Email, Parool, Tuup) 
 VALUES ('Admin', 'Admin', '1234', 'Admin');
 
-INSERT INTO Kontod (Huudnimi, Email, Parool, Tüüp) 
+INSERT INTO Kontod (Huudnimi, Email, Parool, Tuup) 
 VALUES ('Vaataja', '', '', 'Vaataja');
