@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Tere tulemast people!";
+    ViewData["Title"] = "Tere tulemast people!";
+}
+
+<div class="jumbotron">
+    <h1> @ViewBag.Greeting Kallis sõber! </h1>
+</div>
+
+<div>
+    @ViewBag.Message
+    <img src="https://i0.wp.com/hotsigns.net/assets/images/emogee%20101.png" style="width: 200px; height: auto" />
+</div>
+
+<div>
+    @Html.ActionLink("Vastan", "Ankeet", "Ankeet", new { @class = "btn btn-primary" })
+
+</div>
