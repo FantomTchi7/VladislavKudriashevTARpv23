@@ -1,215 +1,198 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Globalization;
-using Microsoft.Data.SqlClient;
-using System.Diagnostics;
+﻿using Microsoft.Data.SqlClient;
 
 namespace Kino
 {
     public partial class BroneerimineVorm : Form
     {
-        private int i;
-        private int j;
-
-        private readonly SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Alena\\source\\repos\\FantomTchi7\\VladislavKudriashevTARpv23\\Programeerimine II\\Kino\\KinoAndmebaas.mdf\";Integrated Security=True");
-        private SqlCommand command;
-        private SqlDataReader reader;
-        private string query;
-
-        private FlowLayoutPanel flowLayoutPanel1 = new FlowLayoutPanel
+        private FlowLayoutPanel vooluPaigutus1 = new FlowLayoutPanel
         {
             FlowDirection = FlowDirection.TopDown,
-            Dock = DockStyle.Fill
+            Dock = DockStyle.Fill,
+            WrapContents = false,
+            AutoSize = true
         };
-        private TableLayoutPanel seatTable;
-        private readonly int seanssID;
-        private int read;
-        private int veerud;
-        private int rida;
-        private int veerg;
-        private Button[,] istmeNupud;
-        private int buttonSize;
-        private int startX;
-        private int startY;
-        private Button button;
-        private Point location;
-        private Dictionary<Point, int> valitudPiletituubid = new Dictionary<Point, int>();
-        private Label infoLabel = new Label
+        private FlowLayoutPanel vooluPaigutus2 = new FlowLayoutPanel
+        {
+            FlowDirection = FlowDirection.TopDown,
+            Dock = DockStyle.Fill,
+            AutoSize = true
+        };
+        private Dictionary<Point, int> valitudPiletitüübid = new Dictionary<Point, int>();
+        private Label infoSilt = new Label
         {
             AutoSize = true,
-            Text = "Vali istekohad. Sinine - vaba, Punane - hõivatud, Roheline - valitud"
+            Text = "Vali istekohad. Sinine - vaba, Punane - hõivatud, Roheline - valitud",
+            Dock = DockStyle.Fill,
+            TextAlign = ContentAlignment.MiddleCenter
         };
         private Button kinnitaNupp = new Button
         {
             Text = "Kinnita broneering",
             AutoSize = true,
+            Dock = DockStyle.Fill,
             Enabled = false
         };
         private List<Point> valitudIstmed = new List<Point>();
-        private decimal hind;
+
+        private int read;
+        private int veerud;
+        private Button[,] istmeNupud;
+
+        private readonly int seanssID;
 
         public BroneerimineVorm(int seanssID)
         {
             InitializeComponent();
             this.seanssID = seanssID;
-            
+
             this.Text = "Istekoha broneerimine";
             this.Size = new Size(800, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
 
             kinnitaNupp.Click += KinnitaNupp_Click;
 
-            this.Controls.Add(flowLayoutPanel1);
-            flowLayoutPanel1.Controls.Add(infoLabel);
+            this.Controls.Add(vooluPaigutus1);
+            vooluPaigutus1.Controls.Add(infoSilt);
 
             try
             {
-                try { connection.Open(); } catch { }
-
-                using (command = new SqlCommand("SELECT SaalRead, SaalVeerud FROM Saalid s JOIN Seanssid ss ON s.ID = ss.SaalID WHERE ss.ID = @SeanssID", connection))
+                using (SqlConnection ühendus = Globaalsed.SaaÜhendus())
                 {
-                    command.Parameters.AddWithValue("@SeanssID", seanssID);
-                    using (reader = command.ExecuteReader())
+                    using (SqlCommand käsk = new SqlCommand("SELECT SaalRead, SaalVeerud FROM Saalid s JOIN Seanssid ss ON s.ID = ss.SaalID WHERE ss.ID = @SeanssID", ühendus))
                     {
-                        if (reader.Read())
+                        käsk.Parameters.AddWithValue("@SeanssID", seanssID);
+                        using (SqlDataReader lugeja = käsk.ExecuteReader())
                         {
-                            read = reader.GetInt32(0);
-                            veerud = reader.GetInt32(1);
+                            if (lugeja.Read())
+                            {
+                                read = lugeja.GetInt32(0);
+                                veerud = lugeja.GetInt32(1);
+                            }
                         }
                     }
+
+                    TableLayoutPanel isteTabel = LooIstekohaNupud();
+                    vooluPaigutus1.Controls.Add(isteTabel);
+                    vooluPaigutus1.Controls.Add(vooluPaigutus2);
+                    LaeIstekohaStaatus();
                 }
-
-                seatTable = CreateSeatButtons();
-                flowLayoutPanel1.Controls.Add(seatTable);
-
-                LoadSeatStatus();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Viga: {ex.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                connection.Close();
-            }
 
-            flowLayoutPanel1.Controls.Add(kinnitaNupp);
+            vooluPaigutus1.Controls.Add(kinnitaNupp);
         }
 
-        private ComboBox CreateTicketTypeComboBox()
+        private ComboBox LooPiletitüübiRippmenüü()
         {
-            ComboBox comboBox = new ComboBox
+            ComboBox rippmenüü = new ComboBox
             {
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
 
-            List<KeyValuePair<int, string>> ticketTypes = new List<KeyValuePair<int, string>>();
+            List<KeyValuePair<int, string>> piletitüübid = new List<KeyValuePair<int, string>>();
 
             try
             {
-                try { connection.Open(); } catch { }
-                command = new SqlCommand("SELECT ID, Tuup FROM Piletituubid;", connection);
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlConnection ühendus = Globaalsed.SaaÜhendus())
                 {
-                    ticketTypes.Add(new KeyValuePair<int, string>(
-                        (int)reader["ID"],
-                        reader["Tuup"].ToString()
-                    ));
+                    SqlCommand käsk = new SqlCommand("SELECT ID, Tuup FROM Piletituubid;", ühendus);
+                    using (SqlDataReader lugeja = käsk.ExecuteReader())
+                    {
+                        while (lugeja.Read())
+                        {
+                            piletitüübid.Add(new KeyValuePair<int, string>(
+                                (int)lugeja["ID"],
+                                lugeja["Tuup"].ToString()
+                            ));
+                        }
+                    }
                 }
 
-                comboBox.DisplayMember = "Value";
-                comboBox.ValueMember = "Key";
-                comboBox.DataSource = new List<KeyValuePair<int, string>>(ticketTypes);
+                rippmenüü.DisplayMember = "Value";
+                rippmenüü.ValueMember = "Key";
+                rippmenüü.DataSource = new List<KeyValuePair<int, string>>(piletitüübid);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                connection.Close();
+                MessageBox.Show($"Andmebaasi viga: {ex.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return comboBox;
+            return rippmenüü;
         }
 
-        private TableLayoutPanel CreateSeatButtons()
+        private TableLayoutPanel LooIstekohaNupud()
         {
-            seatTable = new TableLayoutPanel
+            TableLayoutPanel isteTabel = new TableLayoutPanel
             {
-                Name = "seatTable",
+                Name = "isteTabel",
                 ColumnCount = veerud,
                 RowCount = read,
-                Width = this.Width,
-                Height = this.Height
+                Dock = DockStyle.Fill,
+                AutoSize = true
             };
 
-            for (veerg = 0; veerg < veerud; veerg++)
+            for (int veerg = 0; veerg < veerud; veerg++)
             {
-                seatTable.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+                isteTabel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             }
-            for (rida = 0; rida < read; rida++)
+            for (int rida = 0; rida < read; rida++)
             {
-                seatTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+                isteTabel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             }
 
             istmeNupud = new Button[read, veerud];
-            buttonSize = 40;
+            int nupuSuurus = 40;
 
-            for (i = 0; i < read; i++)
+            for (int i = 0; i < read; i++)
             {
-                for (j = 0; j < veerud; j++)
+                for (int j = 0; j < veerud; j++)
                 {
-                    button = new Button
+                    Button nupp = new Button
                     {
                         Text = $"{i + 1}-{j + 1}",
                         BackColor = Color.LightBlue,
-                        Width = buttonSize,
-                        Height = buttonSize
+                        Width = nupuSuurus,
+                        Height = nupuSuurus
                     };
 
-                    button.Click += IstmeNupp_Click;
-                    istmeNupud[i, j] = button;
+                    nupp.Click += IstmeNupp_Click;
+                    istmeNupud[i, j] = nupp;
 
-                    seatTable.Controls.Add(button, j, i);
+                    isteTabel.Controls.Add(nupp, j, i);
                 }
             }
 
-            return seatTable;
+            return isteTabel;
         }
 
-        private void LoadSeatStatus()
+        private void LaeIstekohaStaatus()
         {
-            query = @"
+            string päring = @"
                 SELECT Rida, Veerg
                 FROM Piletid
                 WHERE SeanssID = @SeanssID";
 
-            using (command = new SqlCommand(query, connection))
+            using (SqlConnection ühendus = Globaalsed.SaaÜhendus())
             {
-                command.Parameters.AddWithValue("@SeanssID", seanssID);
-                try { connection.Open(); } catch { }
-
-                using (reader = command.ExecuteReader())
+                using (SqlCommand käsk = new SqlCommand(päring, ühendus))
                 {
-                    while (reader.Read())
-                    {
-                        rida = reader.GetInt32(0) - 1;
-                        veerg = reader.GetInt32(1) - 1;
+                    käsk.Parameters.AddWithValue("@SeanssID", seanssID);
 
-                        if (rida < read && veerg < veerud)
+                    using (SqlDataReader lugeja = käsk.ExecuteReader())
+                    {
+                        while (lugeja.Read())
                         {
-                            istmeNupud[rida, veerg].BackColor = Color.Red;
-                            istmeNupud[rida, veerg].Enabled = false;
+                            int rida = lugeja.GetInt32(0) - 1;
+                            int veerg = lugeja.GetInt32(1) - 1;
+
+                            if (rida < read && veerg < veerud)
+                            {
+                                istmeNupud[rida, veerg].BackColor = Color.Red;
+                                istmeNupud[rida, veerg].Enabled = false;
+                            }
                         }
                     }
                 }
@@ -218,91 +201,98 @@ namespace Kino
 
         private void IstmeNupp_Click(object sender, EventArgs e)
         {
-            button = (Button)sender;
-            location = GetButtonIndices(button);
+            Button nupp = (Button)sender;
+            Point asukoht = SaaNupuIndeksid(nupp);
 
-            if (button.BackColor == Color.LightBlue)
+            if (nupp.BackColor == Color.LightBlue)
             {
-                button.BackColor = Color.LightGreen;
-                valitudIstmed.Add(location);
+                nupp.BackColor = Color.LightGreen;
+                valitudIstmed.Add(asukoht);
 
-                Panel seatPanel = new Panel
+                TableLayoutPanel istePaneel = new TableLayoutPanel
                 {
-                    AutoSize = true,
-                    Margin = new Padding(5)
-                };
-
-                Label seatLabel = new Label
-                {
-                    Text = $"Rida {location.X + 1}, Koht {location.Y + 1}:",
+                    ColumnCount = 2,
+                    RowCount = 1,
+                    Dock = DockStyle.Fill,
                     AutoSize = true
                 };
 
-                ComboBox ticketTypeCombo = CreateTicketTypeComboBox();
-                ticketTypeCombo.Tag = location;
-                ticketTypeCombo.SelectedIndexChanged += TicketTypeCombo_SelectedIndexChanged;
-
-                seatPanel.Controls.Add(seatLabel);
-                seatPanel.Controls.Add(ticketTypeCombo);
-                ticketTypeCombo.Location = new Point(seatLabel.Width + 10, 0);
-
-                flowLayoutPanel1.Controls.Add(seatPanel);
-
-                if (ticketTypeCombo.Items.Count > 0)
+                Label isteSilt = new Label
                 {
-                    var selectedItem = (KeyValuePair<int, string>)ticketTypeCombo.SelectedItem;
-                    valitudPiletituubid[location] = selectedItem.Key;
+                    Text = $"Rida {asukoht.X + 1}, Koht {asukoht.Y + 1}:",
+                    AutoSize = true,
+                    TextAlign = ContentAlignment.MiddleRight,
+                    Dock = DockStyle.Right
+                };
+
+                ComboBox piletitüübiRippmenüü = LooPiletitüübiRippmenüü();
+                piletitüübiRippmenüü.Dock = DockStyle.Left;
+                piletitüübiRippmenüü.Tag = asukoht;
+                piletitüübiRippmenüü.SelectedIndexChanged += PiletitüübiRippmenüü_SelectedIndexChanged;
+
+                istePaneel.Controls.Add(isteSilt, 0, 0);
+                istePaneel.Controls.Add(piletitüübiRippmenüü, 1, 0);
+
+                istePaneel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64));
+                istePaneel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 36));
+
+                vooluPaigutus2.Controls.Add(istePaneel);
+
+                if (piletitüübiRippmenüü.Items.Count > 0)
+                {
+                    KeyValuePair<int, string> valitudElement = (KeyValuePair<int, string>)piletitüübiRippmenüü.SelectedItem;
+                    valitudPiletitüübid[asukoht] = valitudElement.Key;
                 }
             }
-            else if (button.BackColor == Color.LightGreen)
+            else if (nupp.BackColor == Color.LightGreen)
             {
-                button.BackColor = Color.LightBlue;
-                valitudIstmed.Remove(location);
-                valitudPiletituubid.Remove(location);
+                nupp.BackColor = Color.LightBlue;
+                valitudIstmed.Remove(asukoht);
+                valitudPiletitüübid.Remove(asukoht);
 
-                List<Control> controlsToRemove = new List<Control>();
-                foreach (Control control in flowLayoutPanel1.Controls)
+                List<Control> eemaldatavadKontrollid = new List<Control>();
+                foreach (Control kontroll in vooluPaigutus2.Controls)
                 {
-                    if (control is Panel panel)
+                    if (kontroll is Panel paneel)
                     {
-                        foreach (Control panelControl in panel.Controls)
+                        foreach (Control paneeliKontroll in paneel.Controls)
                         {
-                            if (panelControl is ComboBox combo &&
-                                combo.Tag is Point storedLocation &&
-                                storedLocation.Equals(location))
+                            if (paneeliKontroll is ComboBox rippmenüü &&
+                                rippmenüü.Tag is Point salvestatudAsukoht &&
+                                salvestatudAsukoht.Equals(asukoht))
                             {
-                                controlsToRemove.Add(panel);
+                                eemaldatavadKontrollid.Add(paneel);
                                 break;
                             }
                         }
                     }
                 }
 
-                foreach (Control control in controlsToRemove)
+                foreach (Control kontroll in eemaldatavadKontrollid)
                 {
-                    flowLayoutPanel1.Controls.Remove(control);
+                    vooluPaigutus2.Controls.Remove(kontroll);
                 }
             }
 
             kinnitaNupp.Enabled = valitudIstmed.Count > 0;
         }
 
-        private void TicketTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        private void PiletitüübiRippmenüü_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (sender is ComboBox combo && combo.Tag is Point location)
+            if (sender is ComboBox rippmenüü && rippmenüü.Tag is Point asukoht)
             {
-                var selectedItem = (KeyValuePair<int, string>)combo.SelectedItem;
-                valitudPiletituubid[location] = selectedItem.Key;
+                KeyValuePair<int, string> valitudElement = (KeyValuePair<int, string>)rippmenüü.SelectedItem;
+                valitudPiletitüübid[asukoht] = valitudElement.Key;
             }
         }
 
-        private Point GetButtonIndices(Button button)
+        private Point SaaNupuIndeksid(Button nupp)
         {
-            for (i = 0; i < read; i++)
+            for (int i = 0; i < read; i++)
             {
-                for (j = 0; j < veerud; j++)
+                for (int j = 0; j < veerud; j++)
                 {
-                    if (istmeNupud[i, j] == button)
+                    if (istmeNupud[i, j] == nupp)
                     {
                         return new Point(i, j);
                     }
@@ -313,22 +303,23 @@ namespace Kino
 
         private void KinnitaNupp_Click(object sender, EventArgs e)
         {
-            hind = 0;
+            decimal hind = 0;
             try
             {
-                try { connection.Open(); } catch { }
-
-                foreach (Point istekoht in valitudIstmed)
+                using (SqlConnection ühendus = Globaalsed.SaaÜhendus())
                 {
-                    using (command = new SqlCommand("INSERT INTO Piletid (Rida, Veerg, PiletituupID, KontoID, SeanssID) VALUES (@Rida, @Veerg, @PiletituupID, @KontoID, @SeanssID)", connection))
+                    foreach (Point istekoht in valitudIstmed)
                     {
-                        command.Parameters.AddWithValue("@Rida", istekoht.X + 1);
-                        command.Parameters.AddWithValue("@Veerg", istekoht.Y + 1);
-                        command.Parameters.AddWithValue("@PiletituupID", valitudPiletituubid[istekoht]);
-                        command.Parameters.AddWithValue("@KontoID", Globals.kasutajaID);
-                        command.Parameters.AddWithValue("@SeanssID", seanssID);
-                        command.ExecuteNonQuery();
-                        hind += GetTicketPrice(valitudPiletituubid[istekoht]);
+                        using (SqlCommand käsk = new SqlCommand("INSERT INTO Piletid (Rida, Veerg, PiletituupID, KontoID, SeanssID) VALUES (@Rida, @Veerg, @PiletituupID, @KontoID, @SeanssID)", ühendus))
+                        {
+                            käsk.Parameters.AddWithValue("@Rida", istekoht.X + 1);
+                            käsk.Parameters.AddWithValue("@Veerg", istekoht.Y + 1);
+                            käsk.Parameters.AddWithValue("@PiletituupID", valitudPiletitüübid[istekoht]);
+                            käsk.Parameters.AddWithValue("@KontoID", Globaalsed.kasutajaID);
+                            käsk.Parameters.AddWithValue("@SeanssID", seanssID);
+                            käsk.ExecuteNonQuery();
+                            hind += SaaPiletihind(valitudPiletitüübid[istekoht]);
+                        }
                     }
                 }
                 MessageBox.Show($"Broneering õnnestus! Sinu piletite hinnad: {hind}€", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -338,38 +329,32 @@ namespace Kino
             {
                 MessageBox.Show($"Viga broneeringul: {ex.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                connection.Close();
-            }
         }
 
-        private decimal GetTicketPrice(int piletituupID)
+        private decimal SaaPiletihind(int piletitüüpID)
         {
             decimal hind = 0;
-
-            using (SqlConnection newConnection = new SqlConnection(connection.ConnectionString))
+            using (SqlConnection uusÜhendus = new SqlConnection(Globaalsed.SaaÜhendus().ConnectionString))
             {
                 try
                 {
-                    newConnection.Open();
+                    uusÜhendus.Open();
 
-                    using (SqlCommand command = new SqlCommand("SELECT Hind FROM Piletituubid WHERE ID = @ID", newConnection))
+                    using (SqlCommand käsk = new SqlCommand("SELECT Hind FROM Piletituubid WHERE ID = @ID", uusÜhendus))
                     {
-                        command.Parameters.AddWithValue("@ID", piletituupID);
-                        var result = command.ExecuteScalar();
-                        if (result != null && result != DBNull.Value)
+                        käsk.Parameters.AddWithValue("@ID", piletitüüpID);
+                        object tulemus = käsk.ExecuteScalar();
+                        if (tulemus != null && tulemus != DBNull.Value)
                         {
-                            hind = (decimal)result;
+                            hind = (decimal)tulemus;
                         }
                     }
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Andmebaasi viga: {ex.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
             return hind;
         }
     }
