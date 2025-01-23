@@ -56,6 +56,10 @@ namespace Kino
         {
             DropDownStyle = ComboBoxStyle.DropDownList
         };
+        private Button nupp98 = new Button
+        {
+            Text = "Loo konto"
+        };
         private Button nupp99 = new Button
         {
             Text = "Logi sisse"
@@ -152,6 +156,7 @@ namespace Kino
             nupp1.Click += (_, _) => LaeSeansid();
             nupp2.Click += (_, _) => LaeFilmid();
             nupp50.Click += (_, _) => LaeHaldus();
+            nupp98.Click += (_, _) => AvaLooKontoVorm();
             nupp99.Click += (_, _) => AvaSisselogimiseVorm();
 
             andmeTabel1.CellEndEdit += AndmeTabel1_CellEndEdit;
@@ -161,6 +166,7 @@ namespace Kino
             vooluPaigutusVasak.Controls.Add(nupp2);
 
             vooluPaigutusParem.Controls.Add(rippmenüü98);
+            vooluPaigutusParem.Controls.Add(nupp98);
             vooluPaigutusParem.Controls.Add(nupp99);
 
             tabeliPaigutus1.Controls.Add(vooluPaigutusVasak, 0, 0);
@@ -358,21 +364,25 @@ namespace Kino
                     AutoSize = true
                 };
 
-                Button broneerimiseNupp = new Button
-                {
-                    Tag = (int)lugeja["SeanssID"],
-                    Text = $"Broneerin"
-                };
-
-                broneerimiseNupp.Click += broneerimiseNupp_Click;
-
                 infoPaneel.Controls.Add(pealkiriSilt);
                 infoPaneel.Controls.Add(kirjeldusSilt);
                 infoPaneel.Controls.Add(kestusSilt);
                 infoPaneel.Controls.Add(keelSilt);
                 infoPaneel.Controls.Add(saalSilt);
                 infoPaneel.Controls.Add(aegSilt);
-                infoPaneel.Controls.Add(broneerimiseNupp);
+
+                if (Globaalsed.kasutajaTüüp != "Vaataja")
+                {
+                    Button broneerimiseNupp = new Button
+                    {
+                        Tag = (int)lugeja["SeanssID"],
+                        Text = $"Broneerin"
+                    };
+
+                    broneerimiseNupp.Click += broneerimiseNupp_Click;
+
+                    infoPaneel.Controls.Add(broneerimiseNupp);
+                }
             }
             else
             {
@@ -579,6 +589,12 @@ namespace Kino
         {
             Hide();
             Globaalsed.sisselogimineVorm?.Show();
+        }
+
+        private void AvaLooKontoVorm()
+        {
+            Hide();
+            Globaalsed.looKontoVorm?.Show();
         }
 
         public void UuendaAndmed()

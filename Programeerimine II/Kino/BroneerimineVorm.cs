@@ -1,4 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Text;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
+using Microsoft.Data.SqlClient;
 
 namespace Kino
 {
@@ -321,6 +325,8 @@ namespace Kino
                             hind += SaaPiletihind(valitudPiletitüübid[istekoht]);
                         }
                     }
+
+                    SaadaPiletiEmail(valitudIstmed, valitudPiletitüübid, seanssID);
                 }
                 MessageBox.Show($"Broneering õnnestus! Sinu piletite hinnad: {hind}€", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -354,8 +360,172 @@ namespace Kino
                 {
                     MessageBox.Show($"Andmebaasi viga: {ex.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                finally
+                {
+                    uusÜhendus.Close();
+                    uusÜhendus.Dispose();
+                }
             }
             return hind;
+        }
+
+        private void SaadaPiletiEmail(List<Point> istmed, Dictionary<Point, int> piletitüübid, int seanssID)
+        {
+            try
+            {
+                string filmNimetus = string.Empty;
+                string žanr = string.Empty;
+                string rezissöör = string.Empty;
+                int filmKestus = 0;
+                string vanusepiirang = string.Empty;
+                DateTime seansAeg = DateTime.MinValue;
+                string saal = string.Empty;
+                string keel = string.Empty;
+                string kirjeldus = string.Empty;
+                byte[] posterAndmed = null;
+
+                decimal koguHind = 0;
+
+                using (SqlConnection ühendus = Globaalsed.SaaÜhendus())
+                {
+                    using (SqlCommand käsk = new SqlCommand(@"
+                        SELECT 
+                            f.Nimetus, z.Nimetus as Zanr, r.Taisnimi as Rezissoor, 
+                            f.Kestus, v.Nimetus as Vanusepiirang, 
+                            s.Aeg as SeansAeg, sl.Nimetus as Saal, k.Nimetus as Keel, 
+                            f.Kirjeldus, 
+                            f.Poster 
+                        FROM Seanssid s
+                        JOIN Filmid f ON s.FilmID = f.ID
+                        JOIN Rezissoorid r ON f.RezissoorID = r.ID
+                        JOIN Zanrid z ON f.ZanrID = z.ID
+                        JOIN Vanusepiirangud v ON f.VanusepiirangID = v.ID
+                        JOIN Keeled k ON s.KeelID = k.ID
+                        JOIN Saalid sl ON s.SaalID = sl.ID
+                        WHERE s.ID = @SeanssID", ühendus))
+                    {
+                        käsk.Parameters.AddWithValue("@SeanssID", seanssID);
+                        using (SqlDataReader lugeja = käsk.ExecuteReader())
+                        {
+                            if (lugeja.Read())
+                            {
+                                filmNimetus = lugeja["Nimetus"].ToString();
+                                žanr = lugeja["Zanr"].ToString();
+                                rezissöör = lugeja["Rezissoor"].ToString();
+                                filmKestus = (int)lugeja["Kestus"];
+                                vanusepiirang = lugeja["Vanusepiirang"].ToString();
+                                seansAeg = (DateTime)lugeja["SeansAeg"];
+                                saal = lugeja["Saal"].ToString();
+                                keel = lugeja["Keel"].ToString();
+                                kirjeldus = lugeja["Kirjeldus"].ToString();
+
+                                if (lugeja["Poster"] != DBNull.Value)
+                                {
+                                    posterAndmed = (byte[])lugeja["Poster"];
+                                }
+                            }
+                        }
+                    }
+                }
+
+                StringBuilder emailHtml = new StringBuilder();
+                emailHtml.AppendLine("<html>");
+                emailHtml.AppendLine("<head>");
+                emailHtml.AppendLine("<style>");
+                emailHtml.AppendLine("body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; }");
+                emailHtml.AppendLine(".ticket-container { display: inline-flex; flex-direction: row; margin: 10px; padding: 0; border: 1px solid black; width: 400px; height: 200px; }");
+                emailHtml.AppendLine(".poster { margin-right: 10px; }");
+                emailHtml.AppendLine(".poster img { height: 200px; width: 120px; }");
+                emailHtml.AppendLine(".details { display: block; justify-content: center; word-wrap: break-word; }");
+                emailHtml.AppendLine(".details h3 { margin: 0; font-size: 18px; color: #333; }");
+                emailHtml.AppendLine(".details p { margin: 0; font-size: 14px; white-space: normal; }");
+                emailHtml.AppendLine("</style>");
+                emailHtml.AppendLine("</head>");
+                emailHtml.AppendLine("<body>");
+                emailHtml.AppendLine("<h2 style='text-align: center;'>Teie kinokülastuse kinnitus</h2>");
+
+                foreach (Point istekoht in istmed)
+                {
+                    string piletitüüp = string.Empty;
+                    decimal hind = 0;
+
+                    using (SqlConnection ühendus = Globaalsed.SaaÜhendus())
+                    {
+                        using (SqlCommand käsk = new SqlCommand("SELECT Tuup, Hind FROM Piletituubid WHERE ID = @ID", ühendus))
+                        {
+                            käsk.Parameters.AddWithValue("@ID", piletitüübid[istekoht]);
+                            using (SqlDataReader lugeja = käsk.ExecuteReader())
+                            {
+                                if (lugeja.Read())
+                                {
+                                    piletitüüp = lugeja["Tuup"].ToString();
+                                    hind = (decimal)lugeja["Hind"];
+                                    koguHind += hind;
+                                }
+                            }
+                        }
+                    }
+
+                    emailHtml.AppendLine("<div class='ticket-container'>");
+
+                    emailHtml.AppendLine("<div class='poster'>");
+                    emailHtml.AppendLine($"<img src=\"cid:posterImage\" alt='Poster'>");
+                    emailHtml.AppendLine("</div>");
+
+                    emailHtml.AppendLine("<div class='details'>");
+                    emailHtml.AppendLine($"<h3>{filmNimetus}</h3>");
+                    emailHtml.AppendLine($"<p>{kirjeldus}</p><br>");
+                    emailHtml.AppendLine($"<p>Žanr: {žanr} ({vanusepiirang})</p>");
+                    emailHtml.AppendLine($"<p>Keel: {keel}</p>");
+                    emailHtml.AppendLine($"<p>Saal: {saal} ({istekoht.X + 1} rida, {istekoht.Y + 1} koht)</p>");
+                    emailHtml.AppendLine($"<p>Aeg: {seansAeg:HH:mm}-{seansAeg.Add(new TimeSpan(0, filmKestus, 0)):HH:mm} (Kestus {filmKestus} min)</p>");
+                    emailHtml.AppendLine($"<p>Piletitüüp: {piletitüüp} ({hind}€)</p>");
+                    emailHtml.AppendLine("</div>");
+
+                    emailHtml.AppendLine("</div>");
+                }
+
+                emailHtml.AppendLine("<h3 style='text-align: center;'>Kokku Hind: " + koguHind.ToString() + "€</h3>");
+                emailHtml.AppendLine("<p style='text-align: center;'>Meeldivat filmielamust!</p>");
+                emailHtml.AppendLine("<p style='text-align: center; color: #888;'>NB! See on automaatselt genereeritud kiri, palun ärge vastake sellele.</p>");
+                emailHtml.AppendLine("</body>");
+                emailHtml.AppendLine("</html>");
+
+                MailMessage email = new MailMessage();
+                email.From = new MailAddress("othermodstactics@gmail.com", "Kino");
+                email.To.Add(Globaalsed.kasutajaEmail);
+                email.Subject = $"Kinokülastuse kinnitus - {filmNimetus}";
+
+                AlternateView htmlView = AlternateView.CreateAlternateViewFromString(emailHtml.ToString(), null, MediaTypeNames.Text.Html);
+
+                if (posterAndmed != null)
+                {
+                    LinkedResource posterResource = new LinkedResource(new MemoryStream(posterAndmed), MediaTypeNames.Image.Jpeg)
+                    {
+                        ContentId = "posterImage"
+                    };
+                    htmlView.LinkedResources.Add(posterResource);
+                }
+
+                email.AlternateViews.Add(htmlView);
+
+                SmtpClient smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    Credentials = new NetworkCredential("othermodstactics@gmail.com", "uzct ocxw uyte abyr"),
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    EnableSsl = true,
+                    Timeout = 5000
+                };
+
+                smtp.Send(email);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Viga e-maili saatmisel: {ex.Message}", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
