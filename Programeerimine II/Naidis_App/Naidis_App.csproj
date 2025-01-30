@@ -63,13 +63,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="FigurePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="StartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="TextPage.xaml">
+	  <MauiXaml Update="Valgusfoor.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

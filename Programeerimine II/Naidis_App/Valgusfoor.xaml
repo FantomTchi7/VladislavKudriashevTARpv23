@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Naidis_App.Valgusfoor"
+             Title="Valgusfoor">
+    <VerticalStackLayout>
+        <Label 
+            Text="Valgusfoor"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+		<Frame
+			x:Name="punane"
+			CornerRadius="100"
+			HeightRequest="200"
+			BorderColor="Red">
+			<Label
+				Text="Punane"
+				VerticalOptions="Center"
+				HorizontalOptions="Center" />
+		</Frame>
+		<Frame
+			x:Name="kollane"
+			CornerRadius="100"
+			HeightRequest="200"
+			BorderColor="Yellow">
+			<Label
+				Text="Kollane"
+				VerticalOptions="Center"
+				HorizontalOptions="Center" />
+		</Frame>
+		<Frame
+			x:Name="roheline"
+			CornerRadius="100"
+			HeightRequest="200"
+			BorderColor="Green">
+			<Label
+				Text="Roheline"
+				VerticalOptions="Center"
+				HorizontalOptions="Center" />
+		</Frame>
+		
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Button
+				x:Name="sisse"
+                Text="SISSE"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+				Clicked="sisseClicked" />
+			<Button
+				x:Name="valja"
+                Text="VÄLJA"
+                Grid.Column="1"
+                HorizontalOptions="End"
+				Clicked="valjaClicked" />
+		</Grid>
+    </VerticalStackLayout>
+</ContentPage>
