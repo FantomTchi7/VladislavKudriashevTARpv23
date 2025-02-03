@@ -1,0 +1,27 @@
+﻿﻿@model Kutse_App.Models.Guest
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<div>
+    <p> Tänan sind, @Model.Name </p>
+</div>
+<div>
+    @if (Model.WillAttend == true)
+    {
+        @: Ootan sind kallis sõber!
+        <p>
+            <img src="https://i.pinimg.com/originals/f7/26/2b/f7262b8c99b1d74a8cedfe1dc727ed87.gif" />
+        </p>
+    }
+    else
+    {
+        @: Väga kurb uudis. Näeme hiljem!
+        <p>
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjgxcmpkeGZ3cjhscTJybDk1OGtjZXF3NWszM2I5Y3Y2b3Z2M3draSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9ZQ/iD6QiXTTAYrU5C3c89/giphy.gif" />
+        </p>
+    }
+    @ViewBag.Message
+    @Html.ActionLink("Vastan", "Ankeet", "Ankeet", new { @class = "btn btn-primary" })
+</div>
