@@ -1,0 +1,40 @@
+﻿@model Kutse_App.Models.Pühad
+
+@{
+    ViewBag.Title = "Kustuta";
+}
+
+<h2>Kustuta</h2>
+
+<h3>Kas olete kindel, et soovite seda kustutada?</h3>
+<div>
+    <h4>Pühad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Puhkuse_nimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Puhkuse_nimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kuupaev)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kuupaev)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Tagasi nimekirja", "Index")
+        </div>
+    }
+</div>

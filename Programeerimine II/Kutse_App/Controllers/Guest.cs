@@ -25,9 +25,9 @@ namespace Kutse_App.Models
         [Required(ErrorMessage = "Sisesta oma valik")]
         public bool? WillAttend { get; set; }
 
-        [Display(Name = "Pühad")]
-        public int? PühadId { get; set; }
+        [Display(Name = "Puhad")]
+        public int? PuhadId { get; set; }
 
-        public virtual Pühad Pühad { get; set; }
+        public virtual Puhad Puhad { get; set; }
     }
 }

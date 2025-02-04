@@ -1,27 +1,37 @@
-﻿﻿@model Kutse_App.Models.Guest
+﻿@model Kutse_App.Models.Guest
 
 @{
-    ViewBag.Title = "Thanks";
+    ViewBag.Title = "Aitäh";
 }
-
 <div>
-    <p> Tänan sind, @Model.Name </p>
+    <p> Tänan sind, @Model.Nimi </p>
+
 </div>
 <div>
     @if (Model.WillAttend == true)
     {
-        @: Ootan sind kallis sõber!
+        @:Ootame sind kallis sõber!
         <p>
+            <br />
             <img src="https://i.pinimg.com/originals/f7/26/2b/f7262b8c99b1d74a8cedfe1dc727ed87.gif" />
         </p>
+        using (Html.BeginForm("Meeldetuletus", "Home", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.Nimi)
+            @Html.HiddenFor(m => m.Email)
+            @Html.HiddenFor(m => m.Telefon)
+            @Html.HiddenFor(m => m.WillAttend)
+            <input type="submit" value="Meeldetuletus" name="Meeldetuletus" />
+        }
     }
     else
     {
-        @: Väga kurb uudis. Näeme hiljem!
+        @:Väga kurb uudis. Näeme hiljem!
         <p>
+            <br />
             <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjgxcmpkeGZ3cjhscTJybDk1OGtjZXF3NWszM2I5Y3Y2b3Z2M3draSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9ZQ/iD6QiXTTAYrU5C3c89/giphy.gif" />
         </p>
     }
+    <br />
     @ViewBag.Message
-    @Html.ActionLink("Vastan", "Ankeet", "Ankeet", new { @class = "btn btn-primary" })
-</div>
+</div> 

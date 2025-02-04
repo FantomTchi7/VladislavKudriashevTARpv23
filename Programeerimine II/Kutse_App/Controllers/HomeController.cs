@@ -1,6 +1,7 @@
 ﻿using Kutse_App.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
@@ -14,7 +15,7 @@ namespace Kutse_App.Controllers
         {
             int hour = DateTime.Now.Hour;
             int month = DateTime.Now.Month;
-            
+
             switch (month)
             {
                 case 1:
@@ -26,7 +27,28 @@ namespace Kutse_App.Controllers
 
             }
             ViewBag.Message = "Palun tule! Ootan sind minu poele!";
-            ViewBag.PicturePath = hour < 10 ? "https://upload.wikimedia.org/wikipedia/commons/7/7d/Morning%2C_just_after_sunrise%2C_Namibia.jpg" : (hour < 17 ? "https://upload.wikimedia.org/wikipedia/commons/2/2e/Brisbane_Water_National_Park_sunrise.jpg" : (hour < 21 ? "https://upload.wikimedia.org/wikipedia/commons/3/3a/Evening_in_Parambikkulam%2C_Kerala%2C_India.jpg" : "https://upload.wikimedia.org/wikipedia/commons/6/6d/Savault_Chapel_Under_Milky_Way_BLS.jpg")); 
+            
+            string picturePath;
+
+            if (hour < 10)
+            {
+                picturePath = "https://upload.wikimedia.org/wikipedia/commons/7/7d/Morning%2C_just_after_sunrise%2C_Namibia.jpg";
+            }
+            else if (hour < 17)
+            {
+                picturePath = "https://upload.wikimedia.org/wikipedia/commons/2/2e/Brisbane_Water_National_Park_sunrise.jpg";
+            }
+            else if (hour < 21)
+            {
+                picturePath = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Evening_in_Parambikkulam%2C_Kerala%2C_India.jpg";
+            }
+            else
+            {
+                picturePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Savault_Chapel_Under_Milky_Way_BLS.jpg";
+            }
+
+            ViewBag.PicturePath = picturePath;
+
             ViewBag.Greeting = hour < 10 ? "Hommikust!" : (hour < 17 ? "Päevast!" : (hour < 21 ? "Õhtust!" : "Head ööd!"));
             return View();
         }
@@ -39,7 +61,7 @@ namespace Kutse_App.Controllers
         [HttpPost]
         public ViewResult Ankeet(Guest guest)
         {
-            SaadaEmail(guest);
+            Meeldetuletus(guest, "");
             if (ModelState.IsValid)
             {
                 return View("Thanks", guest);
@@ -49,24 +71,113 @@ namespace Kutse_App.Controllers
                 return View();
             }
         }
-        public void SaadaEmail(Guest guest)
+        
+        [HttpPost]
+        public ActionResult Meeldetuletus(Guest guest, string Meeldetuletus)
         {
-            try
+            if (!string.IsNullOrEmpty(Meeldetuletus))
             {
-                WebMail.SmtpServer = "smtp.gmail.com";
-                WebMail.SmtpPort = 587;
-                WebMail.EnableSsl = true;
-                WebMail.UserName = "othermodstactics@gmail.com";
-                WebMail.Password = "uzct ocxw uyte abyr";
-                WebMail.From = "othermodstactics@gmail.com";
-                WebMail.Send(guest.Email, "Vastus kutsele", guest.Name + " Vastus " + ((guest.WillAttend ?? false) ?
-                    "Tulen kindlasti!" : "Kahjuks ei saa tulla!"));
-                ViewBag.Message = "Kiri on saatnud!";
+                try
+                {
+                    WebMail.SmtpServer = "smtp.gmail.com";
+                    WebMail.SmtpPort = 587;
+                    WebMail.EnableSsl = true;
+                    WebMail.UserName = "othermodstactics@gmail.com";
+                    WebMail.Password = "uzct ocxw uyte abyr";
+                    WebMail.From = "othermodstactics@gmail.com";
+
+                    WebMail.Send(guest.Email, "Meeldetuletus", guest.Nimi + ", ara unusta. Pidu toimub 25.01.25! Sind ootavad väga!",
+                    null, guest.Email
+                   );
+
+                    ViewBag.Message = "Kutse saadetud!";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "Tekkis viga kutse saatmisel: " + ex.Message;
+                }
             }
-            catch (Exception exception)
+
+            return View("Thanks", guest);
+        }
+
+        GuestContext db = new GuestContext();
+        [Authorize(Roles = "User")]
+        public ActionResult Guests()
+        {
+            IEnumerable<Guest> guests = db.Guests;
+            return View(guests);
+        }
+
+        [Authorize(Roles = "User")]
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        [HttpPost]
+        public ActionResult Create(Guest guest)
+        {
+            db.Guests.Add(guest);
+            db.SaveChanges();
+            return RedirectToAction("Guests");
+        }
+        [Authorize(Roles = "User")]
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Guest g = db.Guests.Find(id);
+            if (g == null)
             {
-                ViewBag.Message = exception;
+                return HttpNotFound();
             }
+            return View(g);
+        }
+        [Authorize(Roles = "User")]
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Guest g = db.Guests.Find(id);
+            if (g == null)
+            {
+                return HttpNotFound();
+            }
+            db.Guests.Remove(g);
+            db.SaveChanges();
+            return RedirectToAction("Guests");
+        }
+        
+        [Authorize(Roles = "User")]
+        public ActionResult Details(int id)
+        {
+            var guest = db.Guests.Find(id);
+            if (guest == null)
+            {
+                return HttpNotFound();
+            }
+            return View(guest);
+        }
+        
+        [Authorize(Roles = "User")]
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            Guest g = db.Guests.Find(id);
+            if (g == null)
+            {
+                return HttpNotFound();
+            }
+            return View(g);
+        }
+
+        [Authorize(Roles = "User")]
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditConfirmed(Guest guest)
+        {
+            db.Entry(guest).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Guests");
         }
     }
 }
