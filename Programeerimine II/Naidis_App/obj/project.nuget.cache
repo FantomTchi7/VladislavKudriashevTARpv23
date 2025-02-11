@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X9IQqjgk6o4=",
+  "dgSpecHash": "eQ2LzU2e54U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Naidis_App.csproj",
+  "projectFilePath": "C:\\Users\\opilane\\Desktop\\VladislavKudriashevTARpv23-main\\Programeerimine II\\Naidis_App\\Naidis_App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\opilane\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\opilane\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Naidis_App.csproj": {}
+    "C:\\Users\\opilane\\Desktop\\VladislavKudriashevTARpv23-main\\Programeerimine II\\Naidis_App\\Naidis_App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Naidis_App.csproj": {
+    "C:\\Users\\opilane\\Desktop\\VladislavKudriashevTARpv23-main\\Programeerimine II\\Naidis_App\\Naidis_App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Naidis_App.csproj",
+        "projectUniqueName": "C:\\Users\\opilane\\Desktop\\VladislavKudriashevTARpv23-main\\Programeerimine II\\Naidis_App\\Naidis_App.csproj",
         "projectName": "Naidis_App",
-        "projectPath": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Naidis_App.csproj",
+        "projectPath": "C:\\Users\\opilane\\Desktop\\VladislavKudriashevTARpv23-main\\Programeerimine II\\Naidis_App\\Naidis_App.csproj",
         "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\obj\\",
+        "outputPath": "C:\\Users\\opilane\\Desktop\\VladislavKudriashevTARpv23-main\\Programeerimine II\\Naidis_App\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
