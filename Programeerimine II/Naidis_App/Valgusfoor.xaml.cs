@@ -1,12 +1,31 @@
 
+using System.Diagnostics;
+
 namespace Naidis_App;
 
 public partial class Valgusfoor : ContentPage
 {
     int i = 0;
+    Random random = new Random();
     public Valgusfoor()
     {
         InitializeComponent();
+
+        kollaneViik();
+    }
+    async void kollaneViik()
+    {
+        if (i != 5)
+        {
+            i = 5;
+            while (i == 5)
+            {
+                if (i == 5) { kollane.BackgroundColor = Color.FromArgb("#FFFF00"); } else { break; }
+                if (i == 5) { await Task.Delay(2000); } else { break; }
+                if (i == 5) { kollane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 5) { await Task.Delay(2000); } else { break; }
+            }
+        }
     }
     void sisseClicked(object sender, EventArgs args)
     {
@@ -45,29 +64,56 @@ public partial class Valgusfoor : ContentPage
     }
     async void autoClicked(object sender, EventArgs args)
     {
-        i = 4;
-        while (i == 4)
+        if (i != 4)
         {
-            if (i == 4) { punane.BackgroundColor = Color.FromArgb("#FF0000"); } else { break; }
-            if (i == 4) { kollane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
-            if (i == 4) { roheline.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
-            if (i == 4) { await Task.Delay(500); } else { break; }
-            if (i == 4) { punane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
-            if (i == 4) { kollane.BackgroundColor = Color.FromArgb("#FFFF00"); } else { break; }
-            if (i == 4) { roheline.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
-            if (i == 4) { await Task.Delay(500); } else { break; }
-            if (i == 4) { punane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
-            if (i == 4) { kollane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
-            if (i == 4) { roheline.BackgroundColor = Color.FromArgb("#00FF00"); } else { break; }
-            if (i == 4) { await Task.Delay(500); } else { break; }
+            i = 4;
+            punaneLabel.Text = "Punane";
+            kollaneLabel.Text = "Kollane";
+            rohelineLabel.Text = "Roheline";
+            while (i == 4)
+            {
+                if (i == 4) { punane.BackgroundColor = Color.FromArgb("#FF0000"); } else { break; }
+                if (i == 4) { kollane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 4) { roheline.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 4) { await Task.Delay(random.Next(2, 4) * 1000); } else { break; }
+                if (i == 4) { punane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 4) { kollane.BackgroundColor = Color.FromArgb("#FFFF00"); } else { break; }
+                if (i == 4) { roheline.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 4)
+                {
+                    int j = random.Next(1, 2);
+                    await Task.Delay(j * 1000);
+                    rohelineTimer(j);
+                }
+                else { break; }
+                if (i == 4) { punane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 4) { kollane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 4) { roheline.BackgroundColor = Color.FromArgb("#00FF00"); } else { break; }
+                if (i == 4) { await Task.Delay(random.Next(2, 4) * 1000); } else { break; }
+            }
         }
     }
+    async void rohelineTimer(int timer)
+    {
+        for (int j = timer + 1; j >= 1; j--)
+        {
+            rohelineLabel.Text = j.ToString();
+            // FIX LATER
+            await Task.Delay(1000);
+        }
+
+        rohelineLabel.Text = "Roheline";
+    }
+
     void valjaClicked(object sender, EventArgs args)
     {
-        i = 0;
         punane.BackgroundColor = Color.FromArgb("#000000");
         kollane.BackgroundColor = Color.FromArgb("#000000");
         roheline.BackgroundColor = Color.FromArgb("#000000");
+        punaneLabel.Text = "Punane";
+        kollaneLabel.Text = "Kollane";
+        rohelineLabel.Text = "Roheline";
+        kollaneViik();
     }
     private void punaneTapped(object sender, TappedEventArgs e)
     {

@@ -4,82 +4,82 @@
              x:Class="Naidis_App.Valgusfoor"
              Title="Valgusfoor">
 
-	<VerticalStackLayout>
-		<Label 
+    <VerticalStackLayout>
+        <Label 
 			Text="Valgusfoor"
 			VerticalOptions="Center" 
 			HorizontalOptions="Center" />
 
-		<Frame
+        <Frame
 			x:Name="punane"
 			CornerRadius="100"
 			HeightRequest="150"
 			WidthRequest="150"
 			BorderColor="Red">
-			<Frame.GestureRecognizers>
-				<TapGestureRecognizer Tapped="punaneTapped"/>
-			</Frame.GestureRecognizers>
-			<Label
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="punaneTapped"/>
+            </Frame.GestureRecognizers>
+            <Label
 				x:Name="punaneLabel"
 				Text="Punane"
 				VerticalOptions="Center"
 				HorizontalOptions="Center" />
-		</Frame>
+        </Frame>
 
-		<Frame
+        <Frame
 			x:Name="kollane"
 			CornerRadius="100"
 			HeightRequest="150"
 			WidthRequest="150"
 			BorderColor="Yellow">
-			<Frame.GestureRecognizers>
-				<TapGestureRecognizer Tapped="kollaneTapped"/>
-			</Frame.GestureRecognizers>
-			<Label
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="kollaneTapped"/>
+            </Frame.GestureRecognizers>
+            <Label
 				x:Name="kollaneLabel"
 				Text="Kollane"
 				VerticalOptions="Center"
 				HorizontalOptions="Center" />
-		</Frame>
+        </Frame>
 
-		<Frame
+        <Frame
 			x:Name="roheline"
 			CornerRadius="100"
 			HeightRequest="150"
 			WidthRequest="150"
 			BorderColor="Green">
-			<Frame.GestureRecognizers>
-				<TapGestureRecognizer Tapped="rohelineTapped"/>
-			</Frame.GestureRecognizers>
-			<Label
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="rohelineTapped"/>
+            </Frame.GestureRecognizers>
+            <Label
 				x:Name="rohelineLabel"
 				Text="Roheline"
 				VerticalOptions="Center"
 				HorizontalOptions="Center" />
-		</Frame>
+        </Frame>
 
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*" />
-			</Grid.ColumnDefinitions>
-			<Button
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
 				x:Name="sisse"
 				Text="SISSE"
 				Grid.Column="0"
 				HorizontalOptions="Start"
 				Clicked="sisseClicked" />
-			<Button
+            <Button
 				x:Name="auto"
 				Text="AUTO"
 				Grid.Column="1"
 				HorizontalOptions="Center"
 				Clicked="autoClicked" />
-			<Button
+            <Button
 				x:Name="valja"
 				Text="VÄLJA"
 				Grid.Column="2"
 				HorizontalOptions="End"
 				Clicked="valjaClicked" />
-		</Grid>
-	</VerticalStackLayout>
+        </Grid>
+    </VerticalStackLayout>
 </ContentPage>
