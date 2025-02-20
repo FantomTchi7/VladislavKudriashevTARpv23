@@ -5,7 +5,10 @@ public partial class StartPage : ContentPage
 {
     public List<KeyValuePair<ContentPage, string>> Lehed =
     [
-        new KeyValuePair<ContentPage, string>(new Valgusfoor(), "Tee lahti Valgusfoor")
+        new KeyValuePair<ContentPage, string>(new Valgusfoor(), "Tee lahti Valgusfoor"),
+        new KeyValuePair<ContentPage, string>(new DateTimePage(), "Tee lahti DateTimePage"),
+        new KeyValuePair<ContentPage, string>(new StepperSliderPage(), "Tee lahti StepperSliderPage"),
+        new KeyValuePair<ContentPage, string>(new ColorPage(), "Tee lahti ColorPage")
     ];
     private readonly ScrollView sv = new();
     private readonly VerticalStackLayout vsl = new()

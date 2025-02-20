@@ -1,42 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\",
+  "WorkspaceRootPath": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\valgusfoor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:valgusfoor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\colorpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:colorpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\valgusfoor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\datetimepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:datetimepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\steppersliderpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:steppersliderpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\valgusfoor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:valgusfoor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\resources\\styles\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:resources\\styles\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\startpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:startpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\maui\\naidis_app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,131 +30,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Colors.xaml",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\Resources\\Styles\\Colors.xaml",
-              "RelativeDocumentMoniker": "Resources\\Styles\\Colors.xaml",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\Resources\\Styles\\Colors.xaml",
-              "RelativeToolTip": "Resources\\Styles\\Colors.xaml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-13T11:17:00.974Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Valgusfoor.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\Valgusfoor.xaml.cs",
-              "RelativeDocumentMoniker": "Valgusfoor.xaml.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\Valgusfoor.xaml.cs",
-              "RelativeToolTip": "Valgusfoor.xaml.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAIwGEAAAAeAAAAAAAAAA==",
+              "Title": "ColorPage.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\ColorPage.cs",
+              "RelativeDocumentMoniker": "ColorPage.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\ColorPage.cs",
+              "RelativeToolTip": "ColorPage.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAiwKkAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T10:56:53.03Z",
+              "WhenOpened": "2025-02-20T11:07:36.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Valgusfoor.xaml",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Valgusfoor.xaml",
+              "RelativeDocumentMoniker": "Valgusfoor.xaml",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Valgusfoor.xaml",
+              "RelativeToolTip": "Valgusfoor.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-20T11:09:41.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StepperSliderPage.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\StepperSliderPage.cs",
+              "RelativeDocumentMoniker": "StepperSliderPage.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\StepperSliderPage.cs",
+              "RelativeToolTip": "StepperSliderPage.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwA4AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T11:08:49.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Valgusfoor.xaml",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\Valgusfoor.xaml",
-              "RelativeDocumentMoniker": "Valgusfoor.xaml",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\Valgusfoor.xaml",
-              "RelativeToolTip": "Valgusfoor.xaml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-13T10:56:42.052Z",
+              "Title": "DateTimePage.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\DateTimePage.cs",
+              "RelativeDocumentMoniker": "DateTimePage.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\DateTimePage.cs",
+              "RelativeToolTip": "DateTimePage.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T11:08:48.138Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "StartPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\StartPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\StartPage.xaml.cs",
               "RelativeDocumentMoniker": "StartPage.xaml.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\StartPage.xaml.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\StartPage.xaml.cs",
               "RelativeToolTip": "StartPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-13T10:56:24.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StartPage.xaml",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\StartPage.xaml",
-              "RelativeDocumentMoniker": "StartPage.xaml",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\StartPage.xaml",
-              "RelativeToolTip": "StartPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-13T10:56:10.235Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "MauiProgram.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\MauiProgram.cs",
-              "RelativeToolTip": "MauiProgram.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T10:54:56.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppShell.xaml",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\AppShell.xaml",
-              "RelativeDocumentMoniker": "AppShell.xaml",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\AppShell.xaml",
-              "RelativeToolTip": "AppShell.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-13T10:54:15.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\App.xaml.cs",
-              "RelativeDocumentMoniker": "App.xaml.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\App.xaml.cs",
-              "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T10:53:47.272Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\MAUI\\Naidis_App\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-13T10:53:43.527Z",
               "EditorCaption": ""
             }
           ]
