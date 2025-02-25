@@ -3,186 +3,250 @@ namespace Naidis_App;
 public class ColorPage : ContentPage
 {
     AbsoluteLayout al = new AbsoluteLayout();
+    static List<string> views = new List<string> { "RGBA", "CMYK" };
+    Picker picker = new Picker
+    {
+        ItemsSource = views,
+        SelectedIndex = 0
+    };
+    Label valueLabel = new Label
+    {
+        Text = "HEX Code: #FFFFFFFF",
+        HorizontalOptions = LayoutOptions.Start
+    };
+    string valueValue = "#FFFFFFFF";
+    TapGestureRecognizer valueLabelGR = new TapGestureRecognizer();
     Frame frame = new Frame
     {
         BackgroundColor = Color.FromArgb("#FFFFFF")
     };
-    Label labelSliderR = new Label
+    Label labelSliderFirst = new Label
     {
         Text = "R",
         HorizontalOptions = LayoutOptions.Start
     };
-    Label labelSliderG = new Label
+    Label labelSliderSecond = new Label
     {
         Text = "G",
         HorizontalOptions = LayoutOptions.Start
     };
-    Label labelSliderB = new Label
+    Label labelSliderThird = new Label
     {
         Text = "B",
         HorizontalOptions = LayoutOptions.Start
     };
-    Label labelSliderA = new Label
+    Label labelSliderFourth = new Label
     {
         Text = "A",
         HorizontalOptions = LayoutOptions.Start
     };
-    Label labelSliderValueR = new Label
+    Label labelSliderValueFirst = new Label
     {
         Text = "255",
         HorizontalOptions = LayoutOptions.End
     };
-    Label labelSliderValueG = new Label
+    Label labelSliderValueSecond = new Label
     {
         Text = "255",
         HorizontalOptions = LayoutOptions.End
     };
-    Label labelSliderValueB = new Label
+    Label labelSliderValueThird = new Label
     {
         Text = "255",
         HorizontalOptions = LayoutOptions.End
     };
-    Label labelSliderValueA = new Label
+    Label labelSliderValueFourth = new Label
     {
         Text = "255",
         HorizontalOptions = LayoutOptions.End
     };
-    Slider sliderR = new Slider
+    Slider sliderFirst = new Slider
     {
         Minimum = 0,
         Maximum = 255,
+        Value = 255,
         HorizontalOptions = LayoutOptions.Fill
     };
-    Slider sliderG = new Slider
+    Slider sliderSecond = new Slider
     {
         Minimum = 0,
         Maximum = 255,
+        Value = 255,
         HorizontalOptions = LayoutOptions.Fill
     };
-    Slider sliderB = new Slider
+    Slider sliderThird = new Slider
     {
         Minimum = 0,
         Maximum = 255,
+        Value = 255,
         HorizontalOptions = LayoutOptions.Fill
     };
-    Slider sliderA = new Slider
+    Slider sliderFourth = new Slider
     {
         Minimum = 0,
         Maximum = 255,
+        Value = 255,
         HorizontalOptions = LayoutOptions.Fill
     };
 
-    Grid gridR = new Grid();
-    Grid gridG = new Grid();
-    Grid gridB = new Grid();
-    Grid gridA = new Grid();
+    Grid gridFirst = new Grid();
+    Grid gridSecond = new Grid();
+    Grid gridThird = new Grid();
+    Grid gridFourth = new Grid();
+
+    int First = 255;
+    int Second = 255;
+    int Third = 255;
+    int Fourth = 255;
 
     int pageHeight = (int)(DeviceDisplay.Current.MainDisplayInfo.Height / DeviceDisplay.Current.MainDisplayInfo.Density);
     int pageWidth = (int)(DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density);
-
     public ColorPage()
     {
-        sliderR.ValueChanged += SliderR_ValueChanged;
-        sliderG.ValueChanged += SliderG_ValueChanged;
-        sliderB.ValueChanged += SliderB_ValueChanged;
-        sliderA.ValueChanged += SliderA_ValueChanged;
+        picker.SelectedIndexChanged += Picker_SelectedIndexChanged;
 
-        gridR.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-        gridR.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
-        gridR.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        valueLabelGR.Tapped += ValueLabel_Tapped;
+        valueLabel.GestureRecognizers.Add(valueLabelGR);
+        sliderFirst.ValueChanged += Slider_ValueChanged;
+        sliderSecond.ValueChanged += Slider_ValueChanged;
+        sliderThird.ValueChanged += Slider_ValueChanged;
+        sliderFourth.ValueChanged += Slider_ValueChanged;
 
-        gridG.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-        gridG.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
-        gridG.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        gridFirst.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        gridFirst.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+        gridFirst.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
-        gridB.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-        gridB.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
-        gridB.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        gridSecond.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        gridSecond.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+        gridSecond.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
-        gridA.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-        gridA.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
-        gridA.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        gridThird.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        gridThird.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+        gridThird.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
-        gridR.Children.Add(labelSliderR);
-        gridR.Children.Add(sliderR);
-        gridR.Children.Add(labelSliderValueR);
+        gridFourth.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        gridFourth.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+        gridFourth.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
-        gridG.Children.Add(labelSliderG);
-        gridG.Children.Add(sliderG);
-        gridG.Children.Add(labelSliderValueG);
+        gridFirst.Children.Add(labelSliderFirst);
+        gridFirst.Children.Add(sliderFirst);
+        gridFirst.Children.Add(labelSliderValueFirst);
 
-        gridB.Children.Add(labelSliderB);
-        gridB.Children.Add(sliderB);
-        gridB.Children.Add(labelSliderValueB);
+        gridSecond.Children.Add(labelSliderSecond);
+        gridSecond.Children.Add(sliderSecond);
+        gridSecond.Children.Add(labelSliderValueSecond);
 
-        gridA.Children.Add(labelSliderA);
-        gridA.Children.Add(sliderA);
-        gridA.Children.Add(labelSliderValueA);
+        gridThird.Children.Add(labelSliderThird);
+        gridThird.Children.Add(sliderThird);
+        gridThird.Children.Add(labelSliderValueThird);
 
-        Grid.SetColumn(labelSliderR, 0);
-        Grid.SetColumn(sliderR, 1);
-        Grid.SetColumn(labelSliderValueR, 2);
+        gridFourth.Children.Add(labelSliderFourth);
+        gridFourth.Children.Add(sliderFourth);
+        gridFourth.Children.Add(labelSliderValueFourth);
 
-        Grid.SetColumn(labelSliderG, 0);
-        Grid.SetColumn(sliderG, 1);
-        Grid.SetColumn(labelSliderValueG, 2);
+        gridFirst.SetColumn(labelSliderFirst, 0);
+        gridFirst.SetColumn(sliderFirst, 1);
+        gridFirst.SetColumn(labelSliderValueFirst, 2);
 
-        Grid.SetColumn(labelSliderB, 0);
-        Grid.SetColumn(sliderB, 1);
-        Grid.SetColumn(labelSliderValueB, 2);
+        gridSecond.SetColumn(labelSliderSecond, 0);
+        gridSecond.SetColumn(sliderSecond, 1);
+        gridSecond.SetColumn(labelSliderValueSecond, 2);
 
-        Grid.SetColumn(labelSliderA, 0);
-        Grid.SetColumn(sliderA, 1);
-        Grid.SetColumn(labelSliderValueA, 2);
+        gridThird.SetColumn(labelSliderThird, 0);
+        gridThird.SetColumn(sliderThird, 1);
+        gridThird.SetColumn(labelSliderValueThird, 2);
 
+        gridFourth.SetColumn(labelSliderFourth, 0);
+        gridFourth.SetColumn(sliderFourth, 1);
+        gridFourth.SetColumn(labelSliderValueFourth, 2);
+
+        al.Children.Add(picker);
+        al.Children.Add(valueLabel);
         al.Children.Add(frame);
-        al.Children.Add(gridR);
-        al.Children.Add(gridG);
-        al.Children.Add(gridB);
-        al.Children.Add(gridA);
+        al.Children.Add(gridFirst);
+        al.Children.Add(gridSecond);
+        al.Children.Add(gridThird);
+        al.Children.Add(gridFourth);
 
         Content = al;
 
-        al.SetLayoutBounds(frame, new Rect(0, 0, pageWidth, pageWidth));
-        al.SetLayoutBounds(gridR, new Rect(0, pageWidth, pageWidth, 25));
-        al.SetLayoutBounds(gridG, new Rect(0, pageWidth + 25, pageWidth, 25));
-        al.SetLayoutBounds(gridB, new Rect(0, pageWidth + 50, pageWidth, 25));
-        al.SetLayoutBounds(gridA, new Rect(0, pageWidth + 75, pageWidth, 25));
+        al.SetLayoutBounds(picker, new Rect(0, 0, pageWidth, 50));
+        al.SetLayoutBounds(valueLabel, new Rect(0, 50, pageWidth, 25));
+        al.SetLayoutBounds(frame, new Rect(0, 75, pageWidth, pageWidth));
+        al.SetLayoutBounds(gridFirst, new Rect(0, pageWidth + 75, pageWidth, 25));
+        al.SetLayoutBounds(gridSecond, new Rect(0, pageWidth + 100, pageWidth, 25));
+        al.SetLayoutBounds(gridThird, new Rect(0, pageWidth + 125, pageWidth, 25));
+        al.SetLayoutBounds(gridFourth, new Rect(0, pageWidth + 150, pageWidth, 25));
     }
-    private void SliderR_ValueChanged(object? sender, ValueChangedEventArgs e)
+    private void Picker_SelectedIndexChanged(object? sender, EventArgs e)
     {
-        int R;
-        int G;
-        int B;
-        int A;
-        labelSliderValueR.Text = ((int)(e.NewValue)).ToString();
-        frame.BackgroundColor = Color.FromRgb(255, 255, 255);
+        int selectedIndex = picker.SelectedIndex;
+        if (selectedIndex == 0)
+        {
+            labelSliderFirst.Text = "R";
+            labelSliderSecond.Text = "G";
+            labelSliderThird.Text = "B";
+            labelSliderFourth.Text = "A";
+
+            sliderFirst.Maximum = 255;
+            sliderSecond.Maximum = 255;
+            sliderThird.Maximum = 255;
+            sliderFourth.Maximum = 255;
+
+            sliderFirst.Value = 255;
+            sliderSecond.Value = 255;
+            sliderThird.Value = 255;
+            sliderFourth.Value = 255;
+        }
+        else if (selectedIndex == 1)
+        {
+            labelSliderFirst.Text = "C";
+            labelSliderSecond.Text = "M";
+            labelSliderThird.Text = "Y";
+            labelSliderFourth.Text = "K";
+
+            sliderFirst.Maximum = 100;
+            sliderSecond.Maximum = 100;
+            sliderThird.Maximum = 100;
+            sliderFourth.Maximum = 100;
+
+            sliderFirst.Value = 0;
+            sliderSecond.Value = 0;
+            sliderThird.Value = 0;
+            sliderFourth.Value = 0;
+        }
     }
-    private void SliderG_ValueChanged(object? sender, ValueChangedEventArgs e)
+    async private void ValueLabel_Tapped(object? sender, TappedEventArgs e)
     {
-        int R;
-        int G;
-        int B;
-        int A;
-        labelSliderValueG.Text = ((int)(e.NewValue)).ToString();
-        frame.BackgroundColor = Color.FromRgb(255, 255, 255);
+        await Clipboard.Default.SetTextAsync(valueValue);
     }
-    private void SliderB_ValueChanged(object? sender, ValueChangedEventArgs e)
+    private void Slider_ValueChanged(object? sender, ValueChangedEventArgs e)
     {
-        int R;
-        int G;
-        int B;
-        int A;
-        labelSliderValueB.Text = ((int)(e.NewValue)).ToString();
-        frame.BackgroundColor = Color.FromRgb(255, 255, 255);
-    }
-    private void SliderA_ValueChanged(object? sender, ValueChangedEventArgs e)
-    {
-        int R;
-        int G;
-        int B;
-        int A;
-        labelSliderValueA.Text = ((int)(e.NewValue)).ToString();
-        frame.BackgroundColor = Color.FromRgb(255, 255, 255);
+        if (sender == sliderFirst) First = (int)e.NewValue;
+        else if (sender == sliderSecond) Second = (int)e.NewValue;
+        else if (sender == sliderThird) Third = (int)e.NewValue;
+        else if (sender == sliderFourth) Fourth = (int)e.NewValue;
+
+        labelSliderValueFirst.Text = First.ToString();
+        labelSliderValueSecond.Text = Second.ToString();
+        labelSliderValueThird.Text = Third.ToString();
+        labelSliderValueFourth.Text = Fourth.ToString();
+
+        if (picker.SelectedIndex == 0)
+        {
+            frame.BackgroundColor = Color.FromRgba(First, Second, Third, Fourth);
+            valueLabel.Text = $"HEX Code: #{First:X2}{Second:X2}{Third:X2}{Fourth:X2}";
+            valueValue = $"#{First:X2}{Second:X2}{Third:X2}{Fourth:X2}";
+        }
+        else if (picker.SelectedIndex == 1)
+        {
+            int R = (int)(255 * (1 - First / 100.0) * (1 - Fourth / 100.0));
+            int G = (int)(255 * (1 - Second / 100.0) * (1 - Fourth / 100.0));
+            int B = (int)(255 * (1 - Third / 100.0) * (1 - Fourth / 100.0));
+
+            frame.BackgroundColor = Color.FromRgba(R, G, B, 255);
+            valueLabel.Text = $"CMYK Value: {First}%, {Second}%, {Third}%, {Fourth}%";
+            valueValue = $"{First}%, {Second}%, {Third}%, {Fourth}%";
+        }
     }
 }

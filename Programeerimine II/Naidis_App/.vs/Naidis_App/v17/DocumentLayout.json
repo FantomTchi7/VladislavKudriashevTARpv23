@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:colorpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\valgusfoor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:valgusfoor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\datetimepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:datetimepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\valgusfoor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:valgusfoor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|c:\\users\\opilane\\source\\repos\\vladislavkudriashevtarpv23\\programeerimine ii\\naidis_app\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{397B7AEF-EFAA-4523-8272-D6582BB49A8E}|Naidis_App.csproj|solutionrelative:startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,33 +54,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Valgusfoor.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Valgusfoor.xaml.cs",
+              "RelativeDocumentMoniker": "Valgusfoor.xaml.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Valgusfoor.xaml.cs",
+              "RelativeToolTip": "Valgusfoor.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T07:02:41.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ColorPage.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\ColorPage.cs",
               "RelativeDocumentMoniker": "ColorPage.cs",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\ColorPage.cs",
               "RelativeToolTip": "ColorPage.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAiwJkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAANYAAAAAAAAAAAAmwEMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T11:07:36.772Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Valgusfoor.xaml",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Valgusfoor.xaml",
               "RelativeDocumentMoniker": "Valgusfoor.xaml",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\Valgusfoor.xaml",
               "RelativeToolTip": "Valgusfoor.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-20T11:09:41.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "StepperSliderPage.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\StepperSliderPage.cs",
               "RelativeDocumentMoniker": "StepperSliderPage.cs",
@@ -89,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DateTimePage.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\DateTimePage.cs",
               "RelativeDocumentMoniker": "DateTimePage.cs",
@@ -102,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "StartPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\VladislavKudriashevTARpv23\\Programeerimine II\\Naidis_App\\StartPage.xaml.cs",
               "RelativeDocumentMoniker": "StartPage.xaml.cs",

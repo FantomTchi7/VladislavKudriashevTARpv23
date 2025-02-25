@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>UIAppFonts</key>
+  <array>
+	<string>BigBlueTerm437NerdFont-Regular.ttf</string>
+	<string>BigBlueTerm437NerdFontMono-Regular.ttf</string>
+	<string>BigBlueTerm437NerdFontPropo-Regular.ttf</string>
+	<string>BigBlueTermPlusNerdFont-Regular.ttf</string>
+	<string>BigBlueTermPlusNerdFontMono-Regular.ttf</string>
+	<string>BigBlueTermPlusNerdFontPropo-Regular.ttf</string>
+	<string>LICENSE.TXT</string>
+	<string>README.md</string>
+  </array>
+
+</dict>
+</plist>
