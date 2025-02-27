@@ -79,29 +79,21 @@ public partial class Valgusfoor : ContentPage
                 if (i == 4) { punane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
                 if (i == 4) { kollane.BackgroundColor = Color.FromArgb("#FFFF00"); } else { break; }
                 if (i == 4) { roheline.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
-                if (i == 4)
-                {
-                    int j = random.Next(1, 2);
-                    await Task.Delay(j * 1000);
-                    rohelineTimer(j);
-                }
-                else { break; }
-                if (i == 4) { punane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 4) { await Task.Delay(2000); } else { break; }
                 if (i == 4) { kollane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
+                if (i == 4) { punane.BackgroundColor = Color.FromArgb("#000000"); } else { break; }
                 if (i == 4) { roheline.BackgroundColor = Color.FromArgb("#00FF00"); } else { break; }
-                if (i == 4) { await Task.Delay(random.Next(2, 4) * 1000); } else { break; }
+                if (i == 4) { await rohelineTimer(random.Next(2, 4)); } else { break; }
             }
         }
     }
-    async void rohelineTimer(int timer)
+    async Task rohelineTimer(int timer)
     {
-        for (int j = timer + 1; j >= 1; j--)
+        for (int j = timer; j >= 1; j--)
         {
             rohelineLabel.Text = j.ToString();
-            // FIX LATER
             await Task.Delay(1000);
         }
-
         rohelineLabel.Text = "Roheline";
     }
 
