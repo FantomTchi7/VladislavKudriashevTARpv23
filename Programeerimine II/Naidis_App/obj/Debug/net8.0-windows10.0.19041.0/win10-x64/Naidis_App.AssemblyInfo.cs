@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Naidis_App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+b0854c624cb2196eb4504203727d9e85adf01c67")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+c82e0c62c99f8858f82d057a27174a8463b3b5c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Naidis_App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Naidis_App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
