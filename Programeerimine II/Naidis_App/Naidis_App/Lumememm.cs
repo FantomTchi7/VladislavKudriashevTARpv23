@@ -1,287 +1,211 @@
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Layouts;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-
+using System.Diagnostics;
+using Microsoft.Maui.Controls.Shapes;
 namespace Naidis_App;
-
 public class Lumememm : ContentPage
 {
-    static int pageHeight = (int)(DeviceDisplay.Current.MainDisplayInfo.Height / DeviceDisplay.Current.MainDisplayInfo.Density);
-    static int pageWidth = (int)(DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density);
-
+    int pageHeight, pageWidth, pallEsimeneSize, pallInitialEsimeneSize, silmSize, noopSize, pallTeineSize, pallKolmasSize, porgandSize, torukubarSize, oksSize;
     ScrollView sv = new ScrollView();
     VerticalStackLayout vsl = new VerticalStackLayout();
     static List<string> views = new List<string> { "Size", "Items" };
-    Picker picker = new Picker
-    {
-        ItemsSource = views,
-        SelectedIndex = 0
-    };
-    Frame lumememm = new Frame
-    {
-        WidthRequest = pageWidth,
-        HeightRequest = pageWidth,
-        Padding = 0,
-        Margin = 0
-    };
-    Frame lumememmPea = new Frame
-    {
-        BackgroundColor = Color.FromArgb("#FFFFFF"),
-        BorderColor = Color.FromArgb("#FFFFFF")
-    };
-    Frame lumememmKeha = new Frame
-    {
-        BackgroundColor = Color.FromArgb("#FFFFFF"),
-        BorderColor = Color.FromArgb("#FFFFFF")
-    };
-    Frame lumememmAlus = new Frame
-    {
-        BackgroundColor = Color.FromArgb("#FFFFFF"),
-        BorderColor = Color.FromArgb("#FFFFFF")
-    };
-    Frame lumememmLSilm = new Frame
-    {
-        BackgroundColor = Color.FromArgb("#000000")
-    };
-    Frame lumememmRSilm = new Frame
-    {
-        BackgroundColor = Color.FromArgb("#000000")
-    };
-    Frame lumememmUNoop = new Frame
-    {
-        BackgroundColor = Color.FromArgb("#000000")
-    };
-    Frame lumememmMNoop = new Frame
-    {
-        BackgroundColor = Color.FromArgb("#000000")
-    };
-    Frame lumememmBNoop = new Frame
-    {
-        BackgroundColor = Color.FromArgb("#000000")
-    };
-
-    static int pallEsimeneSize = (int)(pageWidth / 5);
-
-    static int silmSize = (int)(pallEsimeneSize / 5);
-    static int noopSize = (int)(pallEsimeneSize / 5);
-
-    static int pallTeineSize = (int)(pallEsimeneSize * 1.25);
-    static int pallKolmasSize = (int)(pallTeineSize * 1.5);
-
-    Label labelSliderFirst = new Label
-    {
-        Text = "R",
-        HorizontalOptions = LayoutOptions.Start
-    };
-    Label labelSliderSecond = new Label
-    {
-        Text = "G",
-        HorizontalOptions = LayoutOptions.Start
-    };
-    Label labelSliderThird = new Label
-    {
-        Text = "B",
-        HorizontalOptions = LayoutOptions.Start
-    };
-    Label labelSliderFourth = new Label
-    {
-        Text = "A",
-        HorizontalOptions = LayoutOptions.Start
-    };
-    Label labelSliderValueFirst = new Label
-    {
-        Text = "50",
-        HorizontalOptions = LayoutOptions.End
-    };
-    Label labelSliderValueSecond = new Label
-    {
-        Text = "50",
-        HorizontalOptions = LayoutOptions.End
-    };
-    Label labelSliderValueThird = new Label
-    {
-        Text = "50",
-        HorizontalOptions = LayoutOptions.End
-    };
-    Label labelSliderValueFourth = new Label
-    {
-        Text = "50",
-        HorizontalOptions = LayoutOptions.End
-    };
-    Slider sliderFirst = new Slider
-    {
-        Minimum = 0,
-        Maximum = 100,
-        Value = 50,
-        HorizontalOptions = LayoutOptions.Fill
-    };
-    Slider sliderSecond = new Slider
-    {
-        Minimum = 0,
-        Maximum = 100,
-        Value = 50,
-        HorizontalOptions = LayoutOptions.Fill
-    };
-    Slider sliderThird = new Slider
-    {
-        Minimum = 0,
-        Maximum = 100,
-        Value = 50,
-        HorizontalOptions = LayoutOptions.Fill
-    };
-    Slider sliderFourth = new Slider
-    {
-        Minimum = 0,
-        Maximum = 100,
-        Value = 50,
-        HorizontalOptions = LayoutOptions.Fill
-    };
-
-    int First = 50;
-    int Second = 50;
-    int Third = 50;
-    int Fourth = 50;
-
+    Picker picker = new Picker { ItemsSource = views, SelectedIndex = 0 };
+    AbsoluteLayout al = new AbsoluteLayout { BackgroundColor = Color.FromArgb("#000000") };
+    Border lumememm = new Border { Padding = 0, Margin = 0 };
+    Border lumememmPea = new Border { Padding = 0, Margin = 0 };
+    Border lumememmKeha = new Border { Padding = 0, Margin = 0 };
+    Border lumememmAlus = new Border { Padding = 0, Margin = 0 };
+    Border lumememmLSilm = new Border { Padding = 0, Margin = 0 };
+    Border lumememmRSilm = new Border { Padding = 0, Margin = 0 };
+    Border lumememmUNoop = new Border { Padding = 0, Margin = 0 };
+    Border lumememmMNoop = new Border { Padding = 0, Margin = 0 };
+    Border lumememmBNoop = new Border { Padding = 0, Margin = 0 };
+    Border lumememmPPorgand = new Border { Padding = 0, Margin = 0 };
+    Border lumememmPTorukubar = new Border { Padding = 0, Margin = 0 };
+    Border lumememmLOks = new Border { Padding = 0, Margin = 0 };
+    Border lumememmROks = new Border { Padding = 0, Margin = 0 };
+    Image lOks = new Image { Source="l_stick.png" };
+    Image rOks = new Image { Source="r_stick.png" };
+    Image pTorukubar = new Image { Source="top_hat.png" };
+    Image pPorgand = new Image { Source="carrot.png" };
+    Image kLumi = new Image { Source="snow.png" };
+    Image aLumi = new Image { Source="snow.png" };
+    Image pLumi = new Image { Source="snow.png" };
+    Image lNoop = new Image { Source="button.png" };
+    Image rNoop = new Image { Source="button.png" };
+    Image uNoop = new Image { Source="button.png" };
+    Image mNoop = new Image { Source="button.png" };
+    Image bNoop = new Image { Source="button.png" };
     Grid grid = new Grid();
-
-    AbsoluteLayout al = new AbsoluteLayout();
+    List<(Label Label, Slider Slider, Label ValueLabel)> sliderControls = new();
+    int firstValue = 100;
+    int secondValue = 50;
+    int thirdValue = 50;
+    int fourthValue = 50;
     public Lumememm()
     {
-        al.Children.Add(lumememmPea);
-        al.Children.Add(lumememmLSilm);
-        al.Children.Add(lumememmRSilm);
-        al.Children.Add(lumememmKeha);
-        al.Children.Add(lumememmAlus);
-        al.Children.Add(lumememmUNoop);
-        al.Children.Add(lumememmMNoop);
-        al.Children.Add(lumememmBNoop);
-
-        lumememmPea.CornerRadius = pallEsimeneSize;
-        lumememmLSilm.CornerRadius = silmSize;
-        lumememmRSilm.CornerRadius = silmSize;
-        lumememmKeha.CornerRadius = pallTeineSize;
-        lumememmAlus.CornerRadius = pallKolmasSize;
-
-        Refresh(100);
-
-        lumememm.Content = al;
-
-        sliderFirst.ValueChanged += Slider_ValueChanged;
-        sliderSecond.ValueChanged += Slider_ValueChanged;
-        sliderThird.ValueChanged += Slider_ValueChanged;
-        sliderFourth.ValueChanged += Slider_ValueChanged;
-
+        InitializeSizes();
+        InitializeBorders();
+        InitializeSliders();
+        BuildUI();
+    }
+    void InitializeSizes()
+    {
+        pageHeight = (int)(DeviceDisplay.Current.MainDisplayInfo.Height / DeviceDisplay.Current.MainDisplayInfo.Density);
+        pageWidth = (int)(DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density);
+        lumememm.WidthRequest = pageWidth;
+        lumememm.HeightRequest = pageWidth;
+        pallEsimeneSize = pageWidth / 5;
+        pallInitialEsimeneSize = pallEsimeneSize;
+        silmSize = pallEsimeneSize / 5;
+        noopSize = silmSize;
+        porgandSize = silmSize * 2;
+        oksSize = (int)(pallTeineSize / 1.5);
+        torukubarSize = (int)(pallEsimeneSize / 1.5);
+        pallTeineSize = (int)(pallEsimeneSize * 1.25);
+        pallKolmasSize = (int)(pallTeineSize * 1.5);
+    }
+    void InitializeBorders()
+    {
+        lumememmPea = CreateBorder(pallEsimeneSize);
+        lumememmKeha = CreateBorder(pallTeineSize);
+        lumememmAlus = CreateBorder(pallKolmasSize);
+        lumememmLSilm = CreateBorder(silmSize);
+        lumememmRSilm = CreateBorder(silmSize);
+        lumememmUNoop = CreateBorder(noopSize);
+        lumememmMNoop = CreateBorder(noopSize);
+        lumememmBNoop = CreateBorder(noopSize);
+        lumememmPPorgand = CreateBorder(porgandSize);
+        lumememmPTorukubar = CreateBorder(torukubarSize);
+        lumememmLOks = CreateBorder(oksSize);
+        lumememmROks = CreateBorder(oksSize);
+        foreach (Border border in new[] { lumememmPea, lumememmPTorukubar, lumememmKeha, lumememmLOks, lumememmROks, lumememmPPorgand, lumememmAlus, lumememmLSilm, lumememmRSilm, lumememmBNoop, lumememmMNoop, lumememmUNoop }) al.Children.Add(border);
+    }
+    Border CreateBorder(int cornerRadius) => new Border
+    {
+        StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(cornerRadius) },
+        StrokeThickness = 0
+    };
+    void InitializeSliders()
+    {
+        (Label Label, Slider Slider, Label ValueLabel)[] sliders = new[]
+        {
+            (Label: new Label { Text = "Hide", HorizontalOptions = LayoutOptions.Start }, Slider: new Slider(0, 100, 100), ValueLabel: new Label { HorizontalOptions = LayoutOptions.End, Text = "100" }),
+            (Label: new Label { Text = "G", HorizontalOptions = LayoutOptions.Start }, Slider: new Slider(0, 100, 50), ValueLabel: new Label { HorizontalOptions = LayoutOptions.End, Text = "50" }),
+            (Label: new Label { Text = "B", HorizontalOptions = LayoutOptions.Start }, Slider: new Slider(0, 100, 50), ValueLabel: new Label { HorizontalOptions = LayoutOptions.End, Text = "50" }),
+            (Label: new Label { Text = "A", HorizontalOptions = LayoutOptions.Start }, Slider: new Slider(0, 100, 50), ValueLabel: new Label { HorizontalOptions = LayoutOptions.End, Text = "50" })
+        };
+        for (int i = 0; i < sliders.Length; i++)
+        {
+            (Label label, Slider slider, Label valueLabel) = sliders[i];
+            slider.ValueChanged += Slider_ValueChanged;
+            sliderControls.Add((label, slider, valueLabel));
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.Children.Add(label); Grid.SetRow(label, i); Grid.SetColumn(label, 0);
+            grid.Children.Add(slider); Grid.SetRow(slider, i); Grid.SetColumn(slider, 1);
+            grid.Children.Add(valueLabel); Grid.SetRow(valueLabel, i); Grid.SetColumn(valueLabel, 2);
+        }
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-
-        for (int i = 0; i < 4; i++)
-        {
-            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-        }
-
-        grid.Children.Add(labelSliderFirst);
-        grid.Children.Add(sliderFirst);
-        grid.Children.Add(labelSliderValueFirst);
-        Grid.SetRow(labelSliderFirst, 0);
-        Grid.SetColumn(labelSliderFirst, 0);
-        Grid.SetRow(sliderFirst, 0);
-        Grid.SetColumn(sliderFirst, 1);
-        Grid.SetRow(labelSliderValueFirst, 0);
-        Grid.SetColumn(labelSliderValueFirst, 2);
-
-        grid.Children.Add(labelSliderSecond);
-        grid.Children.Add(sliderSecond);
-        grid.Children.Add(labelSliderValueSecond);
-        Grid.SetRow(labelSliderSecond, 1);
-        Grid.SetColumn(labelSliderSecond, 0);
-        Grid.SetRow(sliderSecond, 1);
-        Grid.SetColumn(sliderSecond, 1);
-        Grid.SetRow(labelSliderValueSecond, 1);
-        Grid.SetColumn(labelSliderValueSecond, 2);
-
-        grid.Children.Add(labelSliderThird);
-        grid.Children.Add(sliderThird);
-        grid.Children.Add(labelSliderValueThird);
-        Grid.SetRow(labelSliderThird, 2);
-        Grid.SetColumn(labelSliderThird, 0);
-        Grid.SetRow(sliderThird, 2);
-        Grid.SetColumn(sliderThird, 1);
-        Grid.SetRow(labelSliderValueThird, 2);
-        Grid.SetColumn(labelSliderValueThird, 2);
-
-        grid.Children.Add(labelSliderFourth);
-        grid.Children.Add(sliderFourth);
-        grid.Children.Add(labelSliderValueFourth);
-        Grid.SetRow(labelSliderFourth, 3);
-        Grid.SetColumn(labelSliderFourth, 0);
-        Grid.SetRow(sliderFourth, 3);
-        Grid.SetColumn(sliderFourth, 1);
-        Grid.SetRow(labelSliderValueFourth, 3);
-        Grid.SetColumn(labelSliderValueFourth, 2);
-
+    }
+    void BuildUI()
+    {
+        lumememmPea.Content = pLumi;
+        lumememmKeha.Content = kLumi;
+        lumememmLOks.Content = lOks;
+        lumememmROks.Content = rOks;
+        lumememmAlus.Content = aLumi;
+        lumememmLSilm.Content = lNoop;
+        lumememmRSilm.Content = rNoop;
+        lumememmUNoop.Content = uNoop;
+        lumememmMNoop.Content = mNoop;
+        lumememmBNoop.Content = bNoop;
+        lumememmPPorgand.Content = pPorgand;
+        lumememmPTorukubar.Content = pTorukubar;
+        lumememm.Content = al;
         vsl.Children.Add(picker);
         vsl.Children.Add(lumememm);
         vsl.Children.Add(grid);
         sv.Content = vsl;
         Content = sv;
+        Refresh();
     }
-    private int CalcPallKeskus(int pallSize)
+    private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
     {
-        return pageWidth / 2 - pallSize / 2;
+        Slider slider = (Slider)sender;
+        int index = sliderControls.FindIndex(c => c.Slider == slider);
+        int newValue = (int)e.NewValue;
+        if (index == -1) return;
+        switch (index)
+        {
+            case 0:
+                firstValue = newValue;
+                pallEsimeneSize = firstValue * pallInitialEsimeneSize / 100;
+                Refresh();
+                break;
+            case 1:
+                secondValue = newValue;
+                break;
+            case 2:
+                thirdValue = newValue;
+                break;
+            case 3:
+                fourthValue = newValue;
+                break;
+        }
+        sliderControls[index].ValueLabel.Text = newValue.ToString();
     }
-    private void Slider_ValueChanged(object? sender, ValueChangedEventArgs e)
+    int CalcPallKeskus(int size) => pageWidth / 2 - size / 2;
+    int Lerp(int start, int end, int percent, int percentOutOf = 100) => start + (end - start) * percent / percentOutOf;
+    void Refresh()
     {
-        if (sender == sliderFirst)
-        {
-            First = (int)e.NewValue;
-            pallEsimeneSize = (int)e.NewValue;
-            Refresh((int)e.NewValue);
-        }
-        else if (sender == sliderSecond)
-        {
-            Second = (int)e.NewValue;
-        }
-        else if (sender == sliderThird)
-        {
-            Third = (int)e.NewValue;
-        }
-        else if (sender == sliderFourth)
-        {
-            Fourth = (int)e.NewValue;
-        }
-
-        labelSliderValueFirst.Text = First.ToString();
-        labelSliderValueSecond.Text = Second.ToString();
-        labelSliderValueThird.Text = Third.ToString();
-        labelSliderValueFourth.Text = Fourth.ToString();
+        int pallEsimeneKeskus = CalcPallKeskus(pallEsimeneSize);
+        int pallPeaY = pallEsimeneKeskus - pallEsimeneSize;
+        al.SetLayoutBounds(lumememmPea, new Rect(pallEsimeneKeskus, pallPeaY, pallEsimeneSize, pallEsimeneSize));
+        int torukubarKeskus = CalcPallKeskus(torukubarSize);
+        int yTorukubar = pallPeaY - (int)(torukubarSize * (float)0.8);
+        al.SetLayoutBounds(lumememmPTorukubar, new Rect(torukubarKeskus, yTorukubar, torukubarSize, torukubarSize));
+        int silmKeskus = CalcPallKeskus(silmSize);
+        int xEndLSilm = pallEsimeneKeskus + silmSize;
+        int xEndRSilm = pageWidth - pallEsimeneKeskus - silmSize * 2;
+        int yEndSilm = pallEsimeneKeskus - pallEsimeneSize + silmSize;
+        al.SetLayoutBounds(lumememmLSilm, new Rect(Lerp(silmKeskus, xEndLSilm, firstValue), Lerp(silmKeskus, yEndSilm, firstValue), silmSize, silmSize));
+        al.SetLayoutBounds(lumememmRSilm, new Rect(Lerp(silmKeskus, xEndRSilm, firstValue), Lerp(silmKeskus, yEndSilm, firstValue), silmSize, silmSize));
+        int porgandKeskus = CalcPallKeskus(porgandSize);
+        int yEndPPorgand = pallEsimeneKeskus - pallEsimeneSize + porgandSize;
+        al.SetLayoutBounds(lumememmPPorgand, new Rect(porgandKeskus, Lerp(porgandKeskus, yEndPPorgand, firstValue), porgandSize, porgandSize));
+        int pallTeineKeskus = CalcPallKeskus(pallTeineSize);
+        al.SetLayoutBounds(lumememmKeha, new Rect(pallTeineKeskus, pallTeineKeskus, pallTeineSize, pallTeineSize));
+        int oksKeskus = CalcPallKeskus(oksSize);
+        int xEndLOks = pageWidth - pallTeineKeskus - oksSize * 2 - silmSize;
+        int xEndROks = pallTeineKeskus + oksSize + silmSize;
+        int yEndOks = pallTeineKeskus - pallTeineSize + oksSize;
+        al.SetLayoutBounds(lumememmLOks, new Rect(Lerp(oksKeskus, xEndLOks, firstValue), Lerp(oksKeskus, yEndOks, firstValue), oksSize, oksSize));
+        al.SetLayoutBounds(lumememmROks, new Rect(Lerp(oksKeskus, xEndROks, firstValue), Lerp(oksKeskus, yEndOks, firstValue), oksSize, oksSize));
+        int pallKolmasKeskus = CalcPallKeskus(pallKolmasSize);
+        al.SetLayoutBounds(lumememmAlus, new Rect(pallKolmasKeskus, pallKolmasKeskus + pallEsimeneSize, pallKolmasSize, pallKolmasSize));
+        uNoop.Opacity = (float)firstValue / 100;
+        lumememmUNoop.Background = Color.FromRgba("#000000" + ((int)(255 - firstValue / (float)100.0 * 255)).ToString("X2"));
+        int startUNoopKeskus = CalcPallKeskus(pallKolmasSize + 2);
+        int endUNoopKeskus = CalcPallKeskus(noopSize);
+        int lerpedUNoopSize = Lerp(pallKolmasSize + 2, noopSize, firstValue);
+        al.SetLayoutBounds(lumememmUNoop, new Rect(Lerp(startUNoopKeskus, endUNoopKeskus, firstValue), Lerp(startUNoopKeskus, endUNoopKeskus, firstValue), lerpedUNoopSize, lerpedUNoopSize));
+        lumememmUNoop.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(Lerp(pallKolmasSize, noopSize, firstValue)) };
+        int noopKeskus = CalcPallKeskus(noopSize);
+        al.SetLayoutBounds(lumememmMNoop, new Rect(noopKeskus, Lerp(noopKeskus, noopKeskus + noopSize * 2, firstValue), noopSize, noopSize));
+        al.SetLayoutBounds(lumememmBNoop, new Rect(noopKeskus, Lerp(noopKeskus, noopKeskus + noopSize * 4, firstValue), noopSize, noopSize));
     }
-
-    void Refresh(int Value)
+    protected override void OnSizeAllocated(double width, double height)
     {
-        al.SetLayoutBounds(lumememmPea, new Rect(CalcPallKeskus(pallEsimeneSize), CalcPallKeskus(pallEsimeneSize) - pallEsimeneSize, pallEsimeneSize, pallEsimeneSize));
-
-        al.SetLayoutBounds(lumememmLSilm, new Rect(CalcPallKeskus(pallEsimeneSize) + silmSize, CalcPallKeskus(pallEsimeneSize) - pallEsimeneSize + silmSize, silmSize, silmSize));
-        al.SetLayoutBounds(lumememmRSilm, new Rect(pageWidth - CalcPallKeskus(pallEsimeneSize) - silmSize * 2, CalcPallKeskus(pallEsimeneSize) - pallEsimeneSize + silmSize, silmSize, silmSize));
-
-        al.SetLayoutBounds(lumememmKeha, new Rect(CalcPallKeskus(pallTeineSize), CalcPallKeskus(pallTeineSize), pallTeineSize, pallTeineSize));
-        al.SetLayoutBounds(lumememmAlus, new Rect(CalcPallKeskus(pallKolmasSize), CalcPallKeskus(pallKolmasSize) + pallEsimeneSize, pallKolmasSize, pallKolmasSize));
-
-        int OldCalc1 = CalcPallKeskus(silmSize) - silmSize * 2;
-        int OldCalc2 = CalcPallKeskus(silmSize);
-        int OldCalc3 = CalcPallKeskus(silmSize) + silmSize * 2;
-
-        int NewCalc1 = CalcPallKeskus(silmSize);
-        int NewCalc2 = CalcPallKeskus(silmSize) + silmSize * 2;
-        int NewCalc3 = CalcPallKeskus(silmSize) + silmSize * 4;
-
-        al.SetLayoutBounds(lumememmUNoop, new Rect(CalcPallKeskus(silmSize), Lerp(OldCalc1, NewCalc1, Value), silmSize, silmSize));
-        al.SetLayoutBounds(lumememmMNoop, new Rect(CalcPallKeskus(silmSize), Lerp(OldCalc2, NewCalc2, Value), silmSize, silmSize));
-        al.SetLayoutBounds(lumememmBNoop, new Rect(CalcPallKeskus(silmSize), Lerp(OldCalc3, NewCalc3, Value), silmSize, silmSize));
-    }
-    int Lerp(int oldValue, int newValue, int percentage)
-    {
-        return oldValue + (newValue - oldValue) * percentage / 100;
+        base.OnSizeAllocated(width, height);
+        InitializeSizes();
+        lumememmPea.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(pallEsimeneSize) };
+        lumememmLSilm.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(silmSize) };
+        lumememmRSilm.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(silmSize) };
+        lumememmKeha.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(pallTeineSize) };
+        lumememmAlus.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(pallKolmasSize) };
+        lumememmUNoop.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(noopSize) };
+        lumememmMNoop.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(noopSize) };
+        lumememmBNoop.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(noopSize) };
+        Refresh();
     }
 }
