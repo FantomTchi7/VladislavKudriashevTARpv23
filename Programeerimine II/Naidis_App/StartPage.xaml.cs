@@ -9,7 +9,8 @@ public partial class StartPage : ContentPage
         new KeyValuePair<ContentPage, string>(new DateTimePage(), "Tee lahti DateTimePage"),
         new KeyValuePair<ContentPage, string>(new StepperSliderPage(), "Tee lahti StepperSliderPage"),
         new KeyValuePair<ContentPage, string>(new ColorPage(), "Tee lahti ColorPage"),
-        new KeyValuePair<ContentPage, string>(new Lumememm(), "Tee lahti Lumememm")
+        new KeyValuePair<ContentPage, string>(new Lumememm(), "Tee lahti Lumememm"),
+        new KeyValuePair<ContentPage, string>(new TripsTrapsTrull(), "Tee lahti Trips Traps Trull")
     ];
     private readonly ScrollView sv = new();
     private readonly VerticalStackLayout vsl = new()
