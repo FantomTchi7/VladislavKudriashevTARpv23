@@ -2,16 +2,32 @@ public class TripsTrapsTrull : ContentPage
 {
     private Stepper sizeStepper;
     private Stepper playerStepper;
-    private Label infoLabel;
-    private Grid gameGrid;
-    private Label statusLabel;
     private Button[,] gameButtons;
     private int currentPlayerIndex = 0;
     private int currentGridSize = 3;
     private int requiredToWin = 3;
     private string[,] board;
     private int numberOfPlayers = 2;
-    private List<string> playerSymbols = new List<string> { "O", "X", "Y", "Z", "A" };
+    private List<string> playerSymbols = new List<string> { "O", "X", "Y", "A", "B" };
+    Label infoLabel = new Label
+    {
+        FontSize = 18,
+        HorizontalOptions = LayoutOptions.Center,
+        Margin = new Thickness(0, 10)
+    };
+    Label statusLabel = new Label
+    {
+        FontSize = 18,
+        HorizontalOptions = LayoutOptions.Center,
+        Margin = new Thickness(0, 10)
+    };
+    Grid gameGrid = new Grid
+    {
+        HorizontalOptions = LayoutOptions.Center,
+        VerticalOptions = LayoutOptions.Center,
+        Margin = new Thickness(20)
+    };
+    VerticalStackLayout mainLayout;
 
     public TripsTrapsTrull()
     {
@@ -42,28 +58,7 @@ public class TripsTrapsTrull : ContentPage
         };
         playerStepper.ValueChanged += OnPlayerStepperValueChanged;
 
-        infoLabel = new Label
-        {
-            FontSize = 18,
-            HorizontalOptions = LayoutOptions.Center,
-            Margin = new Thickness(0, 10)
-        };
-
-        statusLabel = new Label
-        {
-            FontSize = 18,
-            HorizontalOptions = LayoutOptions.Center,
-            Margin = new Thickness(0, 10)
-        };
-
-        gameGrid = new Grid
-        {
-            HorizontalOptions = LayoutOptions.Center,
-            VerticalOptions = LayoutOptions.Center,
-            Margin = new Thickness(20)
-        };
-
-        VerticalStackLayout mainLayout = new VerticalStackLayout
+        mainLayout = new VerticalStackLayout
         {
             Padding = new Thickness(20),
             Children = { sizeStepper, playerStepper, infoLabel, gameGrid, statusLabel }
@@ -139,7 +134,9 @@ public class TripsTrapsTrull : ContentPage
                 Button button = new Button
                 {
                     FontSize = 30,
-                    CornerRadius = 0
+                    CornerRadius = 0,
+                    BorderWidth = 1,
+                    BorderColor = Color.FromArgb("#000000")
                 };
 
                 int currentRow = row;
@@ -164,13 +161,6 @@ public class TripsTrapsTrull : ContentPage
         if (CheckWin(currentPlayerSymbol))
         {
             UpdateStatus($"Player {currentPlayerSymbol} wins!");
-            DisableAllButtons();
-            return;
-        }
-
-        if (CheckDraw())
-        {
-            UpdateStatus("It's a draw!");
             DisableAllButtons();
             return;
         }
@@ -250,18 +240,6 @@ public class TripsTrapsTrull : ContentPage
         }
 
         return false;
-    }
-
-    private bool CheckDraw()
-    {
-        for (int row = 0; row < currentGridSize; row++)
-        {
-            for (int col = 0; col < currentGridSize; col++)
-            {
-                if (board[row, col] == null) return false;
-            }
-        }
-        return true;
     }
 
     private void DisableAllButtons()
