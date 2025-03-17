@@ -1,4 +1,4 @@
-﻿namespace Naidis_App;
+namespace Naidis_App;
 
 public class SobradeKontaktandmed : ContentPage
 {
@@ -33,9 +33,14 @@ public class SobradeKontaktandmed : ContentPage
     {
         Keyboard = Keyboard.Email
     };
+    Dictionary<string, string> kontaktiRaamat = new Dictionary<string, string>();
+    Picker kontaktiRaamatPicker = new Picker
+    {
+
+    };
     Picker pickerEmailVõiTelefon = new Picker
     {
-        ItemsSource = new List<string> { "Email", "Telefon" },
+        ItemsSource = new List<string> { "Email", "Telefon", "Kontaktiraamat" },
         SelectedItem = "Email"
     };
     Label labelKirjeldus = new Label { Text = "Kirjeldus:" };
@@ -68,6 +73,7 @@ public class SobradeKontaktandmed : ContentPage
 
         grid.SetColumn(labelEmailVõiTelefon, 0);
         grid.SetColumn(inputEmailVõiTelefon, 1);
+        grid.SetColumn(kontaktiRaamatPicker, 1);
         grid.SetColumn(pickerEmailVõiTelefon, 2);
 
         grid.SetColumn(labelKirjeldus, 0);
@@ -82,6 +88,7 @@ public class SobradeKontaktandmed : ContentPage
 
         grid.SetRow(labelEmailVõiTelefon, 1);
         grid.SetRow(inputEmailVõiTelefon, 1);
+        grid.SetRow(kontaktiRaamatPicker, 1);
         grid.SetRow(pickerEmailVõiTelefon, 1);
 
         grid.SetRow(labelKirjeldus, 2);
@@ -92,18 +99,28 @@ public class SobradeKontaktandmed : ContentPage
         sv.Content = grid;
         Content = sv;
     }
-    
+
     private void EmailVõiTelefonPicker_SelectedIndexChanged(object? sender, EventArgs e)
     {
         if (pickerEmailVõiTelefon.SelectedItem == "Email")
         {
+            if (!grid.Children.Contains(inputEmailVõiTelefon)) { grid.Children.Add(inputEmailVõiTelefon); }
+            if (grid.Children.Contains(kontaktiRaamatPicker)) { grid.Children.Remove(kontaktiRaamatPicker); }
             inputEmailVõiTelefon.Keyboard = Keyboard.Email;
             buttonSaada.Text = "Saada Email";
         }
-        else
+        else if (pickerEmailVõiTelefon.SelectedItem == "Telefon")
         {
+            if (!grid.Children.Contains(inputEmailVõiTelefon)) { grid.Children.Add(inputEmailVõiTelefon); }
+            if (grid.Children.Contains(kontaktiRaamatPicker)) { grid.Children.Remove(kontaktiRaamatPicker); }
             inputEmailVõiTelefon.Keyboard = Keyboard.Telephone;
             buttonSaada.Text = "Saada SMS";
+        }
+        else
+        {
+            if (grid.Children.Contains(inputEmailVõiTelefon)) { grid.Children.Remove(inputEmailVõiTelefon); }
+            if (!grid.Children.Contains(kontaktiRaamatPicker)) { grid.Children.Add(kontaktiRaamatPicker); }
+            buttonSaada.Text = "Saada Email";
         }
     }
 
