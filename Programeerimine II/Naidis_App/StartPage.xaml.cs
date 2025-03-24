@@ -11,7 +11,8 @@ public partial class StartPage : ContentPage
         new KeyValuePair<ContentPage, string>(new ColorPage(), "Tee lahti ColorPage"),
         new KeyValuePair<ContentPage, string>(new Lumememm(), "Tee lahti Lumememm"),
         new KeyValuePair<ContentPage, string>(new TripsTrapsTrull(), "Tee lahti Trips Traps Trull"),
-        new KeyValuePair<ContentPage, string>(new SobradeKontaktandmed(), "Tee lahti Sõbrade Kontakti Andmed")
+        new KeyValuePair<ContentPage, string>(new SobradeKontaktandmed(), "Tee lahti Sõbrade Kontakti Andmed"),
+        new KeyValuePair<ContentPage, string>(new EuroopaRiigid(), "Tee lahti Euroopa Riigid")
     ];
     private readonly ScrollView sv = new();
     private readonly VerticalStackLayout vsl = new()

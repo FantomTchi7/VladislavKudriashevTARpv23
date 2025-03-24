@@ -1,4 +1,3 @@
-using Android.Content;
 using Microsoft.EntityFrameworkCore;
 
 namespace Naidis_App
