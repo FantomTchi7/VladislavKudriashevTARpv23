@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace Naidis_App
 {
@@ -30,10 +29,10 @@ namespace Naidis_App
                 new Kontakt { Id = 4, Nimi = "Toomas Sularaha", EmailVoiTelefon = "vladislav.kudriashev@gmail.com" }
             );
             modelBuilder.Entity<Riik>().HasData(
-                new Riik { Id = 1, Nimi = "Eesti", Pealinn = "Tallinn", Rahvastik = 1369285, Lipp = new Image { Source = "eesti.svg" } },
-                new Riik { Id = 2, Nimi = "Soome", Pealinn = "Helsingi", Rahvastik = 5635724, Lipp = new Image { Source = "soome.svg" } },
-                new Riik { Id = 3, Nimi = "Venemaa", Pealinn = "Moskva", Rahvastik = 146028325, Lipp = new Image { Source = "venemaa.svg" } },
-                new Riik { Id = 4, Nimi = "Indoneesia", Pealinn = "Jakarta", Rahvastik = 282477584, Lipp = new Image { Source = "indoneesia.svg" } }
+                new Riik { Id = 1, Nimi = "Eesti", Pealinn = "Tallinn", Rahvastik = 1369285, Lipp = "eesti.svg" },
+                new Riik { Id = 2, Nimi = "Soome", Pealinn = "Helsingi", Rahvastik = 5635724, Lipp = "soome.svg" },
+                new Riik { Id = 3, Nimi = "Venemaa", Pealinn = "Moskva", Rahvastik = 146028325, Lipp = "venemaa.svg" },
+                new Riik { Id = 4, Nimi = "Indoneesia", Pealinn = "Jakarta", Rahvastik = 282477584, Lipp = "indoneesia.svg" }
             );
         }
     }

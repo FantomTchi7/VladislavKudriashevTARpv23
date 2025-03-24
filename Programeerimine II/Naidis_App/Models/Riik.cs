@@ -9,6 +9,6 @@ namespace Naidis_App
         public string Nimi { get; set; }
         public string Pealinn { get; set; }
         public int Rahvastik { get; set; }
-        public Image Lipp { get; set; }
+        public string Lipp { get; set; }
     }
 }
