@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
+using System.Globalization;
 
 namespace Naidis_App
 {
@@ -11,9 +12,16 @@ namespace Naidis_App
         private readonly ScrollView _scrollView = new ScrollView();
         private readonly ListView _listView = new ListView();
 
+        Grid grid;
+        Image flagImage;
+        StackLayout textStack;
+        Label nameLabel;
+        Label capitalLabel;
+        Label populationLabel;
+
         public EuroopaRiigid()
         {
-            var options = new DbContextOptionsBuilder<AppDbContext>()
+            DbContextOptions<AppDbContext> options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseSqlite($"Filename={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "naidisapp.db")}")
                 .Options;
 
@@ -25,44 +33,45 @@ namespace Naidis_App
 
             _listView.ItemTemplate = new DataTemplate(() =>
             {
-                var grid = new Grid
+                grid = new Grid
                 {
                     ColumnDefinitions =
                     {
-                        new ColumnDefinition { Width = GridLength.Auto },
-                        new ColumnDefinition { Width = GridLength.Star }
+                        new ColumnDefinition { Width = GridLength.Star },
+                        new ColumnDefinition { Width = GridLength.Auto }
                     }
                 };
 
-                var flagImage = new Image
+                flagImage = new Image
                 {
                     Aspect = Aspect.AspectFit
                 };
                 flagImage.SetBinding(Image.SourceProperty, "Lipp");
                 grid.Children.Add(flagImage);
-                grid.SetRow(flagImage, 0);
-                grid.SetColumn(flagImage, 0);
+                grid.SetColumn(flagImage, 1);
 
-                var textStack = new StackLayout
+                textStack = new StackLayout
                 {
                     Orientation = StackOrientation.Vertical
                 };
 
-                var nameLabel = new Label { FontAttributes = FontAttributes.Bold };
+                nameLabel = new Label { FontAttributes = FontAttributes.Bold };
                 nameLabel.SetBinding(Label.TextProperty, "Nimi");
                 textStack.Children.Add(nameLabel);
 
-                var capitalLabel = new Label { FontSize = 12 };
-                capitalLabel.SetBinding(Label.TextProperty, "Pealinn");
+                capitalLabel = new Label { FontSize = 12 };
+                capitalLabel.SetBinding(Label.TextProperty, new Binding("Pealinn", stringFormat: "Pealinn: {0}"));
                 textStack.Children.Add(capitalLabel);
 
-                var populationLabel = new Label { FontSize = 12 };
-                populationLabel.SetBinding(Label.TextProperty, "Rahvastik");
+                populationLabel = new Label { FontSize = 12 };
+                populationLabel.SetBinding(Label.TextProperty, new Binding("Rahvastik")
+                {
+                    StringFormat = "Rahvastik: {0:N0}"
+                });
                 textStack.Children.Add(populationLabel);
 
                 grid.Children.Add(textStack);
-                grid.SetRow(textStack, 0);
-                grid.SetColumn(textStack, 1);
+                grid.SetColumn(textStack, 0);
 
                 return new ViewCell { View = grid };
             });
