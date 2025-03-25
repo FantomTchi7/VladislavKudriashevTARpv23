@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 
 namespace Naidis_App
 {
@@ -7,8 +6,6 @@ namespace Naidis_App
     {
         public static MauiApp CreateMauiApp()
         {
-            CultureInfo.CurrentCulture = new CultureInfo("en-US");
-
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()

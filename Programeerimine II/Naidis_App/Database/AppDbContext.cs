@@ -9,6 +9,7 @@ namespace Naidis_App
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -22,6 +23,7 @@ namespace Naidis_App
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Kontakt>().HasData(
                 new Kontakt { Id = 1, Nimi = "Bogdan Viblyy", EmailVoiTelefon = "vladislav.kudriashev@gmail.com" },
                 new Kontakt { Id = 2, Nimi = "Mikhail Agapov", EmailVoiTelefon = "vladislav.kudriashev@gmail.com" },
@@ -29,10 +31,10 @@ namespace Naidis_App
                 new Kontakt { Id = 4, Nimi = "Toomas Sularaha", EmailVoiTelefon = "vladislav.kudriashev@gmail.com" }
             );
             modelBuilder.Entity<Riik>().HasData(
-                new Riik { Id = 1, Nimi = "Eesti", Pealinn = "Tallinn", Rahvastik = 1369285, Lipp = "eesti.svg" },
-                new Riik { Id = 2, Nimi = "Soome", Pealinn = "Helsingi", Rahvastik = 5635724, Lipp = "soome.svg" },
-                new Riik { Id = 3, Nimi = "Venemaa", Pealinn = "Moskva", Rahvastik = 146028325, Lipp = "venemaa.svg" },
-                new Riik { Id = 4, Nimi = "Indoneesia", Pealinn = "Jakarta", Rahvastik = 282477584, Lipp = "indoneesia.svg" }
+                new Riik { Id = 1, Nimi = "Eesti", Pealinn = "Tallinn", Rahvastik = 1369285, Lipp = "eesti.svg", Keel = "Vene" },
+                new Riik { Id = 2, Nimi = "Soome", Pealinn = "Helsingi", Rahvastik = 5635724, Lipp = "soome.svg", Keel = "Soome" },
+                new Riik { Id = 3, Nimi = "Venemaa", Pealinn = "Moskva", Rahvastik = 146028325, Lipp = "venemaa.svg", Keel = "Vene" },
+                new Riik { Id = 4, Nimi = "Indoneesia", Pealinn = "Jakarta", Rahvastik = 282477584, Lipp = "indoneesia.svg", Keel = "Indoneesia" }
             );
         }
     }
