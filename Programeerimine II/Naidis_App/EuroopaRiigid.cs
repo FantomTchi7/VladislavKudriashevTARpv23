@@ -23,7 +23,7 @@ namespace Naidis_App
                 .Options;
 
             _dbContext = new AppDbContext(options);
-            _dbContext.Database.Migrate();
+            _dbContext.Database.EnsureCreated();
 
             _riigid = new ObservableCollection<Riik>(_dbContext.Riik.ToList());
 
@@ -110,7 +110,6 @@ namespace Naidis_App
                     Image flagImage = new Image
                     {
                         Aspect = Aspect.AspectFit,
-                        VerticalOptions = LayoutOptions.Fill,
                         HorizontalOptions = LayoutOptions.End
                     };
                     flagImage.SetBinding(Image.SourceProperty, "Lipp");
