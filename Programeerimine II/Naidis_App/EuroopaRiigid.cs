@@ -12,7 +12,10 @@ namespace Naidis_App
         private ObservableCollection<Riik> _riigid;
 
         ScrollView sv = new ScrollView();
+        Grid grid = new Grid();
         ListView lv = new ListView();
+        Button buttonEdit = new Button { Text = "Muuda riik" };
+        Button buttonAdd = new Button { Text = "Lisa riik" };
 
         public EuroopaRiigid()
         {
@@ -35,7 +38,7 @@ namespace Naidis_App
 
             lv.ItemTemplate = new DataTemplate(() =>
             {
-                Grid grid = new Grid
+                Grid gridItems = new Grid
                 {
                     ColumnDefinitions =
                     {
@@ -73,23 +76,45 @@ namespace Naidis_App
                         }
                         else if (columnName == "Lipp")
                         {
-                            grid.Children.Add(cellView);
-                            grid.SetColumn(cellView, 1);
+                            gridItems.Children.Add(cellView);
+                            gridItems.SetColumn(cellView, 1);
                         }
                     }
 
-                    grid.Children.Add(textStack);
-                    grid.SetColumn(textStack, 0);
+                    gridItems.Children.Add(textStack);
+                    gridItems.SetColumn(textStack, 0);
                 }
                 else
                 {
                     Debug.WriteLine("Entity 'Riik' not found.");
                 }
 
-                return new ViewCell { View = grid };
+                return new ViewCell { View = gridItems };
             });
 
-            sv.Content = lv;
+            grid.ColumnDefinitions = new ColumnDefinitionCollection {
+                new ColumnDefinition { Width = GridLength.Star },
+                new ColumnDefinition { Width = GridLength.Star }
+            };
+            grid.RowDefinitions = new RowDefinitionCollection {
+                new RowDefinition { Height = GridLength.Auto },
+                new RowDefinition { Height = GridLength.Auto }
+            };
+
+            grid.Children.Add(lv);
+            grid.SetRow(lv, 0);
+            grid.SetColumn(lv, 0);
+            grid.SetColumnSpan(lv, 2);
+
+            grid.Children.Add(buttonEdit);
+            grid.SetRow(buttonEdit, 1);
+            grid.SetColumn(buttonEdit, 0);
+
+            grid.Children.Add(buttonAdd);
+            grid.SetRow(buttonAdd, 1);
+            grid.SetColumn(buttonAdd, 1);
+
+            sv.Content = grid;
             Content = sv;
         }
 
